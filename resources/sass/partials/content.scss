@@ -1,0 +1,33 @@
+.content {
+	width:100%;
+
+	.container {
+		padding-top:70px;
+		max-width:900px;
+
+		.row {
+			.col-12 {
+				padding-top:70px;
+				background:url('/assets/bg-content.jpg') repeat-y top center;
+				background-size:100% auto;
+
+				&:before {
+					position:absolute;
+					top:-50px;
+					left:-20px;
+					right:-20px;
+					display:block;
+					height:120px;
+					background:url('/assets/bg-content-ribbon.png') no-repeat top center;
+					background-size:100% auto;
+					content:'';
+				}
+
+				.text {
+					width:100%;
+					padding:40px;
+				}
+			}
+		}
+	}
+}

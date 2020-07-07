@@ -1,0 +1,54 @@
+.event {
+	.event {
+		.container {
+			.row {
+				.col-12 {
+					margin:40px 0 0 0;
+
+					.event-title {
+						width:100%;
+						text-align:center;
+
+						h1 {
+							font-family:$Passero;
+							color:#372A15;
+							font-size:50px;
+						}
+					}
+
+					.event-map {
+						position:relative;
+						display:block;
+						width:100%;
+						height:800px;
+						background:url('/assets/s4yt-map.png') no-repeat center center;
+						background-size:100% auto;
+
+						a {
+							position:absolute;
+							bottom:0;
+							right:0;
+							width:200px;
+							height:150px;
+
+							&.chatroom {
+								bottom:210px;
+								right:150px;
+							}
+
+							&.businesses {
+								bottom:420px;
+								right:150px;
+							}
+
+							&.raffle {
+								bottom:410px;
+								right:430px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,14 @@
+$Passero:'Passero One', cursive;
+$brown:#51432F;
+
+@mixin fa-free($value){
+	font-family:"Font Awesome 5 Free";
+	font-weight:$value;
+	-moz-osx-font-smoothing:grayscale;
+    -webkit-font-smoothing:antialiased;
+    display:inline-block;
+    font-style:normal;
+    font-variant:normal;
+    text-rendering:auto;
+    line-height:1;
+}

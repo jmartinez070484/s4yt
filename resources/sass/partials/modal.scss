@@ -1,0 +1,84 @@
+.modal {
+	display:none;
+	width:100%;
+	height:100%;
+	text-align:center;
+	background:rgba(0,0,0,0.4);
+
+	.row {
+		display:table-cell;
+		margin-left:0;
+		margin-right:0;
+	    text-align:center;
+	    vertical-align:middle;
+
+	    .content {
+	    	margin:0 auto;
+	    	max-width:500px;
+	    }
+	}
+
+	&.loading {
+		.row {
+			.content {
+				&:before {
+					@include fa-free(900);
+					font-size:42px;
+					color:$brown;
+					content:"\f110";
+					-webkit-animation:fa-spin 2s linear infinite;
+    				animation:fa-spin 2s linear infinite;
+				}
+			}
+		}
+	}
+
+	&.save, &.discard, &.submit, &.thanks {
+		.row {
+			.content {
+				max-width:700px;
+
+				.modal-content{
+					padding:100px;
+					height:450px;
+					background:url('/assets/bg-modal.png') no-repeat center center/contain;
+					border:none;
+
+					p {
+						margin:20px 0 40px 0;
+						font-family:$Passero;
+						font-size:26px;
+						color:$brown;
+					}
+
+					input {
+						margin:0 auto;
+						margin-bottom:40px;
+						width:100%;
+						max-width:280px;
+						height:50px;
+						font-family:$Passero;
+						font-size:26px;
+						color:$brown;
+						line-height:50px;
+						background:#D2C4AE;
+						border-radius:25px 25px;
+						box-shadow:0px 3.33564px 3.33564px rgba(0, 0, 0, 0.25);
+						cursor:pointer;
+						outline:none;
+
+						&:last-child {
+							margin-bottom:0;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.modal-view {
+	.modal {
+		display:table;
+	}
+}

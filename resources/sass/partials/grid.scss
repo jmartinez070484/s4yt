@@ -1,0 +1,22 @@
+.grid {
+	.container {
+		max-width:1024px;
+		height:auto;
+
+		.row {
+			div {
+				min-height:auto;
+				margin:10px 0 10px 0;
+
+				&:before {
+					display:block;
+					width:100%;
+					height:100px;
+					background:$brown;
+					border-radius:10px 10px;
+					content:'';
+				}
+			}
+		}
+	}
+}

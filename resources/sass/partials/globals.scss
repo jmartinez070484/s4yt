@@ -1,0 +1,9 @@
+.auth, .event, .account, .question, .enterprise, .business {
+	background:url('/assets/bg-body-map.jpg') no-repeat center center/cover;
+}
+
+a {
+	&:hover {
+		text-decoration:none;
+	}
+}

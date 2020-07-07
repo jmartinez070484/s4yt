@@ -1,0 +1,42 @@
+$open-sans:'Open Sans', sans-serif;
+$muli:'Muli', sans-serif;
+
+@mixin fa-free($value){
+	font-family:"Font Awesome 5 Free";
+	font-weight:$value;
+	-moz-osx-font-smoothing:grayscale;
+    -webkit-font-smoothing:antialiased;
+    display:inline-block;
+    font-style:normal;
+    font-variant:normal;
+    text-rendering:auto;
+    line-height:1;
+}
+
+body {
+	font-family:$open-sans;
+	color:#3c4b64;
+    background-color:#ebedef;
+
+    * {
+    	box-sizing:border-box;
+    }
+}
+
+div {
+	position:relative;
+}
+
+a {
+	text-decoration:none;
+
+	&:hover {
+		text-decoration:none;
+	}
+}
+
+fieldset {
+	margin:0;
+	padding:0;
+	border:none;	
+}
