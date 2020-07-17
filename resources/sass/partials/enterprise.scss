@@ -14,6 +14,19 @@
 					width:160px;
 					height:170px;
 					background:url('/assets/bg-island-1.png') no-repeat center center/contain;
+					border:5px solid transparent;
+
+					&:hover {
+						&:before {
+							position:absolute;
+							top:-15px;
+							left:-40px;
+							right:-40px;
+							bottom:-15px;
+							border:5px solid rgba(0,198,255,0.75);
+							content:'';
+						}
+					}
 
 					&[data-flag="2"]{
 						background:url('/assets/bg-island-2.png') no-repeat center center/contain;
@@ -69,13 +82,17 @@
 					}
 
 					span {
-						&[data-status="1"], &[data-status="2"] {
+						&[data-status="0"], &[data-status="1"], &[data-status="2"] {
 							position:absolute;
 							display:block;
 							top:65px;
 							left:28%;
 							width:40px;
 							height:40px;
+						}
+
+						&[data-status="0"] {
+							background:url('/assets/bg-black-x.png') no-repeat center center/contain;
 						}
 
 						&[data-status="1"] {

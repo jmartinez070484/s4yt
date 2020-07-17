@@ -13,6 +13,7 @@ use App\Ticket;
 use App\Item;
 use App\Business;
 use App\Answer;
+use App\Visit;
 
 class Event extends Controller
 {
@@ -53,6 +54,17 @@ class Event extends Controller
     */
     public function business(Request $request,Business $business){
         if($business -> status === 1){
+            $userId = Auth::id();
+            $visit = Visit::where('user_id',$business -> id) -> where('user_id',$userId) -> get() -> first();
+
+            if(!$visit){
+                $visit = new Visit();
+                $visit -> user_id = $userId;
+                $visit -> business_id = $business -> id;
+            }
+
+            $visit -> save();
+
             return view('event.business',compact('business'));
         }else{
             abort(404);

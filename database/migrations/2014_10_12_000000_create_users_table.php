@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->integer('status')->default(1);
             $table->string('name');
-            $table->char('route',255);
+            $table->char('slug',255);
         });
 
         Schema::create('users', function (Blueprint $table) {

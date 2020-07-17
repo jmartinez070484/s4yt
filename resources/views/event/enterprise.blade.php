@@ -15,6 +15,8 @@
 				@if($question = $business -> question)
 					@if($answer = $question -> user_answer)
 				<span data-status="{{ $answer -> status }}"></span>
+					@elseif($visit = App\Visit::where('business_id',$business -> id) -> where('user_id',Auth::id()) -> first())
+				<span data-status="0"></span>
 					@endif
 				<span class="total">@if($total = App\Answer::where('question_id',$question -> id) -> count()) {{ $total }} @endif</span>
 				@endif

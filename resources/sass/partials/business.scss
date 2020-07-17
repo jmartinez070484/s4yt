@@ -48,6 +48,10 @@
 						color:$brown;
 						text-decoration:underline;
 
+						&:hover {
+							color:rgba(0,198,255,0.75);
+						}
+
 						&:before {
 							display:inline-block;
 							position:absolute;
@@ -108,7 +112,9 @@
 			.row {
 				.col-12 {
 					position:relative;
+					margin-bottom:75px;
 					padding-top:70px;
+					padding-bottom:40px;
 					text-align:center;
 					background:url('/assets/bg-content.jpg') repeat-y top center;
 					background-size:100% auto;

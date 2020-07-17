@@ -57,6 +57,17 @@ if(modal){
 	};
 }
 
+var businessMap = document.querySelector('.enterprise');
+
+if(businessMap){
+	var legend = getCookie('businessLegend');
+
+	if(!legend){
+		modal.openModal('legend');
+		setCookie('businessLegend',1);
+	}
+}
+
 var question = document.querySelector('.question .container .row .col-12 .answer form');
 
 if(question){

@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Question;
 use App\Schedule;
+use App\Visit;
 
 class Business extends Model
 {
@@ -18,6 +20,15 @@ class Business extends Model
     */
     public function user(){
         return $this->belongsTo(User::class,'user_id');
+    }
+
+    /*
+
+        Get user Visit
+
+    */
+    public function visit(){
+        return $this->hasMany(Visit::class,'business_id','id');
     }
 
     /*

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserMetaTable extends Migration
+class CreateVisitsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateUserMetaTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_meta', function (Blueprint $table) {
+        Schema::create('visits', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->char('key',255);
-            $table->text('value',255);
+            $table->unsignedBigInteger('business_id')->nullable();
+            $table->foreign('business_id')->references('id')->on('businesses');
         });
     }
 
@@ -30,6 +30,6 @@ class CreateUserMetaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_meta');
+        Schema::dropIfExists('visits');
     }
 }

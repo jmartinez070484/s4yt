@@ -29,11 +29,12 @@
 							bottom:0;
 							right:0;
 							width:200px;
-							height:150px;
+							height:160px;
 
 							&.chatroom {
-								bottom:210px;
-								right:150px;
+								bottom:200px;
+								right:160px;
+								height:180px;
 							}
 
 							&.businesses {
@@ -42,8 +43,13 @@
 							}
 
 							&.raffle {
-								bottom:410px;
-								right:430px;
+								bottom:370px;
+								right:440px;
+								height:190px;
+							}
+
+							&:hover {
+								border:5px solid rgba(0,198,255,0.75);
 							}
 						}
 					}

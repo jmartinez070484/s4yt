@@ -33,6 +33,136 @@
 		}
 	}
 
+	&.legend {
+		.row {
+			.content {
+				max-width:900px;
+
+				.modal-content{
+					padding:100px;
+					height:550px;
+					background:url('/assets/bg-modal.png') no-repeat center center/contain;
+					border:none;
+
+					ul {
+						display:inline-block;
+						width:100%;
+						list-style-type:none;
+
+						li {
+							position:relative;
+							width:38%;
+							text-align:right;
+							line-height:65px;
+							float:left;
+
+							&:first-child {
+								img {
+									max-width:65px;
+								}
+							}
+
+							&:last-child {
+								width:60%;
+								font-family:$Passero;
+								font-size:22px;
+								color:$brown;
+								text-align:left;
+								float:right;
+							}
+						}
+
+						&:nth-child(2) {
+							li {
+								&:last-child {
+									line-height:30px;
+								}
+							}	
+						}
+
+						&:nth-child(1) {
+							li {
+								&:first-child {
+									&:before {
+										position:absolute;
+										top:12px;
+										right:50px;
+										width:24px;
+										height:24px;
+										font-family:$Passero;
+										font-size:16px;
+										line-height:24px;
+										text-align:center;
+										border:2px solid $brown;
+										content:'8';
+									}
+								}
+							}
+						}
+
+						&:nth-child(2), &:nth-child(3), &:nth-child(4) {
+							li {
+								&:first-child {
+									&:before {
+										position:absolute;
+										top:18px;
+										right:24px;
+										width:24px;
+										height:24px;
+										background:url('/assets/bg-black-x.png') no-repeat center center/contain;
+										content:'';
+									}
+								}
+							}	
+						}
+
+						&:nth-child(3) {
+							li {
+								&:first-child {
+									&:before {
+										background:url('/assets/bg-green-x.png') no-repeat center center/contain;
+									}
+								}
+							}	
+						}
+
+						&:nth-child(4) {
+							li {
+								&:first-child {
+									&:before {
+										background:url('/assets/bg-yellow-x.png') no-repeat center center/contain;
+									}
+								}
+							}	
+						}
+					}
+
+					input {
+						margin:0 auto;
+						margin-bottom:40px;
+						width:100%;
+						max-width:200px;
+						height:40px;
+						font-family:$Passero;
+						font-size:20px;
+						color:$brown;
+						line-height:30px;
+						background:#D2C4AE;
+						border-radius:20px 20px;
+						box-shadow:0px 3.33564px 3.33564px rgba(0, 0, 0, 0.25);
+						cursor:pointer;
+						outline:none;
+						border:none;
+
+						&:last-child {
+							margin-bottom:0;
+						}
+					}
+				}
+			}
+		}
+	}
+
 	&.save, &.discard, &.submit, &.thanks {
 		.row {
 			.content {
