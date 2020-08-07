@@ -12,7 +12,7 @@
 		    	<div class="event-map">
 		    		<a href="{{ route('items') }}" class="raffle"></a>
 		    		<a href="{{ route('enterprise') }}" class="businesses"></a>
-		    		<a href="#" class="chatroom"></a>
+		    		<a href="{{ route('chatroom') }}" class="chat"></a>
 		    	</div>
 		    </div>
 	    </div>

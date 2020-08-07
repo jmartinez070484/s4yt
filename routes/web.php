@@ -27,7 +27,9 @@ Route::get('/','Event@index') -> name('event');
 Route::get('/enterprise','Event@enterprise') -> name('enterprise');
 Route::get('/enterprise/{business}','Event@business') -> name('business');
 Route::get('/enterprise/{business}/question','Event@question') -> name('question');
+Route::get('/chatroom','Event@chatroom') -> name('chatroom');
 Route::get('/raffle','Event@items') -> name('items');
+Route::get('/raffle/winners','Event@itemWinners') -> name('items.winners');
 Route::get('/account','Event@account') -> name('account');
 Route::get('/oops','Event@oops') -> name('oops');
 

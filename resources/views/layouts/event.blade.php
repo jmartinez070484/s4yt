@@ -19,7 +19,7 @@
 <![endif]-->
       
 </head>
-<body class="{{ Route::currentRouteName() }}">
+<body class="{{ Str::slug(Route::currentRouteName(),'-') }}">
 
 @yield('content')
 

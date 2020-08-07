@@ -374,67 +374,80 @@ if(question){
 }
 
 //items
-var items = document.querySelectorAll('.items .container .row .col-12 .item .item-tickets form, .account .container .row .col-12:last-child .cart-items .item .item-tickets form');
+var items = document.querySelectorAll('.itemswinners .results .container .row .col-12 .item, .items .container .row .col-12 .item');
 var totalItems = items.length;
 
 if(totalItems){
-		if(!getCookie('itemNote')){
-		var note = document.querySelector('.items .container .row .col-12 .note');
-
-		if(note){
-			note.style.display = 'block';
-		}
-	}
-
 	for(var x=0;x<totalItems;x++){
-		items[x].updateQty = function(_change){
-			var form = this;
-			var formData = new FormData(form);
-			var xhttp = new XMLHttpRequest();
+		var itemImg = items[x].querySelector('.item-preview img');
+			
+		if(itemImg){
+			itemImg.parentNode.style.backgroundImage = 'url(\''+itemImg.getAttribute('src')+'\')';
+		}	
 
-			formData.append('change',_change);
+		var itemTickets = items[x].querySelectorAll('.item-tickets form');
+		var totalItemTickets = itemTickets.length;
+		
+		if(totalItemTickets){
+			if(!getCookie('itemNote')){
+				var note = document.querySelector('.items .container .row .col-12 .note');
 
-			if(modal){
-				modal.openModal();
+				if(note){
+					note.style.display = 'block';
+				}
 			}
 
-			xhttp.onreadystatechange = function(){
-				if(xhttp.readyState == 4){
-					if(xhttp.status === 200){
-						try{
-			        		var response = JSON.parse(xhttp.response)
-			        	}catch(e){
-			        		var response = xhttp.response; 
-			       		}
+			for(var y=0;y<totalItemTickets;y++){
+				itemTickets[y].updateQty = function(_change){
+					var form = this;
+					var formData = new FormData(form);
+					var xhttp = new XMLHttpRequest();
 
-			       		if(response.success){
-			       			form.firstElementChild.setAttribute('value',response.change === 1 ? parseInt(form.firstElementChild.value) + 1 : parseInt(form.firstElementChild.value) - 1);
-			       		}else{
-			       			alert(response.error ? response.error : 'There was an error, please try again or contact us!');
-			       		}
+					formData.append('change',_change);
 
-			       		if(modal){
-							modal.clearModal();
-						}
-					}else{
-						throw 'invalid HTTP request: ' + xhttp.status + ' response';
+					if(modal){
+						modal.openModal();
 					}
-				}
-			};
-								  
-			xhttp.open(form.getAttribute('method'),form.getAttribute('action'),true);
-			xhttp.send(formData);
-		};
-		
-		var arrows = items[x].parentNode.querySelectorAll('i');
-		var totalArrows = arrows.length;
 
-		for(var y=0;y<totalArrows;y++){
-			arrows[y].addEventListener('click',function(){
-				var change = this.parentNode.lastElementChild === this ? 1 : -1;
+					xhttp.onreadystatechange = function(){
+						if(xhttp.readyState == 4){
+							if(xhttp.status === 200){
+								try{
+					        		var response = JSON.parse(xhttp.response)
+					        	}catch(e){
+					        		var response = xhttp.response; 
+					       		}
+
+					       		if(response.success){
+					       			form.firstElementChild.setAttribute('value',response.change === 1 ? parseInt(form.firstElementChild.value) + 1 : parseInt(form.firstElementChild.value) - 1);
+					       		}else{
+					       			alert(response.error ? response.error : 'There was an error, please try again or contact us!');
+					       		}
+
+					       		if(modal){
+									modal.clearModal();
+								}
+							}else{
+								throw 'invalid HTTP request: ' + xhttp.status + ' response';
+							}
+						}
+					};
+										  
+					xhttp.open(form.getAttribute('method'),form.getAttribute('action'),true);
+					xhttp.send(formData);
+				};
 				
-				this.parentNode.updateQty(change);
-			});
+				var arrows = itemTickets[y].parentNode.querySelectorAll('i');
+				var totalArrows = arrows.length;
+
+				for(var y=0;y<totalArrows;y++){
+					arrows[y].addEventListener('click',function(){
+						var change = this.parentNode.lastElementChild === this ? 1 : -1;
+						
+						this.parentNode.updateQty(change);
+					});
+				}
+			}
 		}
 	}
 }

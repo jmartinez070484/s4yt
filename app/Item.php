@@ -5,10 +5,20 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use App\Ticket;
+use App\User;
 
 class Item extends Model
 {
     protected $table = 'items';
+
+    /*
+
+        Get winner details
+
+    */
+    public function ticket_winner(){
+        return $this -> status === 2 ? $this->belongsTo(User::class,'user_id') : [];
+    }
 
     /*
 

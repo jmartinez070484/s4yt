@@ -26,7 +26,9 @@
 	            <div class="item">
 	            	<div class="item-preview">
 		            	@if(Storage::disk('public') -> exists($item -> image))
-		            	<img src="{{ Storage::disk('public') -> url($item -> image) }}" alt="{{ $item -> name }}" />
+		            	<div class="item-img">
+		            		<img src="{{ Storage::disk('public') -> url($item -> image) }}" alt="{{ $item -> name }}" />
+		            	</div>
 		            	@endif
 		            </div>
 	            	<div class="item-tickets">

@@ -32,6 +32,15 @@ class Event extends Controller
         Event Index
 
     */
+    public function chatroom(){
+        return view('event.chatroom');
+    }
+
+    /*
+
+        Event Index
+
+    */
     public function index(){
         return view('event.index');
     }
@@ -130,6 +139,17 @@ class Event extends Controller
         }else{
             abort(404);
         }
+    }
+
+    /*
+
+        Item winners
+
+    */
+    public function itemWinners(){
+        $items = Item::where('status',2) -> whereNotNull('user_id') -> get();
+            
+        return view('event.items-winners',compact('items','user'));
     }
 
     /*

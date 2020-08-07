@@ -189,13 +189,21 @@
 						width:100%;
 						background:url('/assets/bg-item.png') no-repeat center center/contain;
 
-						img {
+						.item-img {
 							position:absolute;
-							top:50%;
-							left:50%;
-							margin:-25% 0 0 -25%;
-							max-width:50%;
-							max-height:50%;
+							top:0;
+							left:0;
+							right:0;
+							bottom:0;
+							width:100%;
+							height:100%;
+							background-position:center center;
+							background-repeat:no-repeat;
+							background-size:50% auto;
+						}
+
+						img {
+							display:none;
 						}
 					}
 
@@ -245,6 +253,59 @@
 								  	-webkit-appearance:none;
 								  	margin:0;
 								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.itemswinners {
+	background:url('/assets/bg-raffle-winners.jpg') no-repeat top center/cover;
+
+	.results {
+		.container {
+			max-width:800px;
+
+			.row {
+				.col-12 {
+					text-align:center;
+
+					img {
+						margin:0 auto;
+						max-width:750px;
+					}
+
+					.item {
+						display:block;
+						margin:20px 0 20px 0;
+						text-align:center;
+						width:100%;
+						float:left;
+
+						.item-preview {
+							position:relative;
+							padding:100% 0 0 0;
+							width:100%;
+							background:url('/assets/bg-item.png') no-repeat center center/contain;
+
+							.item-img {
+								position:absolute;
+								top:0;
+								left:0;
+								right:0;
+								bottom:0;
+								width:100%;
+								height:100%;
+								background-position:center center;
+								background-repeat:no-repeat;
+								background-size:50% auto;
+							}
+
+							img {
+								display:none;
 							}
 						}
 					}

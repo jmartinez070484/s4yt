@@ -1,0 +1,24 @@
+.chatroom {
+	.container {
+		.row {
+			.col-12 {
+				.title {
+					width:100%;
+
+					h1 {
+						margin:0 0 40px 0;
+						font-family:$Passero;
+						color:#372A15;
+						font-size:50px;
+					}
+				}
+
+				.chat-app {
+					width:100%;
+					min-height:850px;
+					background:url('/assets/bg-chatroom.png') no-repeat top center/contain;
+				}
+			}
+		}
+	}
+}

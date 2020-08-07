@@ -5,7 +5,8 @@
 .account,
 .question,
 .enterprise,
-.business {
+.business,
+.chatroom {
   background: url("/assets/bg-body-map.jpg") no-repeat center center/cover;
 }
 
@@ -313,13 +314,21 @@ a:hover {
   background: url("/assets/bg-item.png") no-repeat center center/contain;
 }
 
-.items .container .row .col-12 .item .item-preview img {
+.items .container .row .col-12 .item .item-preview .item-img {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  margin: -25% 0 0 -25%;
-  max-width: 50%;
-  max-height: 50%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 50% auto;
+}
+
+.items .container .row .col-12 .item .item-preview img {
+  display: none;
 }
 
 .items .container .row .col-12 .item .item-tickets {
@@ -371,6 +380,55 @@ a:hover {
 .items .container .row .col-12 .item .item-tickets form input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.itemswinners {
+  background: url("/assets/bg-raffle-winners.jpg") no-repeat top center/cover;
+}
+
+.itemswinners .results .container {
+  max-width: 800px;
+}
+
+.itemswinners .results .container .row .col-12 {
+  text-align: center;
+}
+
+.itemswinners .results .container .row .col-12 img {
+  margin: 0 auto;
+  max-width: 750px;
+}
+
+.itemswinners .results .container .row .col-12 .item {
+  display: block;
+  margin: 20px 0 20px 0;
+  text-align: center;
+  width: 100%;
+  float: left;
+}
+
+.itemswinners .results .container .row .col-12 .item .item-preview {
+  position: relative;
+  padding: 100% 0 0 0;
+  width: 100%;
+  background: url("/assets/bg-item.png") no-repeat center center/contain;
+}
+
+.itemswinners .results .container .row .col-12 .item .item-preview .item-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 50% auto;
+}
+
+.itemswinners .results .container .row .col-12 .item .item-preview img {
+  display: none;
 }
 
 .account .container {
@@ -1107,7 +1165,7 @@ a:hover {
   height: 160px;
 }
 
-.event .event .container .row .col-12 .event-map a.chatroom {
+.event .event .container .row .col-12 .event-map a.chat {
   bottom: 200px;
   right: 160px;
   height: 180px;
@@ -1126,6 +1184,23 @@ a:hover {
 
 .event .event .container .row .col-12 .event-map a:hover {
   border: 5px solid rgba(0, 198, 255, 0.75);
+}
+
+.chatroom .container .row .col-12 .title {
+  width: 100%;
+}
+
+.chatroom .container .row .col-12 .title h1 {
+  margin: 0 0 40px 0;
+  font-family: "Passero One", cursive;
+  color: #372A15;
+  font-size: 50px;
+}
+
+.chatroom .container .row .col-12 .chat-app {
+  width: 100%;
+  min-height: 850px;
+  background: url("/assets/bg-chatroom.png") no-repeat top center/contain;
 }
 
 .modal {
