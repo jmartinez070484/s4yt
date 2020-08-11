@@ -16,8 +16,8 @@ class Item extends Model
         Get winner details
 
     */
-    public function ticket_winner(){
-        return $this -> status === 2 ? $this->belongsTo(User::class,'user_id') : [];
+    public function winner(){
+        return $this->belongsTo(User::class,'user_id');
     }
 
     /*

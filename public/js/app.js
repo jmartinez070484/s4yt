@@ -1,3 +1,75 @@
+function itemWinners(_node){
+	var confirmDelete = confirm('Are you sure you want to automatically generate winners for all items?');
+
+	if(confirmDelete){
+		var secondConfirm = confirm('Once winners are selected, this cannot be un-done, are you sure?');
+
+		if(secondConfirm){
+			var items = _node.parentNode.parentNode.querySelector('.items');
+
+			if(items){
+				_node.innerText = 'Please wait...';
+
+				if(!items.generateWinner){
+					items.generateWinner = function(_index){
+						var thisNode = this;
+						var list = thisNode.list[_index];
+						var id = parseInt(list.firstElementChild.innerText);
+						
+						if(id){
+							var xhttp = new XMLHttpRequest();
+							var formData = new FormData();
+
+							formData.append('id',id);
+							formData.append('_token',document.querySelector('meta[name="csrf-token"]').content);
+							
+							xhttp.onreadystatechange = function(){
+								if(xhttp.readyState == 4){
+									if(xhttp.status === 200){
+										try{
+							        		var response = JSON.parse(xhttp.response)
+							        	}catch(e){
+							        		var response = xhttp.response; 
+							       		}
+
+							       		var current = thisNode.currentItem;
+							       		var total = thisNode.list.length;
+
+							       		if(current + 1 < total){
+							       			thisNode.currentItem = current + 1;
+							       			thisNode.generateWinner(thisNode.currentItem);
+							       		}else{
+							       			location.reload();
+							       		}
+									}else{
+										alert('Invalid request - ' + xhttp.status);
+										
+										throw 'invalid HTTP request: ' + xhttp.status + ' response';
+									}
+								}
+							};
+												  
+							xhttp.open('POST',window.location.pathname + '/' + id + '/winner',true);
+							xhttp.send(formData);
+						}
+					}
+				}
+
+				var itemLists = items.querySelectorAll('.items ul');
+				var totalItems = itemLists.length;
+				
+				if(totalItems){
+					items.list = itemLists;
+					items.currentItem = 0;
+					items.generateWinner(items.currentItem);
+				}
+			}
+		}
+	}
+
+	return false;
+}
+
 function setPasswords(_node){
 	_node.parentNode.children[2].required = _node.checked ? true : false;
 	_node.parentNode.children[3].required = _node.checked ? true : false;

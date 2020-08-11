@@ -43,6 +43,7 @@ Route::get('/items/{item}','Admin@editItem') -> where('item','[0-9]+') -> name('
 Route::get('/items/new','Admin@newItem') -> name('admin.items.new');
 Route::post('/items/new','Admin@newItem');
 Route::post('/items/{item}','Admin@editItem') -> where('item','[0-9]+');
+Route::post('/items/{item}/winner','Admin@winnerItem') -> where('item','[0-9]+');
 
 //delete
 Route::delete('/delete/user/{user}','Admin@deleteUser') -> name('admin.delete.user');

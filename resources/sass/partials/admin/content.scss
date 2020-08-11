@@ -51,6 +51,22 @@
 					}
 				}
 
+				a {
+					&:nth-child(3) {
+						position:absolute;
+						display:inline-block;
+						top:7px;
+						right:0;
+						padding:0 10px 0 10px;
+						font-size:14px;
+						font-weight:bold;
+						line-height:24px;
+						color:#FFF;
+						background:#1295ff;
+						border-radius:4px 4px;
+					}
+				}
+
 				p {
 					display:block;
 					margin:5px 0 0 0;
@@ -129,6 +145,28 @@
 						}
 					}
 				}
+
+				&.five {
+					ul {
+						li {
+							width:20%;
+						}
+					}
+
+					+ .items {
+						ul {
+							li {
+								width:20%;
+								line-height:35px;
+
+								img {
+									max-width:35px;
+									float:left;
+								}
+							}
+						}
+					}
+				}
 			}
 
 			.items {
@@ -162,6 +200,10 @@
 						width:33.33%;
 						font-size:14px;
 						float:left;
+
+						a {
+							color:#1295ff;
+						}
 
 						&:last-child {
 							text-align:right;

@@ -18,9 +18,9 @@
 		            	</div>
 		            	@endif
 		            </div>
-		            @if($winner = $item -> ticket_winner())
+		            @if($user = $item -> winner)
 		            <div class="item-winner">
-		            	{!! $winner !!}
+		            	<p>{{ $user -> first_name }} {{ $user -> last_name[0] }}, @if($grade = App\UserMeta::where('user_id',$user -> id) -> where('key','grade') -> first()) Grade {{ $grade -> value }} @endif @if($school = App\UserMeta::where('user_id',$user -> id) -> where('key','institution') -> first()) , {{ $school -> value }} @endif</p>
 		            </div>
 		            @endif
 	            </div> 

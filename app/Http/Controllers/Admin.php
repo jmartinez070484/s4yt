@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use App\Notifications\StudentRegistrationEmail;
+use App\Notifications\ItemWinner;
 use App\User;
 use App\UserMeta;
 use App\Ticket;
@@ -46,10 +47,43 @@ class Admin extends Controller
 
     */
     public function items(Request $request){
-        $items = Item::paginate(20);
+        $items = Item::all();
 
         return view('admin.items',compact('items'));
     }
+
+    /*
+
+        Winner Item
+
+    */
+    public function winnerItem(Request $request,Item $item){
+        $response = ['success'=>true,'item'=>$item];
+
+        if(!$item -> user_id){
+            $ticket = Ticket::where('item_id',$item -> id) -> where('status',1) -> inRandomOrder() -> limit(1) -> first();
+
+            if(!$ticket){
+                $ticket = Ticket::where('item_id',$item -> id) -> inRandomOrder() -> limit(1) -> first();
+            }
+
+            if($ticket && $ticket -> user_id){
+                Ticket::where('user_id',$ticket -> user_id) -> update(['status'=>2]);
+
+                $item -> user_id = $ticket -> user_id;
+                $item -> status = 2;
+                $item -> save();
+
+                //send email
+                $user = $ticket -> winner;
+                $user -> notify(new ItemWinner($item));
+            }
+
+            $response['ticket'] = $ticket;
+        }
+
+        return response($response);
+    }   
 
     /*
 

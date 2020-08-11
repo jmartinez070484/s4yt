@@ -31,6 +31,7 @@
 		            	</div>
 		            	@endif
 		            </div>
+		            @if($item -> status === 1)
 	            	<div class="item-tickets">
 		            	<form action="{{ route('items') }}/{{ $item -> id }}" method="POST" onsubmit="return false" novalidate>
 		            		<input name="qty" type="number" min="0" max="100" value="{{ $item -> user_tickets -> count() }}" readonly />
@@ -39,6 +40,7 @@
 			            	<i class="fa fa-caret-up"></i>
 			            </form>
 		            </div>
+		            @endif
 	            </div>  
 	            @endforeach     
 	        </div>

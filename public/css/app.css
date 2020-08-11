@@ -431,6 +431,19 @@ a:hover {
   display: none;
 }
 
+.itemswinners .results .container .row .col-12 .item .item-winner {
+  margin: 10px 0 0 0;
+  width: 100%;
+  text-align: left;
+}
+
+.itemswinners .results .container .row .col-12 .item .item-winner p {
+  margin: 0;
+  font-family: "Passero One", cursive;
+  font-size: 22px;
+  color: #51432f;
+}
+
 .account .container {
   max-width: 800px;
 }

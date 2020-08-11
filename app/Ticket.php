@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Item;
+use App\User;
 
 class Ticket extends Model
 {
@@ -16,5 +17,14 @@ class Ticket extends Model
     */
     public function item(){
         return $this->belongsTo(Item::class,'item_id');
+    }
+
+    /*
+
+        Get Winner
+
+    */
+    public function winner(){
+        return $this->belongsTo(User::class,'user_id');
     }
 }

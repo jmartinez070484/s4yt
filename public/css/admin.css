@@ -132,6 +132,20 @@ header .container .logo h1 {
   border-radius: 4px 4px;
 }
 
+.content .container .list .title a:nth-child(3) {
+  position: absolute;
+  display: inline-block;
+  top: 7px;
+  right: 0;
+  padding: 0 10px 0 10px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 24px;
+  color: #FFF;
+  background: #1295ff;
+  border-radius: 4px 4px;
+}
+
 .content .container .list .title p {
   display: block;
   margin: 5px 0 0 0;
@@ -202,6 +216,20 @@ header .container .logo h1 {
   float: left;
 }
 
+.content .container .list .labels.five ul li {
+  width: 20%;
+}
+
+.content .container .list .labels.five + .items ul li {
+  width: 20%;
+  line-height: 35px;
+}
+
+.content .container .list .labels.five + .items ul li img {
+  max-width: 35px;
+  float: left;
+}
+
 .content .container .list .items {
   display: inline-block;
   width: 100%;
@@ -235,6 +263,10 @@ header .container .logo h1 {
   width: 33.33%;
   font-size: 14px;
   float: left;
+}
+
+.content .container .list .items ul li a {
+  color: #1295ff;
 }
 
 .content .container .list .items ul li:last-child {
