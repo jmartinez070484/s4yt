@@ -103,6 +103,46 @@
 					}
 				}
 
+				&[name="answer"] {
+					fieldset {
+						b {
+							display:block;
+							margin:0 0 4px 0;
+							width:100%;
+							font-size:12px;
+							font-weight:bold;
+						}
+						label {
+							&[for="score-1"], &[for="score-2"], &[for="score-3"] {
+								display:inline-block;
+								margin:0 8px 0 0;
+								width:18px;
+								height:18px;
+								background:#CCC;
+								border-radius:9px 9px;
+								cursor:pointer;
+								content:'';
+							}
+						}
+
+						input[type="radio"] {
+							display:none;
+
+							&:checked + label {
+								&[for="score-1"] {
+									background:#F00;
+								}
+								&[for="score-2"] {
+									background:yellow;
+								}
+								&[for="score-3"] {
+									background:#27c955;
+								}
+							}
+						}
+					}
+				}
+
 				&[name="item"], &[name="business"], &[name="edit-business"], &[name="edit-organization"] {
 					fieldset {
 						input {

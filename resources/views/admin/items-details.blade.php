@@ -9,12 +9,7 @@
 		</div>	
 		@if(Request::input('success') == 1)
 		<div class="success">
-			<p>Successfully edited!</p>
-		</div>
-		@endif
-		@if(Request::input('success') == 2)
-		<div class="success">
-			<p>Successfully created!</p>
+			<p>Successfull!</p>
 		</div>
 		@endif
 		<div class="fields">

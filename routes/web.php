@@ -33,6 +33,9 @@ Route::get('/raffle/winners','Event@itemWinners') -> name('items.winners');
 Route::get('/account','Event@account') -> name('account');
 Route::get('/oops','Event@oops') -> name('oops');
 
+//event winners
+Route::get('/winners','Event@winners') -> name('winners');
+
 //event post routes
 Route::post('/raffle/{item}','Event@items');
 Route::post('/enterprise/{business}/question','Event@question');

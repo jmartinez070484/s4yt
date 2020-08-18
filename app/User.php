@@ -62,9 +62,7 @@ class User extends Authenticatable
 
     */
     public function answers(){
-        $role = $this -> role;
-
-        return $role -> id === 2 ? $this->hasMany(Answer::class,'user_id','id') : [];
+        return $this->hasMany(Answer::class,'user_id','id');
     }
 
     /*
@@ -82,9 +80,7 @@ class User extends Authenticatable
 
     */
     public function business(){
-        $role = $this -> role;
-
-        return $role -> id === 3 ? $this->hasOne(Business::class,'user_id','id') : [];
+        return $this->hasOne(Business::class,'user_id','id');
     }
 
     /*
@@ -94,15 +90,6 @@ class User extends Authenticatable
     */
     public function tickets(){
         return $this->hasMany(Ticket::class,'user_id','id');
-    }
-
-    /*
-
-        Get user roles
-
-    */
-    public function metadata(){
-        return $this->hasMany(UserMeta::class,'user_id','id') -> orderBy('key','ASC');
     }
 
     /*

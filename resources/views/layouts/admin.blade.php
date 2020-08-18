@@ -27,6 +27,9 @@
 		<div class="logo">
 			<h1>S4YT</h1>
 		</div>
+		<div class="logout">
+			<a href="{{ route('logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+		</div>
 	</div>	
 
 </header>

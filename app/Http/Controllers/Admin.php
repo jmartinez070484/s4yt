@@ -60,7 +60,7 @@ class Admin extends Controller
     public function winnerItem(Request $request,Item $item){
         $response = ['success'=>true,'item'=>$item];
 
-        if(!$item -> user_id){
+        if(!$item -> user_id || $item -> user_id){
             $ticket = Ticket::where('item_id',$item -> id) -> where('status',1) -> inRandomOrder() -> limit(1) -> first();
 
             if(!$ticket){
@@ -68,7 +68,7 @@ class Admin extends Controller
             }
 
             if($ticket && $ticket -> user_id){
-                Ticket::where('user_id',$ticket -> user_id) -> update(['status'=>2]);
+                Ticket::where('user_id',$ticket -> user_id) -> update(['status'=>1]);
 
                 $item -> user_id = $ticket -> user_id;
                 $item -> status = 2;
@@ -112,7 +112,7 @@ class Admin extends Controller
 
                 $item -> save();
 
-                $response = ['success'=>true,'redirect'=>route('admin.items.details',['item'=>$item -> id,'success'=>2])];
+                $response = ['success'=>true,'redirect'=>route('admin.items.details',['item'=>$item -> id,'success'=>1])];
             }else{
                 $response = ['success'=>false,'error'=>$validator -> errors() ->first()];
             }
@@ -151,7 +151,7 @@ class Admin extends Controller
 
                 $item -> save();
 
-                $response['redirect'] = route('admin.items.details',['item'=>$item -> id,'success'=>2]);
+                $response['redirect'] = route('admin.items.details',['item'=>$item -> id,'success'=>1]);
                 $response['success'] = true;
                 $response['file'] = $filePath;
             }else{
@@ -271,7 +271,7 @@ class Admin extends Controller
                     $schedule -> content = $data['text'];
                     $schedule -> save();
 
-                    $response['redirect'] = route('admin.business.schedule.item',['user'=>$user -> id,'schedule'=>$schedule -> id,'success'=>2]);
+                    $response['redirect'] = route('admin.business.schedule.item',['user'=>$user -> id,'schedule'=>$schedule -> id,'success'=>1]);
                     $response['success'] = true;
                 }else{
                     $response['error'] = $validator -> errors() ->first();
@@ -371,6 +371,12 @@ class Admin extends Controller
                     $user -> save();
 
                     $business = $user -> business;
+
+                    if(!$business){
+                        $business = new Business();
+                        $business -> user_id = $user -> id;
+                    }
+
                     $business -> name = $data['business'];
                     $business -> slug = Str::slug($data['slug'],'-');
                     $business -> description = $data['description'];
@@ -444,13 +450,20 @@ class Admin extends Controller
                     $user -> email = $data['email'];
                     $user -> save();
 
-                    $userMeta = $user -> metadata;
                     $metadata = ['institution','grade','dob','city_state','phone'];
 
-                    foreach($userMeta as $meta){
-                        if(in_array($meta -> key,$metadata) && $data[$meta -> key]){
-                            $meta -> value = $data[$meta -> key];
-                            $meta -> save();
+                    foreach($metadata as $meta){
+                        if(isset($data[$meta])){
+                            $metaItem = UserMeta::where('user_id',$user -> id) -> where('key',$meta) -> first();
+
+                            if(!$metaItem){
+                                $metaItem = new UserMeta();
+                                $metaItem -> user_id = $user -> id;
+                                $metaItem -> key = $meta;
+                            };
+
+                            $metaItem -> value = $data[$meta];
+                            $metaItem -> save();
                         }
                     }
 
@@ -462,7 +475,7 @@ class Admin extends Controller
 
                 return response($response); 
             }else{
-                return view('admin.student',compact('user'));
+                return view('admin.student',compact('user','metaData'));
             }
         }
 
@@ -613,7 +626,7 @@ class Admin extends Controller
 
                 $response['success'] = true;
                 $response['business'] = $business;
-                $response['redirect'] = route('admin.business.profile',['user'=>$newUser -> id,'success'=>2]);
+                $response['redirect'] = route('admin.business.profile',['user'=>$newUser -> id,'success'=>1]);
             }else{
                 $response['error'] = $validator -> errors() ->first();
             }

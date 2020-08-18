@@ -6,7 +6,8 @@
 .question,
 .enterprise,
 .business,
-.chatroom {
+.chatroom,
+.winners {
   background: url("/assets/bg-body-map.jpg") no-repeat center center/cover;
 }
 
@@ -1195,8 +1196,27 @@ a:hover {
   height: 190px;
 }
 
+.event .event .container .row .col-12 .event-map a.winners {
+  bottom: 580px;
+  right: 190px;
+  width: 270px;
+}
+
 .event .event .container .row .col-12 .event-map a:hover {
   border: 5px solid rgba(0, 198, 255, 0.75);
+}
+
+.winners .container {
+  max-width: 800px;
+}
+
+.winners .container .row .col-12 {
+  text-align: center;
+}
+
+.winners .container .row .col-12 img {
+  margin: 0 auto;
+  max-width: 750px;
 }
 
 .chatroom .container .row .col-12 .title {

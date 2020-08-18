@@ -7,7 +7,7 @@
 		@if(count($businesses) > 0 && $count = 1)
 			@foreach($businesses as $business)
 				@if($count++)
-		<div class="col-lg-3 col-md-3 col-12">
+		<div class="col-lg-3 col-md-3 col-12" data-id="{{ $business -> id }}">
 			<div class="item" data-flag="{{ Arr::random([1,2,3,4]) }}">
 				@if(Storage::disk('public') -> exists($business -> icon))
 				<img src="{{ Storage::disk('public') -> url($business -> icon) }}" alt="{{ $business -> name }}" />

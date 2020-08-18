@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.organization')
 
 @section('content')
 
@@ -6,7 +6,7 @@
 	<div class="container">
 		<div class="labels">
 			<h1>New Schedule Item</h1>
-			<a href="{{ route('admin.business.schedule',$user -> id) }}">Back</a>
+			<a href="{{ route('organization.schedule') }}">Back</a>
 		</div>
 		@if(Request::input('success') == 1)
 		<div class="success">
@@ -14,7 +14,7 @@
 		</div>
 		@endif
 		<div class="fields">
-			<form action="{{ route('admin.business.schedule.item',['user'=>$user -> id,'schedule'=>$schedule -> id]) }}" method="POST" autocomplete="off" onsubmit="return submitForm(this)" novalidate>
+			<form action="{{ route('organization.schedule.new') }}" method="POST" autocomplete="off" onsubmit="return submitForm(this)" novalidate>
 				<fieldset>
 					<label>Schedule Time</label>
 					<input name="time" type="text" value="{{ $schedule -> time }}" autocomplete="off" required />

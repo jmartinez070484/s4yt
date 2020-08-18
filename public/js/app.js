@@ -1,3 +1,48 @@
+function answerWinner(_node){
+	var confirmDelete = confirm('Are you sure you want to select this answer as the winner?');
+
+	if(confirmDelete){
+		var secondConfirm = confirm('Once the winner is selected, this cannot be un-done, are you sure?');
+
+		if(secondConfirm){
+			_node.innerText = 'Please wait...';
+
+			var xhttp = new XMLHttpRequest();
+			var formData = new FormData();
+
+			formData.append('_token',document.querySelector('meta[name="csrf-token"]').content);
+			
+			xhttp.onreadystatechange = function(){
+				if(xhttp.readyState == 4){
+					if(xhttp.status === 200){
+						try{
+			        		var response = JSON.parse(xhttp.response)
+			        	}catch(e){
+			        		var response = xhttp.response; 
+			       		}
+
+			       		if(response.success){
+			       			location.reload();
+			       		}else{
+			       			var error = response.error ? response.error : 'There was an error, please contact us!';
+			       			alert(error);
+			       		}
+					}else{
+						alert('Invalid request - ' + xhttp.status);
+						
+						throw 'invalid HTTP request: ' + xhttp.status + ' response';
+					}
+				}
+			};
+								  
+			xhttp.open('POST',_node.getAttribute('href') + '/winner',true);
+			xhttp.send(formData);
+		}
+	}
+
+	return false;
+}
+
 function itemWinners(_node){
 	var confirmDelete = confirm('Are you sure you want to automatically generate winners for all items?');
 
@@ -333,6 +378,16 @@ if(modal){
 			}
 		}
 	};
+}
+
+var searchInput = document.querySelector('input[type="search"]');
+
+if(searchInput){
+	searchInput.addEventListener('search',function(e){
+		if(this.value === ''){
+			document.location.href = document.location.pathname;
+		}
+	});
 }
 
 var businessMap = document.querySelector('.enterprise');

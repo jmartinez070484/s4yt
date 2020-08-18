@@ -237,6 +237,15 @@ class Event extends Controller
 
     /*
 
+        Event Winners
+
+    */
+    public function winners(){
+        return view('event.winners');
+    }
+
+    /*
+
         Elements
 
     */

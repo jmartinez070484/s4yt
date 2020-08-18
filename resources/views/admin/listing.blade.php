@@ -34,6 +34,11 @@
 				<p>No records</p>
 			@endif
 			</div>
+			@if(count($users) > 0)
+			<div class="pagination">
+				{{ $users -> links() }}
+			</div>
+			@endif
 		</div>
 	</div>
 </div>

@@ -11,12 +11,7 @@
 		</div>	
 		@if(Request::input('success') == 1)
 		<div class="success">
-			<p>Successfully edited!</p>
-		</div>
-		@endif
-		@if(Request::input('success') == 2)
-		<div class="success">
-			<p>Successfully created!</p>
+			<p>Successfull!</p>
 		</div>
 		@endif
 		<div class="fields">
@@ -38,29 +33,29 @@
 				</fieldset>
 				<fieldset>
 					<label>Business Name</label>
-					<input name="business" type="text" value="{{ $business -> name }}" autocomplete="off" required />
+					<input name="business" type="text" value="@if(isset($business -> name)){{ $business -> name }}@endif" autocomplete="off" required />
 				</fieldset>
 				<fieldset>
 					<label>Slug</label>
-					<input name="slug" type="text" value="{{ $business -> slug }}" autocomplete="off" required />
+					<input name="slug" type="text" value="@if(isset($business -> slug)){{ $business -> slug }}@endif" autocomplete="off" required />
 				</fieldset>
 				<fieldset>
 					<label>Description</label>
-					<textarea name="description" required>{{ $business -> description }}</textarea>
+					<textarea name="description" required>@if(isset($business -> description)){{ $business -> description }}@endif</textarea>
 				</fieldset>
 				<fieldset>
 					<label>Zoom Link</label>
-					<input name="zoom_link" type="text" value="{{ $business -> zoom_link }}" autocomplete="off" required />
+					<input name="zoom_link" type="text" value="@if(isset($business -> zoom_link)){{ $business -> zoom_link }}@endif" autocomplete="off" required />
 				</fieldset>
 				<fieldset>
 					<label>Logo</label>
 					<input name="logo" type="file" value="" onchange="filePreview(this)" autocomplete="off" />
-					<span @if($business -> logo) style="background:url('{{ Storage::disk('public') -> url($business -> logo) }}') no-repeat center center/contain #efefef;" @endif onclick="this.previousElementSibling.click();"></span>
+					<span @if(isset($business -> logo)) style="background:url('{{ Storage::disk('public') -> url($business -> logo) }}') no-repeat center center/contain #efefef;" @endif onclick="this.previousElementSibling.click();"></span>
 				</fieldset>
 				<fieldset>
 					<label>Icon</label>
 					<input name="icon" type="file" value="" onchange="filePreview(this)" autocomplete="off" />
-					<span @if($business -> icon) style="background:url('{{ Storage::disk('public') -> url($business -> icon) }}') no-repeat center center/contain #efefef;" @endif onclick="this.previousElementSibling.click();"></span>
+					<span @if(isset($business -> icon)) style="background:url('{{ Storage::disk('public') -> url($business -> icon) }}') no-repeat center center/contain #efefef;" @endif onclick="this.previousElementSibling.click();"></span>
 				</fieldset>
 				<fieldset>
 					@csrf

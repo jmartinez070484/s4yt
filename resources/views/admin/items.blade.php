@@ -28,7 +28,7 @@
 					<li>@if(Storage::disk('public') -> exists($item -> image))
 		            	<img src="{{ Storage::disk('public') -> url($item -> image) }}" alt="{{ $item -> name }}" />
 		            	@endif</li>
-		            <li>@if($user = $item -> ticket_winner) <a href="{{ route('admin.students.profile',$user -> id) }}">{{ $user -> first_name }} {{ $user -> last_name }}</a> @else N/A @endif</li>
+		            <li>@if($user = $item -> winner) <a href="{{ route('admin.students.profile',$user -> id) }}">{{ $user -> first_name }} {{ $user -> last_name }}</a> @else N/A @endif</li>
 					<li><a href="{{ route('admin.items.details',$item -> id) }}"><i class="fas fa-pencil-alt"></i></a> <a href="{{ route('admin.delete.item',$item -> id) }}" onclick="return deleteRecord(this);"><i class="fa fa-times"></i></a></li>
 				</ul>
 				@endforeach

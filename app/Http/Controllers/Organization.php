@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
+use App\Notifications\QuestionWinner;
 use App\Answer;
+use App\Schedule;
 
 class Organization extends Controller
 {
@@ -82,9 +84,85 @@ class Organization extends Controller
         $business = $user -> business;
 
         if($request -> isMethod('post')){
-            
+
         }else{
-            return view('organization.schedule',compact('business'));
+            $schedule = $business -> schedule;
+
+            return view('organization.schedule',compact('business','schedule'));
+        }
+    }
+
+    /*
+
+        Schedule Edit
+
+    */
+    public function scheduleEdit(Request $request,Schedule $schedule){
+        $user = Auth::user();
+        $business = $user -> business;
+
+        if($request -> isMethod('post')){
+            $data = $request->all();
+            $validator = Validator::make($data,[
+                'time' => ['required','string'],
+                'text' => ['required','string']
+            ]);
+            $response = ['success'=>false];
+           
+            if(!$validator -> fails()){
+                $schedule -> time = $data['time'];
+                $schedule -> content = $data['text'];
+                $schedule -> save();
+
+                $response['redirect'] = route('organization.schedule.item',['schedule'=>$schedule -> id,'success'=>1]);
+                $response['success'] = true;
+            }else{
+                $response['error'] = $validator -> errors() ->first();
+            }
+           
+            return response($response);
+        }else if($request -> isMethod('delete')){
+            $schedule -> delete();
+
+            return response(['success'=>true]);
+        }else{
+            return view('organization.schedule-edit',compact('business','schedule'));
+        }
+    }
+
+    /*
+
+        Schedule New
+
+    */
+    public function scheduleNew(Request $request){
+        $user = Auth::user();
+        $business = $user -> business;
+
+        if($request -> isMethod('post')){
+            $data = $request->all();
+            $validator = Validator::make($data,[
+                'time' => ['required','string'],
+                'text' => ['required','string']
+            ]);
+            $response = ['success'=>false];
+           
+            if(!$validator -> fails()){
+                $schedule = new Schedule();
+                $schedule -> business_id = $business -> id;
+                $schedule -> time = $data['time'];
+                $schedule -> content = $data['text'];
+                $schedule -> save();
+
+                $response['redirect'] = route('organization.schedule.item',['schedule'=>$schedule -> id,'success'=>1]);
+                $response['success'] = true;
+            }else{
+                $response['error'] = $validator -> errors() ->first();
+            }
+           
+            return response($response);
+        }else{
+            return view('organization.schedule-new',compact('business'));
         }
     }
 
@@ -115,12 +193,15 @@ class Organization extends Controller
 
             return response($response);
         }else{
-            return view('organization.question',compact('business'));
+            $question = $business -> question;
+
+            return view('organization.question',compact('business','question'));
         }
     }
 
     /*
 
+        Answer Details
 
     */
     public function answersDetails(Request $request,Answer $answer){
@@ -129,12 +210,45 @@ class Organization extends Controller
         $question = $business -> question;
         
         if($answer -> question -> business_id === $business -> id){
-            $student = $answer -> user;
+            if($request -> isMethod('post')){
+                $data = $request->all();
 
-            return view('organization.answer-details',compact('business','answer','student'));
+                if(isset($data['score']) && is_numeric($data['score']) && in_array($data['score'],array(1,2,3))){
+                    $answer -> score = $data['score'];
+                    $answer -> save();
+                }
+
+                return response(['success'=>true,'redirect'=>route('organization.answers.details',['answer'=>$answer -> id,'success'=>1])]);
+            }else{
+                $student = $answer -> user;
+
+                return view('organization.answer-details',compact('business','question','answer','student'));   
+            }
         }else{
             abort(404);
         }
+    }
+
+    /*
+
+        Answer Winner
+
+    */
+    public function answersWinner(Request $request,Answer $answer){
+        $user = Auth::user();
+        $business = $user -> business;
+        $question = $business -> question;
+
+        if(!$question -> answer_id){
+            $question -> answer_id = $answer -> id;
+            $question -> save();
+
+            //answer
+            $answerUser = $answer -> user;
+            $answerUser -> notify(new QuestionWinner($question));
+        }
+        
+        return response(['success'=>true,'redirect'=>route('organization.answers.details',['answer'=>$answer -> id,'success'=>1])]);
     }
 
     /*
@@ -146,8 +260,9 @@ class Organization extends Controller
         $user = Auth::user();
         $business = $user -> business;
         $question = $business -> question;
-        $answers = Answer::where('question_id',$question -> id) -> orderBy('created_at','DESC') -> paginate(25);
-        
-        return view('organization.answers',compact('business','answers'));
+        $answers = !$question -> answer_id ? Answer::where('question_id',$question -> id) -> orderBy('created_at','DESC') -> paginate(25) : Answer::where('question_id',$question -> id) -> where('id','!=',$question -> answer_id) -> orderBy('created_at','DESC') -> paginate(25);
+        $winner = $question -> answer_id ? Answer::find($question -> answer_id) : null;
+
+        return !$question -> answer_id ? view('organization.answers',compact('business','question','answers')) : view('organization.answers',compact('business','question','answers','winner'));
     }
 }

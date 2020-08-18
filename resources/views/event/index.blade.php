@@ -13,6 +13,7 @@
 		    		<a href="{{ route('items') }}" class="raffle"></a>
 		    		<a href="{{ route('enterprise') }}" class="businesses"></a>
 		    		<a href="{{ route('chatroom') }}" class="chat"></a>
+		    		<a href="{{ route('winners') }}" class="winners"></a>
 		    	</div>
 		    </div>
 	    </div>

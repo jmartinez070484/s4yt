@@ -76,6 +76,27 @@ header .container .logo h1 {
   color: #FFF;
 }
 
+header .container .logout {
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  float: right;
+  border-left: 1px solid #ccc;
+}
+
+header .container .logout a {
+  display: inline-block;
+  padding: 0 20px 0 20px;
+  font-size: 14px;
+  color: #000;
+  line-height: 60px;
+}
+
+header .container .logout a i {
+  margin: 0 6px 0 0;
+  font-size: 14px;
+}
+
 .content {
   margin: 70px 0 0 0;
   padding: 20px 20px 20px 240px;
@@ -213,7 +234,6 @@ header .container .logo h1 {
 
 .content .container .list .labels.four + .items ul li img {
   max-width: 35px;
-  float: left;
 }
 
 .content .container .list .labels.five ul li {
@@ -227,7 +247,6 @@ header .container .logo h1 {
 
 .content .container .list .labels.five + .items ul li img {
   max-width: 35px;
-  float: left;
 }
 
 .content .container .list .items {
@@ -235,6 +254,11 @@ header .container .logo h1 {
   width: 100%;
   border: 1px solid #ededed;
   float: left;
+}
+
+.content .container .list .items.winner {
+  margin: 10px 0 0 0;
+  background: #efefef;
 }
 
 .content .container .list .items p {
@@ -250,6 +274,19 @@ header .container .logo h1 {
   margin: 0;
   padding: 0;
   list-style-type: none;
+  float: left;
+}
+
+.content .container .list .items ul.selected li:first-child:before {
+  display: inline-block;
+  margin: 0 8px 0 0;
+  padding: 0 5px 0 5px;
+  font-size: 13px;
+  color: #FFF;
+  background: #1295ff;
+  border-radius: 5px 5px;
+  float: left;
+  content: "Winner";
 }
 
 .content .container .list .items ul:nth-child(2n+2) {
@@ -280,6 +317,41 @@ header .container .logo h1 {
 .content .container .list .items ul li:last-child a i.fa-times {
   margin: 0 0 0 6px;
   color: #F00;
+}
+
+.content .container .list .pagination {
+  width: 100%;
+}
+
+.content .container .list .pagination ul {
+  width: auto;
+  float: right;
+  list-style-type: none;
+}
+
+.content .container .list .pagination ul li {
+  float: left;
+}
+
+.content .container .list .pagination ul li a,
+.content .container .list .pagination ul li span {
+  display: block;
+  width: 24px;
+  height: 24px;
+  font-size: 12px;
+  color: #000;
+  line-height: 24px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+.content .container .list .pagination ul li a {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.content .container .list .pagination ul li.active span.page-link {
+  color: #FFF;
+  background: #3c4b64;
 }
 
 .adminbusinessprofile .content .container .labels a:last-child {
@@ -427,6 +499,43 @@ header .container .logo h1 {
   cursor: pointer;
 }
 
+.form .container .fields form[name=answer] fieldset b {
+  display: block;
+  margin: 0 0 4px 0;
+  width: 100%;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.form .container .fields form[name=answer] fieldset label[for=score-1],
+.form .container .fields form[name=answer] fieldset label[for=score-2],
+.form .container .fields form[name=answer] fieldset label[for=score-3] {
+  display: inline-block;
+  margin: 0 8px 0 0;
+  width: 18px;
+  height: 18px;
+  background: #CCC;
+  border-radius: 9px 9px;
+  cursor: pointer;
+  content: "";
+}
+
+.form .container .fields form[name=answer] fieldset input[type=radio] {
+  display: none;
+}
+
+.form .container .fields form[name=answer] fieldset input[type=radio]:checked + label[for=score-1] {
+  background: #F00;
+}
+
+.form .container .fields form[name=answer] fieldset input[type=radio]:checked + label[for=score-2] {
+  background: yellow;
+}
+
+.form .container .fields form[name=answer] fieldset input[type=radio]:checked + label[for=score-3] {
+  background: #27c955;
+}
+
 .form .container .fields form[name=item] fieldset input[type=file],
 .form .container .fields form[name=business] fieldset input[type=file],
 .form .container .fields form[name=edit-business] fieldset input[type=file],
@@ -544,7 +653,9 @@ header .container .logo h1 {
   background: rgba(0, 0, 21, 0.5);
 }
 
-.organizationschedule .sidebar ul li:nth-child(2) a {
+.organizationschedule .sidebar ul li:nth-child(2) a,
+.organizationschedulenew .sidebar ul li:nth-child(2) a,
+.organizationscheduleitem .sidebar ul li:nth-child(2) a {
   background: rgba(0, 0, 21, 0.5);
 }
 

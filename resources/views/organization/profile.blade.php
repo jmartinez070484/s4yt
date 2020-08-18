@@ -13,11 +13,6 @@
 			<p>Successfully edited!</p>
 		</div>
 		@endif
-		@if(Request::input('success') == 2)
-		<div class="success">
-			<p>Successfully created!</p>
-		</div>
-		@endif
 		<div class="fields">
 			<form name="edit-organization" action="{{ route('organization') }}" method="POST" autocomplete="off" onsubmit="return submitForm(this)" novalidate>
 				<fieldset>
@@ -43,7 +38,7 @@
 				</fieldset>
 				<fieldset>
 					<label>Business Name</label>
-					<input name="business" type="text" value="{{ $business -> name }}" autocomplete="off" required />
+					<input name="business" type="text" value="@if($business -> name){{ $business -> name }}@endif" autocomplete="off" required />
 				</fieldset>
 				<fieldset>
 					<label>Slug</label>

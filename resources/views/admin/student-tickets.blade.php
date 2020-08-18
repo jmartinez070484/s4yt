@@ -34,6 +34,11 @@
 				<p>No Tickets</p>
 			@endif
 			</div>
+			@if(count($tickets) > 0)
+			<div class="pagination">
+				{{ $tickets -> links() }}
+			</div>
+			@endif
 		</div>
 	</div>
 </div>

@@ -57,6 +57,16 @@ if(modal){
 	};
 }
 
+var searchInput = document.querySelector('input[type="search"]');
+
+if(searchInput){
+	searchInput.addEventListener('search',function(e){
+		if(this.value === ''){
+			document.location.href = document.location.pathname;
+		}
+	});
+}
+
 var businessMap = document.querySelector('.enterprise');
 
 if(businessMap){

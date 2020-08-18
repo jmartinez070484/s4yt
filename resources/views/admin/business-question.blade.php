@@ -10,7 +10,7 @@
 		</div>	
 		@if(Request::input('success') == 1)
 		<div class="success">
-			<p>Successfully edited!</p>
+			<p>Successfull!</p>
 		</div>
 		@endif
 		<div class="fields">

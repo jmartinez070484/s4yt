@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddNameToUserMetadata extends Migration
+class AddAnswerToQuestions extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class AddNameToUserMetadata extends Migration
      */
     public function up()
     {
-        Schema::table('user_meta', function (Blueprint $table) {
-            $table->char('name',255) -> after('user_id');
+        Schema::table('questions', function (Blueprint $table) {
+            $table->unsignedBigInteger('answer_id')->after('business_id')->nullable();
+            $table->foreign('answer_id')->references('id')->on('answers');
         });
     }
 
@@ -25,8 +26,8 @@ class AddNameToUserMetadata extends Migration
      */
     public function down()
     {
-        Schema::table('user_meta', function (Blueprint $table) {
-            $table->dropColumn('name');
+        Schema::table('questions', function (Blueprint $table) {
+            $table->dropColumn('answer_id');
         });
     }
 }
