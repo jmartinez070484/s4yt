@@ -22,6 +22,9 @@ class CreateBusinessesTable extends Migration
             $table->char('name',255);
             $table->char('slug',255);
             $table->text('description');
+            $table->text('zoom_link')->nullable();
+            $table->char('logo',255)->default('default.png');
+            $table->char('icon',255)->default('default.png');
         });
     }
 

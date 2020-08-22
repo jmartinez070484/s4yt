@@ -22,6 +22,7 @@ class CreateAnswersTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('status')->default(1);
             $table->text('text');
+            $table->integer('score')->default(0);
         });
     }
 

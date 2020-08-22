@@ -40,7 +40,6 @@
 
 	<div class="sidebar">
 		<ul>
-			<li><a href="{{ route('admin') }}">Dashboard</a></li>
 			<li><a href="{{ route('admin.students') }}">Students</a></li>
 			<li><a href="{{ route('admin.business') }}">Businesses</a></li>
 			<li><a href="{{ route('admin.items') }}">Items</a></li>

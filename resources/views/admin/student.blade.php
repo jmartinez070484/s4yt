@@ -52,6 +52,7 @@
 				<fieldset>
 					@csrf
 					<button>Save</button>
+					<input type="button" onclick="return sendWelcomeEmail(this)" value="Send Welcome Email" />
 				</fieldset>
 			</form>
 		</div>

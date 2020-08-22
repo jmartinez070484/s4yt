@@ -40,10 +40,11 @@ class CreateRole extends Command
     public function handle()
     {
         $name = $this->ask('Name');
+        $slug = $this->ask('Slug');
         
         $role = new Role();
         $role -> name = $name;
-        $role -> slug = Str::slug($name,'-');
+        $role -> slug = $slug;
         $role -> save();
 
         $this->info('New Role Created: '.$name);

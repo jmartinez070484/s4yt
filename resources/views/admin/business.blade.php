@@ -8,6 +8,7 @@
 			<h1>Business</h1>
 			<a href="{{ route('admin.business.schedule',$user -> id) }}">Schedule</a>
 			<a href="{{ route('admin.business.question',$user -> id) }}">Question</a>
+			<a href="{{ route('admin.business.scholarships',$user -> id) }}">Scholarships</a>
 		</div>	
 		@if(Request::input('success') == 1)
 		<div class="success">
@@ -60,6 +61,7 @@
 				<fieldset>
 					@csrf
 					<button>Save</button>
+					<input type="button" onclick="return sendWelcomeEmail(this)" value="Send Welcome Email" />
 				</fieldset>
 			</form>
 		</div>

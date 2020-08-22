@@ -5,9 +5,12 @@ namespace App\Listeners;
 use App\Events\UserCreated;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Support\Facades\Password;
+use App\Notifications\StudentRegistrationEmail;
+use App\Notifications\BusinessRegistrationEmail;
 use App\Ticket;
 
-class CreateNewTickets
+class CreatedUser
 {
     /**
      * Create the event listener.
@@ -38,6 +41,14 @@ class CreateNewTickets
                 $ticket -> user_id = $user -> id;
                 $ticket -> save();
             }
+        }
+
+        if($role -> id === 2){
+            $user -> notify(new StudentRegistrationEmail());
+        }
+
+        if($role -> id === 3){
+            $user -> notify(new BusinessRegistrationEmail());
         }
     }
 }

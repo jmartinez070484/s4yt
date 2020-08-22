@@ -8,13 +8,17 @@
 			<div class="title">
 				<h1>Student Answers</h1>
 			</div>
-			@if($question -> answer_id)
+			@if($scholarships)
 			<div class="items winner">
+				@foreach($scholarships as $scholarship)
+					@if($answer = $scholarship -> answer)
 				<ul class="selected">
-					<li>{{ $winner -> user -> first_name }} {{ $winner -> user -> last_name }}</li>
-					<li>{{ Carbon::parse($winner -> created_at) -> format('m/d/y - g:ia') }}</li>
-					<li><a href="{{ route('organization.answers.details',$winner -> id) }}"><i class="fas fa-binoculars"></i></a></li>
+					<li>{{ $answer -> user -> first_name }} {{ $answer -> user -> last_name }}</li>
+					<li>{{ Carbon::parse($answer -> created_at) -> format('m/d/y - g:ia') }}</li>
+					<li><a href="{{ route('organization.answers.details',$answer -> id) }}"><i class="fas fa-binoculars"></i></a></li>
 				</ul>
+					@endif
+				@endforeach
 			</div>
 			@endif
 			<div class="labels four">

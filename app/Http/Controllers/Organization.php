@@ -6,9 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
-use App\Notifications\QuestionWinner;
+use App\Notifications\ScholarshipWinner;
 use App\Answer;
 use App\Schedule;
+use App\Scholarship;
 
 class Organization extends Controller
 {
@@ -221,8 +222,10 @@ class Organization extends Controller
                 return response(['success'=>true,'redirect'=>route('organization.answers.details',['answer'=>$answer -> id,'success'=>1])]);
             }else{
                 $student = $answer -> user;
-
-                return view('organization.answer-details',compact('business','question','answer','student'));   
+                $scholarships = $business -> scholarships;
+                $answerScholarship = $answer -> scholarship;
+                
+                return view('organization.answer-details',compact('business','question','answer','student','scholarships','answerScholarship'));   
             }
         }else{
             abort(404);
@@ -238,15 +241,21 @@ class Organization extends Controller
         $user = Auth::user();
         $business = $user -> business;
         $question = $business -> question;
+        $scholarship = Scholarship::find($request->all('scholarship')) -> first();
 
-        if(!$question -> answer_id){
-            $question -> answer_id = $answer -> id;
-            $question -> save();
+        if($question -> id === $answer -> question_id && $scholarship -> business_id === $business -> id && !$scholarship -> user_id){
+           $scholarship -> user_id = $answer -> user_id;
+           $scholarship -> answer_id = $answer -> id;
+           $scholarship -> save();
 
-            //answer
-            $answerUser = $answer -> user;
-            $answerUser -> notify(new QuestionWinner($question));
+           //user
+           $answerUser = $answer -> user;
+           $answerUser -> notify(new ScholarshipWinner($scholarship));
         }
+
+        //user
+        $answerUser = $answer -> user;
+        $answerUser -> notify(new ScholarshipWinner($scholarship));
         
         return response(['success'=>true,'redirect'=>route('organization.answers.details',['answer'=>$answer -> id,'success'=>1])]);
     }
@@ -260,9 +269,28 @@ class Organization extends Controller
         $user = Auth::user();
         $business = $user -> business;
         $question = $business -> question;
-        $answers = !$question -> answer_id ? Answer::where('question_id',$question -> id) -> orderBy('created_at','DESC') -> paginate(25) : Answer::where('question_id',$question -> id) -> where('id','!=',$question -> answer_id) -> orderBy('created_at','DESC') -> paginate(25);
-        $winner = $question -> answer_id ? Answer::find($question -> answer_id) : null;
+        $scholarships = $business -> scholarships;
+        $answers = Answer::query() -> where('question_id',$question -> id);
 
-        return !$question -> answer_id ? view('organization.answers',compact('business','question','answers')) : view('organization.answers',compact('business','question','answers','winner'));
+        foreach($scholarships as $scholarship){
+            $answers = $answers -> where('id','!=',$scholarship -> answer_id);
+        }
+
+        $answers = $answers -> orderBy('created_at','DESC') -> paginate(25);
+       
+        return view('organization.answers',compact('business','question','answers','scholarships'));
+    }
+
+    /*
+
+        Business scholarships
+
+    */
+    public function scholarships(Request $request){
+        $user = Auth::user();
+        $business = $user -> business;
+        $scholarships = Scholarship::where('business_id',$business -> id) -> get();
+
+        return view('organization.scholarships',compact('scholarships'));
     }
 }

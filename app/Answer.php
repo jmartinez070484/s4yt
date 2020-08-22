@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\User;
 use App\Question;
+use App\Scholarship;
 
 class Answer extends Model
 {
@@ -28,4 +29,12 @@ class Answer extends Model
         return $this->belongsTo(Question::class,'question_id');
     }
 
+    /*
+
+        Get scholarship
+
+    */
+    public function scholarship(){
+        return $this->hasOne('App\Scholarship','answer_id');
+    }
 }

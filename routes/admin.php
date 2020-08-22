@@ -22,6 +22,7 @@ Route::get('/students/{user}/tickets','Admin@studentTickets') -> where('user','[
 Route::post('/students/{user}','Admin@studentProfile') -> where('user','[0-9]+');
 Route::post('/students/new','Admin@studentCreate');
 Route::post('/students/{user}/tickets','Admin@studentTickets');
+Route::post('/students/{user}/email','Admin@userEmail');
 
 //business
 Route::get('/business','Admin@business') -> name('admin.business');
@@ -29,6 +30,7 @@ Route::get('/business/{user}','Admin@businessProfile') -> where('user','[0-9]+')
 Route::get('/business/{user}/question','Admin@businessQuestion') -> where('user','[0-9]+') -> name('admin.business.question');
 Route::get('/business/{user}/schedule','Admin@businessSchedule') -> where('user','[0-9]+') -> name('admin.business.schedule');
 Route::get('/business/{user}/schedule/new','Admin@businessScheduleNew') -> where('user','[0-9]+') -> name('admin.business.schedule.new');
+Route::get('/business/{user}/scholarships','Admin@businessScholarships') -> where('user','[0-9]+') -> name('admin.business.scholarships');
 Route::get('/business/{user}/schedule/{schedule}','Admin@businessScheduleItem') -> where('user','[0-9]+') -> where('schedule','[0-9]+') -> name('admin.business.schedule.item');
 Route::get('/business/new','Admin@businessCreate') -> name('admin.business.new');
 Route::post('/business/new','Admin@businessCreate');
@@ -36,6 +38,8 @@ Route::post('/business/{user}','Admin@businessProfile') -> where('user','[0-9]+'
 Route::post('/business/{user}/question','Admin@businessQuestion') -> where('user','[0-9]+');
 Route::post('/business/{user}/schedule/new','Admin@businessScheduleNew') -> where('user','[0-9]+') -> name('admin.business.schedule.new');
 Route::post('/business/{user}/schedule/{schedule}','Admin@businessScheduleItem') -> where('user','[0-9]+') -> where('schedule','[0-9]+');
+Route::post('/business/{user}/email','Admin@userEmail');
+
 
 //items
 Route::get('/items','Admin@items') -> name('admin.items');

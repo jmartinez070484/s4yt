@@ -20,6 +20,8 @@ Route::get('/question','Organization@question') -> name('organization.question')
 Route::get('/answers','Organization@answers') -> name('organization.answers');
 Route::get('/answers/{answer}','Organization@answersDetails') -> where('answer','[0-9]+') -> name('organization.answers.details');
 
+Route::get('/scholarships','Organization@scholarships') -> name('organization.scholarships');
+
 //post
 Route::post('/','Organization@profile');
 Route::post('/question','Organization@question');

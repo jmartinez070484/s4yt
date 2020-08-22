@@ -35,17 +35,17 @@
 }
 
 .adminstudentsnew, .adminstudents, .adminstudentsprofile, .adminstudentstickets {
+	.sidebar ul li:first-child a {
+		background:rgba(0,0,21,.5);
+	}
+}
+.adminbusiness, .adminbusinessnew, .adminbusinessprofile, .adminbusinessquestion, .adminbusinessschedule, .adminbusinessscheduleitem, .adminbusinessschedulenew, .adminbusinessscholarships {
 	.sidebar ul li:nth-child(2) a {
 		background:rgba(0,0,21,.5);
 	}
 }
-.adminbusiness, .adminbusinessnew, .adminbusinessprofile, .adminbusinessquestion, .adminbusinessschedule, .adminbusinessscheduleitem, .adminbusinessschedulenew {
-	.sidebar ul li:nth-child(3) a {
-		background:rgba(0,0,21,.5);
-	}
-}
 .adminitemsnew, .adminitems, .adminitemsdetails {
-	.sidebar ul li:nth-child(4) a {
+	.sidebar ul li:nth-child(3) a {
 		background:rgba(0,0,21,.5);
 	}
 }
@@ -69,6 +69,12 @@
 
 .organizationanswers, .organizationanswersdetails {
 	.sidebar ul li:nth-child(4) a {
+		background:rgba(0,0,21,.5);
+	}
+}
+
+.organizationscholarships {
+	.sidebar ul li:nth-child(5) a {
 		background:rgba(0,0,21,.5);
 	}
 }

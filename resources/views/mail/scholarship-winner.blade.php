@@ -5,7 +5,7 @@
 		<td style="width:25%"></td>
 		<td style="width:50%" align="center">
 			<span style="font-family:'Open Sans',Arial;font-weight:normal;font-style:normal;font-size:14px;line-height:19px;color:#000;">Congratulations {{ $name }}</span><br /><br />
-			<span style="font-family:'Open Sans',Arial;font-weight:300;font-style:normal;font-size:14px;line-height:19px;color:#000;">Your answer to the question:<br /><br /><b style="font-weight:bold">"{{ $question -> text }}"</b> <br /><br />Has been selected as the winner!</span><br /><br />
+			<span style="font-family:'Open Sans',Arial;font-weight:300;font-style:normal;font-size:14px;line-height:19px;color:#000;">You have been awarded a scholarship:<br /><br /><b style="font-weight:bold">"{{ $scholarship -> name }} ${{ $scholarship -> amount }}"</b> <br /><br />By {{ $business -> name }}</span><br /><br />
 		</td>
 		<td style="width:25%"></td>
 	</tr>

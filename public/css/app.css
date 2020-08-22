@@ -1,13 +1,13 @@
 @charset "UTF-8";
 
-.auth,
-.event,
-.account,
-.question,
-.enterprise,
-.business,
-.chatroom,
-.winners {
+body.auth,
+body.event,
+body.account,
+body.question,
+body.enterprise,
+body.business,
+body.chatroom,
+body.winners {
   background: url("/assets/bg-body-map.jpg") no-repeat center center/cover;
 }
 
@@ -1217,6 +1217,65 @@ a:hover {
 .winners .container .row .col-12 img {
   margin: 0 auto;
   max-width: 750px;
+}
+
+.winners .container .row .col-12:first-child {
+  margin: 0 0 30px 0;
+}
+
+.winners .container .row .col-12.col-lg-6 {
+  margin: 30px 0 30px 0;
+}
+
+.winners .container .row .col-12.col-lg-6 .result {
+  position: relative;
+  padding: 30px 20px 20px 20px;
+  width: 100%;
+  height: 100%;
+  background: url(/assets/bg-content.jpg) repeat-y top center;
+  background-size: 100% auto;
+}
+
+.winners .container .row .col-12.col-lg-6 .result strong {
+  font-family: "Passero One", cursive;
+  font-size: 32px;
+  color: #372A15;
+}
+
+.winners .container .row .col-12.col-lg-6 .result ul {
+  display: inline-block;
+  width: 100%;
+  padding: 0 20px 10px 20px;
+  margin: 0;
+}
+
+.winners .container .row .col-12.col-lg-6 .result ul li {
+  display: block;
+  margin: 4px 0 4px 0;
+  width: 100%;
+  font-family: "Passero One", cursive;
+  font-size: 16px;
+  color: #51432f;
+  text-align: left;
+  float: left;
+}
+
+.winners .container .row .col-12.col-lg-6 .result ul li span {
+  display: inline-block;
+  width: 30px;
+  margin: 0 20px 0 0;
+}
+
+.winners .container .row .col-12.col-lg-6 .result:before {
+  position: absolute;
+  top: -30px;
+  left: -10px;
+  right: -10px;
+  display: block;
+  height: 120px;
+  background: url("/assets/bg-content-ribbon.png") no-repeat top center;
+  background-size: 100% auto;
+  content: "";
 }
 
 .chatroom .container .row .col-12 .title {

@@ -22,14 +22,6 @@
 					<input name="email" type="email" value="" autocomplete="off" required />
 				</fieldset>
 				<fieldset>
-					<label>Password</label>
-					<input name="password" type="password" value="" autocomplete="off" required />
-				</fieldset>
-				<fieldset>
-					<label>Confirm Password</label>
-					<input name="password_confirmation" type="password" value="" autocomplete="off" required />
-				</fieldset>
-				<fieldset>
 					<b>Details</b>
 				</fieldset>
 				<fieldset>

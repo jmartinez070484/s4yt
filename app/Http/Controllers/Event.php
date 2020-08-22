@@ -241,7 +241,9 @@ class Event extends Controller
 
     */
     public function winners(){
-        return view('event.winners');
+        $businesses = Business::all();
+        
+        return view('event.winners',compact('businesses'));
     }
 
     /*

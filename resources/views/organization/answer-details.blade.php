@@ -2,11 +2,11 @@
 
 @section('content')
 
-<div class="content form">
+<div class="content form" data-scholarships='{!! $scholarships !!}'>
 	<div class="container">
 		<div class="labels">
 			<h1>Answer</h1>
-			@if(!$question -> answer_id)<a href="{{ route('organization.answers.details',['answer'=>$answer -> id]) }}" onclick="return answerWinner(this)">Select As Winner</a>@endif
+			<a href="#" onclick="return answerWinner(this)" data-url="{{ route('admin.partials',['element'=>'select-winner']) }}">Select As Winner</a>
 			<p>Submited by: <br /><b>{{ $student -> first_name }} {{ $student -> last_name[0] }}<br />@if($grade = App\UserMeta::where('user_id',$student -> id) -> where('key','grade') -> first()) Grade {{ $grade -> value }} @endif @if($school = App\UserMeta::where('user_id',$student -> id) -> where('key','institution') -> first()) , {{ $school -> value }} @endif</b></p>
 		</div>	
 		@if(Request::input('success') == 1 && !$question -> answer_id)
@@ -14,9 +14,9 @@
 			<p>Successfull!</p>
 		</div>
 		@endif
-		@if($question -> answer_id)
+		@if($answerScholarship)
 		<div class="success">
-			<p>This is the winning answer!</p>
+			<p>This is the winning answer! - ${{ $answerScholarship -> amount }} Scholarship</p>
 		</div>
 		@endif
 		<div class="fields">
@@ -34,7 +34,7 @@
 					<label>Answer</label>
 					<textarea name="question" readonly required>{{ $answer -> text }}</textarea>
 				</fieldset>
-				@if(!$question -> answer_id)
+				@if(!$answerScholarship)
 				<fieldset>
 					@csrf
 					<button>Save</button>

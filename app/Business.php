@@ -4,14 +4,27 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use App\Events\BusinessCreated;
+use App\Events\BusinessDeleted;
 use App\User;
 use App\Question;
 use App\Schedule;
 use App\Visit;
+use App\Scholarship;
 
 class Business extends Model
 {
     protected $table = 'businesses';
+
+    /**
+     * The event map for the model.
+     *
+     * @var array
+     */
+    protected $dispatchesEvents = [
+        'created' => BusinessCreated::class,
+        'deleting' => BusinessDeleted::class
+    ];
 
     /*
 
@@ -33,7 +46,7 @@ class Business extends Model
 
     /*
 
-        Get user roles
+        Get question
 
     */
     public function question(){
@@ -42,7 +55,16 @@ class Business extends Model
 
     /*
 
-        Get user roles
+        Get scholarships
+
+    */
+    public function scholarships(){
+        return $this->hasMany(Scholarship::class,'business_id','id') -> orderBy('created_at','ASC');
+    }
+
+    /*
+
+        Get schedule
 
     */
     public function schedule(){

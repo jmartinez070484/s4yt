@@ -6,21 +6,21 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
-use Illuminate\Support\Facades\Password;
-use App\User;
 
-class StudentRegistrationEmail extends Notification
+class ScholarshipWinner extends Notification
 {
     use Queueable;
+
+    private $scholarship;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($scholarship)
     {
-
+        $this -> scholarship = $scholarship;
     }
 
     /**
@@ -42,19 +42,13 @@ class StudentRegistrationEmail extends Notification
      */
     public function toMail($notifiable)
     {
-        $user = User::where('email',$notifiable -> email) -> first();
-
-        if($user){
-            $passwordBroker = Password::broker();
-            $token = $passwordBroker -> createToken($user);
-        }
-
         return (new MailMessage)
-                    ->subject('Welcome!')
-                    ->markdown('mail.student',[
-                        'link'=>route('password.reset',['token'=>$token,'email'=>$notifiable -> email]),
-                        'email'=>$notifiable -> email
-                    ]);
+                    ->subject('Congratulations')
+                    ->markdown('mail.scholarship-winner',[
+                        'business'=>$this -> scholarship -> business,
+                        'scholarship'=>$this -> scholarship,
+                        'name'=>$notifiable -> first_name]
+                    );
     }
 
     /**

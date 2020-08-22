@@ -302,6 +302,31 @@ header .container .logout a i {
   float: left;
 }
 
+.content .container .list .items ul li[data-score="1"]:before,
+.content .container .list .items ul li[data-score="2"]:before,
+.content .container .list .items ul li[data-score="3"]:before {
+  display: inline-block;
+  margin: 0 8px 0 0;
+  width: 18px;
+  height: 18px;
+  background: #CCC;
+  border-radius: 9px 9px;
+  cursor: pointer;
+  content: "";
+}
+
+.content .container .list .items ul li[data-score="1"]:before {
+  background: #F00;
+}
+
+.content .container .list .items ul li[data-score="2"]:before {
+  background: yellow;
+}
+
+.content .container .list .items ul li[data-score="3"]:before {
+  background: #27c955;
+}
+
 .content .container .list .items ul li a {
   color: #1295ff;
 }
@@ -317,6 +342,10 @@ header .container .logout a i {
 .content .container .list .items ul li:last-child a i.fa-times {
   margin: 0 0 0 6px;
   color: #F00;
+}
+
+.content .container .list .items ul li:last-child a.link {
+  color: #1295ff;
 }
 
 .content .container .list .pagination {
@@ -352,6 +381,20 @@ header .container .logout a i {
 .content .container .list .pagination ul li.active span.page-link {
   color: #FFF;
   background: #3c4b64;
+}
+
+.adminbusinessprofile .content .container .labels a:nth-child(3) {
+  position: absolute;
+  display: inline-block;
+  top: 5px;
+  right: 210px;
+  padding: 0 10px 0 10px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 24px;
+  color: #FFF;
+  background: #1295ff;
+  border-radius: 4px 4px;
 }
 
 .adminbusinessprofile .content .container .labels a:last-child {
@@ -486,6 +529,12 @@ header .container .logout a i {
   min-height: 120px;
 }
 
+.form .container .fields form fieldset input[type=button] {
+  width: auto;
+  cursor: pointer;
+  float: right;
+}
+
 .form .container .fields form fieldset button {
   padding: 10px 40px 10px 40px;
   font-size: 14px;
@@ -585,11 +634,15 @@ header .container .logout a i {
   display: block;
 }
 
-.form .container .fields form[name=business] fieldset:nth-child(11),
-.form .container .fields form[name=business] fieldset:nth-child(12) {
+.form .container .fields form[name=business] fieldset:nth-child(9),
+.form .container .fields form[name=business] fieldset:nth-child(10) {
   margin: 20px 20px 20px 0;
   width: auto;
   float: left;
+}
+
+.organizationanswersdetails .form .container .fields form fieldset textarea[readonly] {
+  color: #000;
 }
 
 .sidebar {
@@ -626,26 +679,27 @@ header .container .logout a i {
   background: rgba(0, 0, 21, 0.5);
 }
 
-.adminstudentsnew .sidebar ul li:nth-child(2) a,
-.adminstudents .sidebar ul li:nth-child(2) a,
-.adminstudentsprofile .sidebar ul li:nth-child(2) a,
-.adminstudentstickets .sidebar ul li:nth-child(2) a {
+.adminstudentsnew .sidebar ul li:first-child a,
+.adminstudents .sidebar ul li:first-child a,
+.adminstudentsprofile .sidebar ul li:first-child a,
+.adminstudentstickets .sidebar ul li:first-child a {
   background: rgba(0, 0, 21, 0.5);
 }
 
-.adminbusiness .sidebar ul li:nth-child(3) a,
-.adminbusinessnew .sidebar ul li:nth-child(3) a,
-.adminbusinessprofile .sidebar ul li:nth-child(3) a,
-.adminbusinessquestion .sidebar ul li:nth-child(3) a,
-.adminbusinessschedule .sidebar ul li:nth-child(3) a,
-.adminbusinessscheduleitem .sidebar ul li:nth-child(3) a,
-.adminbusinessschedulenew .sidebar ul li:nth-child(3) a {
+.adminbusiness .sidebar ul li:nth-child(2) a,
+.adminbusinessnew .sidebar ul li:nth-child(2) a,
+.adminbusinessprofile .sidebar ul li:nth-child(2) a,
+.adminbusinessquestion .sidebar ul li:nth-child(2) a,
+.adminbusinessschedule .sidebar ul li:nth-child(2) a,
+.adminbusinessscheduleitem .sidebar ul li:nth-child(2) a,
+.adminbusinessschedulenew .sidebar ul li:nth-child(2) a,
+.adminbusinessscholarships .sidebar ul li:nth-child(2) a {
   background: rgba(0, 0, 21, 0.5);
 }
 
-.adminitemsnew .sidebar ul li:nth-child(4) a,
-.adminitems .sidebar ul li:nth-child(4) a,
-.adminitemsdetails .sidebar ul li:nth-child(4) a {
+.adminitemsnew .sidebar ul li:nth-child(3) a,
+.adminitems .sidebar ul li:nth-child(3) a,
+.adminitemsdetails .sidebar ul li:nth-child(3) a {
   background: rgba(0, 0, 21, 0.5);
 }
 
@@ -668,12 +722,22 @@ header .container .logout a i {
   background: rgba(0, 0, 21, 0.5);
 }
 
+.organizationscholarships .sidebar ul li:nth-child(5) a {
+  background: rgba(0, 0, 21, 0.5);
+}
+
 .modal {
   display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
   height: 100%;
   text-align: center;
   background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
 }
 
 .modal .row {
@@ -686,6 +750,7 @@ header .container .logout a i {
 
 .modal .row .content {
   margin: 0 auto;
+  padding: 20px;
   max-width: 500px;
 }
 
@@ -704,6 +769,34 @@ header .container .logout a i {
   content: "\F110";
   -webkit-animation: fa-spin 2s linear infinite;
   animation: fa-spin 2s linear infinite;
+}
+
+.modal.scholarships .row .content {
+  background: #FFF;
+}
+
+.modal.scholarships .row .content select {
+  margin: 20px 0 20px 0;
+  padding: 10px;
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  background: #efefef;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+.modal.scholarships .row .content button {
+  padding: 10px 40px 10px 40px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 24px;
+  color: #FFF;
+  background: #1295ff;
+  border-radius: 4px 4px;
+  outline: none;
+  border: none;
+  cursor: pointer;
 }
 
 .modal-view .modal {

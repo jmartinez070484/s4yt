@@ -1,4 +1,125 @@
+function sendWelcomeEmail(_node){
+	_node.value = 'Sending...';
+
+	var formData = new FormData();
+	var xhttp = new XMLHttpRequest();
+
+	formData.append('_token',document.querySelector('meta[name="csrf-token"]').content);
+
+	xhttp.onreadystatechange = function(){
+		if(xhttp.readyState == 4){
+			if(xhttp.status === 200){
+				try{
+	        		var response = JSON.parse(xhttp.response)
+	        	}catch(e){
+	        		var response = xhttp.response; 
+	       		}
+
+	       		console.log(response);
+	       		_node.value = 'Send Welcome Email';
+			}else{
+				throw 'invalid HTTP request: ' + xhttp.status + ' response';
+			}
+		}
+	};
+						  
+	xhttp.open('POST',document.location.pathname + '/email',true);
+	xhttp.send(formData);
+
+	return false;
+}
+
 function answerWinner(_node){
+	if(modal){
+		var data = _node.parentNode.parentNode.parentNode.getAttribute('data-scholarships');
+
+		try{
+			data = JSON.parse(data);
+		}catch(e){
+			data =[];
+		}
+
+		var totalData = data.length;
+
+		if(totalData){
+			modal.openModal();
+
+			var title = document.createElement('strong');
+			var select = document.createElement('select');
+			var button = document.createElement('button');
+
+			for(var x=0;x<totalData;x++){
+				var option = document.createElement('option');
+
+				option.setAttribute('value',data[x].id);
+				option.innerText = data[x].name + ' - $' + data[x].amount;
+
+				if(data[x].user_id){
+					option.setAttribute('disabled',true);
+				}
+				
+				select.appendChild(option);
+			}
+
+			button.addEventListener('click',function(){
+				var value = this.previousElementSibling.value;
+
+				if(value){
+					var confirmDelete = confirm('Are you sure you want to select this answer as the winner?');
+
+					if(confirmDelete){
+						var secondConfirm = confirm('Once the winner is selected, this cannot be un-done, are you sure?');
+
+						if(secondConfirm){
+							var formData = new FormData();
+							var xhttp = new XMLHttpRequest();
+
+							formData.append('scholarship',value);
+							formData.append('_token',document.querySelector('meta[name="csrf-token"]').content);
+
+							xhttp.onreadystatechange = function(){
+								if(xhttp.readyState == 4){
+									if(xhttp.status === 200){
+										try{
+							        		var response = JSON.parse(xhttp.response)
+							        	}catch(e){
+							        		var response = xhttp.response; 
+							       		}
+
+							       		if(response.success){
+							       			location.reload();
+							       		}else{
+							       			var error = response.error ? response.error : 'There was an error, please contact us!';
+							       			alert(error);
+							       		}
+									}else{
+										throw 'invalid HTTP request: ' + xhttp.status + ' response';
+									}
+								}
+							};
+												  
+							xhttp.open('POST',document.location.pathname + '/winner',true);
+							xhttp.send(formData);
+						}
+					}
+				}else{
+					alert('Please select a scholarship to award');
+				}
+			});
+
+			button.innerText = 'Award';
+			modal.className = 'modal scholarships';
+			title.innerText = 'Select Schlarship to Award';
+			modal.lastElementChild.lastElementChild.appendChild(title);
+			modal.lastElementChild.lastElementChild.appendChild(select);
+			modal.lastElementChild.lastElementChild.appendChild(button);
+		}
+	}
+
+	return false;
+}
+
+/*function answerWinner(_node){
 	var confirmDelete = confirm('Are you sure you want to select this answer as the winner?');
 
 	if(confirmDelete){
@@ -41,7 +162,7 @@ function answerWinner(_node){
 	}
 
 	return false;
-}
+}*/
 
 function itemWinners(_node){
 	var confirmDelete = confirm('Are you sure you want to automatically generate winners for all items?');

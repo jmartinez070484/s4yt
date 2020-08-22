@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use App\Notifications\StudentRegistrationEmail;
+use App\Notifications\BusinessRegistrationEmail;
 use App\Notifications\ItemWinner;
 use App\User;
 use App\UserMeta;
@@ -16,7 +17,8 @@ use App\Ticket;
 use App\Item;
 use App\Business;
 use App\Question;
-use App\Schedule;   
+use App\Schedule;  
+use App\Scholarship; 
 
 class Admin extends Controller
 {
@@ -38,7 +40,7 @@ class Admin extends Controller
     */
     public function index(Request $request){
 
-    	return view('admin.index');
+    	return redirect() -> route('admin.students');
     }
 
     /*
@@ -50,6 +52,22 @@ class Admin extends Controller
         $items = Item::all();
 
         return view('admin.items',compact('items'));
+    }
+
+    /*
+
+
+    */
+    public function userEmail(Request $request,User $user){
+        $response = ['success'=>true,'user'=>$user];
+
+        if($user -> role_id == 2){
+            $user -> notify(new StudentRegistrationEmail());
+        }else if($user -> role_id == 3){
+            $user -> notify(new BusinessRegistrationEmail());
+        }
+
+        return response($response);
     }
 
     /*
@@ -546,7 +564,6 @@ class Admin extends Controller
                     if(isset($data[$key])){
                         $newUserMeta = new UserMeta();
                         $newUserMeta -> user_id = $newUser -> id;
-                        $newUserMeta -> name = $value;
                         $newUserMeta -> key = $key;
                         $newUserMeta -> value = $data[$key];
                         $newUserMeta -> save();
@@ -583,7 +600,6 @@ class Admin extends Controller
                 'first_name' => ['required','string'],
                 'last_name' => ['required','string'],
                 'email' => ['required','string','email','unique:users'],
-                'password' => ['required','string','confirmed'],
                 'business'=>['required','string'],
                 'slug'=>['required','string','unique:businesses'],
                 'description'=>['required','string'],
@@ -598,7 +614,7 @@ class Admin extends Controller
                 $newUser -> first_name = $data['first_name'];
                 $newUser -> last_name = $data['last_name'];
                 $newUser -> email = $data['email'];
-                $newUser -> password = Hash::make($data['password']);
+                $newUser -> password = Hash::make(Str::random(80));
                 $newUser -> api_token = Str::random(80);    
                 $newUser -> save();
 
@@ -635,6 +651,18 @@ class Admin extends Controller
         }else{
             return view('admin.business-new');
         }
+    }
+
+    /*
+
+        Business scholarships
+
+    */
+    public function businessScholarships(Request $request,User $user){
+        $business = $user -> business;
+        $scholarships = Scholarship::where('business_id',$business -> id) -> get();
+
+        return view('admin.business-scholarships',compact('scholarships','user'));
     }
 
     /*

@@ -89,6 +89,12 @@
 						min-height:120px;
 					}
 
+					input[type="button"] {
+						width:auto;
+						cursor:pointer;
+						float:right;
+					}
+
 					button {
 						padding:10px 40px 10px 40px;
 						font-size:14px;
@@ -198,10 +204,26 @@
 
 				&[name="business"] {
 					fieldset {
-						&:nth-child(11), &:nth-child(12) {
+						&:nth-child(9), &:nth-child(10) {
 							margin:20px 20px 20px 0;
 							width:auto;
 							float:left;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.organizationanswersdetails {
+	.form {
+		.container {
+			.fields {
+				form {
+					fieldset {
+						textarea[readonly] {
+							color:#000;
 						}
 					}
 				}

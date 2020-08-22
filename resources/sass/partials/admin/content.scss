@@ -223,6 +223,35 @@
 						font-size:14px;
 						float:left;
 
+						&[data-score="1"], &[data-score="2"], &[data-score="3"] {
+							&:before {
+								display:inline-block;
+								margin:0 8px 0 0;
+								width:18px;
+								height:18px;
+								background:#CCC;
+								border-radius:9px 9px;
+								cursor:pointer;
+								content:'';
+							}
+						}
+
+						&[data-score="1"] {
+							&:before {
+								background:#F00;
+							}
+						}
+						&[data-score="2"] {
+							&:before {
+								background:yellow;
+							}
+						}
+						&[data-score="3"] {
+							&:before {
+								background:#27c955;
+							}
+						}
+
 						a {
 							color:#1295ff;
 						}
@@ -238,6 +267,10 @@
 							 			margin:0 0 0 6px;
 							 			color:#F00;
 							 		}
+							 	}
+
+							 	&.link {
+							 		color:#1295ff;
 							 	}
 							}
 						}
@@ -291,6 +324,20 @@
 		.container {
 			.labels {
 				a {
+					&:nth-child(3) {
+						position:absolute;
+						display:inline-block;
+						top:5px;
+						right:210px;
+						padding:0 10px 0 10px;
+						font-size:14px;
+						font-weight:bold;
+						line-height:24px;
+						color:#FFF;
+						background:#1295ff;
+						border-radius:4px 4px;
+					}
+
 					&:last-child {
 						position:absolute;
 						display:inline-block;

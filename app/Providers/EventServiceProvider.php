@@ -14,11 +14,14 @@ class EventServiceProvider extends ServiceProvider
      */
     protected $listen = [
         'App\Events\UserCreated' => [
-            'App\Listeners\CreateNewTickets',
+            'App\Listeners\CreatedUser',
         ],
         'App\Events\UserDeleted' => [
             'App\Listeners\DeletedUser',
         ],
+        'App\Events\BusinessCreated' => [
+            'App\Listeners\CreatedBusiness',
+        ]
     ];
 
     /**
