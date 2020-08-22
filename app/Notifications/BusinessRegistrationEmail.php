@@ -51,7 +51,7 @@ class BusinessRegistrationEmail extends Notification
 
         return (new MailMessage)
                     ->subject('Welcome!')
-                    ->markdown('mail.student',[
+                    ->markdown('mail.business',[
                         'url'=>route('login'),
                         'link'=>route('password.reset',['token'=>$token,'email'=>$notifiable -> email]),
                         'email'=>$notifiable -> email
