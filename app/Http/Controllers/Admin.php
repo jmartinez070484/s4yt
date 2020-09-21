@@ -396,10 +396,7 @@ class Admin extends Controller
                     $business -> name = $data['business'];
                     $business -> slug = Str::slug($data['slug'],'-');
                     $business -> description = $data['description'];
-
-                    if(isset($data['zoom_link'])){
-                        $business -> zoom_link = $data['zoom_link'];
-                    }
+                    $business -> zoom_link = isset($data['zoom_link']) ? $data['zoom_link'] : null;
 
                     if($request->hasFile('logo')){
                         $fileName = 'logo-'.$business -> id.'.'.$request -> file('logo') -> extension();
@@ -623,11 +620,7 @@ class Admin extends Controller
                 $business -> name = $data['business'];
                 $business -> slug = Str::slug($data['slug'],'-');
                 $business -> description = $data['description'];
-                
-                if(isset($data['zoom_link'])){
-                    $business -> zoom_link = $data['zoom_link'];
-                }
-                
+                $business -> zoom_link = isset($data['zoom_link']) ? $data['zoom_link'] : null;
                 $business -> save();
 
                 if($request->hasFile('logo')){
