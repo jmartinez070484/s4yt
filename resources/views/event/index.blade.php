@@ -7,7 +7,7 @@
 	    <div class="row ">
 	    	<div class="col-12">
 		    	<div class="event-title">
-		    		<h1>S4YT Treasure Map</h1>
+		    		<h1>$4YT Treasure Map</h1>
 		    	</div>
 		    	<div class="event-map">
 		    		<a href="{{ route('items') }}" class="raffle"></a>

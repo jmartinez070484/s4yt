@@ -50,7 +50,7 @@
 				</fieldset>
 				<fieldset>
 					<label>Zoom Link</label>
-					<input name="zoom_link" type="text" value="{{ $business -> zoom_link }}" autocomplete="off" readonly required />
+					<input name="zoom_link" type="text" value="{{ $business -> zoom_link }}" autocomplete="off" required />
 				</fieldset>
 				<fieldset>
 					<label>Logo</label>

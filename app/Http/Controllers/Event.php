@@ -62,7 +62,7 @@ class Event extends Controller
 
     */
     public function business(Request $request,Business $business){
-        if($business -> status === 1){
+        if($business -> status == 1){
             $userId = Auth::id();
             $visit = Visit::where('user_id',$business -> id) -> where('user_id',$userId) -> get() -> first();
 
@@ -173,7 +173,7 @@ class Event extends Controller
             if(!$validator -> fails()){
                 $change = (int) $postData['change'];
 
-                if($change === 1){
+                if($change == 1){
                     $userTickets = $user -> tickets;
                     $ticket = $userTickets -> whereNull('item_id') -> first();
 
@@ -191,7 +191,7 @@ class Event extends Controller
                 }
 
                 if(!$ticket){
-                    $response['error'] = $change === 1 ? 'You have used up all of your '.$userTickets -> count().' tickets!' : 'No more tickets to remove!';
+                    $response['error'] = $change == 1 ? 'You have used up all of your '.$userTickets -> count().' tickets!' : 'No more tickets to remove!';
                 }
 
                 $response['success'] = isset($response['error']) ? false : true;

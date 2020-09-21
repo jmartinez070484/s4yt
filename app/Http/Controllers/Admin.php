@@ -111,7 +111,7 @@ class Admin extends Controller
     public function editItem(Request $request,Item $item){
         if($request->isMethod('post')){
             $data = $request->all();
-            $validator = isset($data['slug']) && $data['slug'] === $item -> slug ? Validator::make($data,[
+            $validator = isset($data['slug']) && $data['slug'] == $item -> slug ? Validator::make($data,[
                 'name' => ['required','string'],
                 'slug' => ['required','string'],
             ]) : Validator::make($data,[
@@ -203,7 +203,7 @@ class Admin extends Controller
     public function businessSchedule(Request $request,User $user){
         $role = $user -> role;
         
-        if($role -> id === 3){
+        if($role -> id == 3){
             if($request->isMethod('post')){
                 $data = $request->all();
                 $response = ['success'=>false];
@@ -229,7 +229,7 @@ class Admin extends Controller
         $role = $user -> role;
         $business = $user -> business;
         
-        if($role -> id === 3 && $business -> id === $schedule -> business_id){
+        if($role -> id == 3 && $business -> id == $schedule -> business_id){
             if($request->isMethod('post')){
                 $data = $request->all();
                 $validator = Validator::make($data,[
@@ -272,7 +272,7 @@ class Admin extends Controller
     public function businessScheduleNew(Request $request,User $user){
         $role = $user -> role;
         
-        if($role -> id === 3){
+        if($role -> id == 3){
             if($request->isMethod('post')){
                 $data = $request->all();
                 $validator = Validator::make($data,[
@@ -313,7 +313,7 @@ class Admin extends Controller
     public function businessQuestion(Request $request,User $user){
         $role = $user -> role;
         
-        if($role -> id === 3){
+        if($role -> id == 3){
             if($request->isMethod('post')){
                 $data = $request->all();
                 
@@ -359,26 +359,24 @@ class Admin extends Controller
     public function businessProfile(Request $request,User $user){
         $role = $user -> role;
         
-        if($role -> id === 3){
+        if($role -> id == 3){
             if($request->isMethod('post')){
                 $data = $request->all();
-                $sameEmail = isset($data['email']) && $data['email'] === $user -> email ? true : false;
+                $sameEmail = isset($data['email']) && $data['email'] == $user -> email ? true : false;
                 $validator = $sameEmail ? Validator::make($data,[
                     'first_name' => ['required','string'],
                     'last_name' => ['required','string'],
                     'email' => ['required','string','email'],
                     'business'=>['required','string'],
                     'slug'=>['required','string'],
-                    'description'=>['required','string'],
-                    'zoom_link'=>['required','string'],
+                    'description'=>['required','string']
                 ]) : Validator::make($data,[
                     'first_name' => ['required','string'],
                     'last_name' => ['required','string'],
                     'email' => ['required','string','email','unique:users'],
                     'business'=>['required','string'],
                     'slug'=>['required','string'],
-                    'description'=>['required','string'],
-                    'zoom_link'=>['required','string'],
+                    'description'=>['required','string']
                 ]);
                 $response = ['success'=>false];
                
@@ -398,7 +396,10 @@ class Admin extends Controller
                     $business -> name = $data['business'];
                     $business -> slug = Str::slug($data['slug'],'-');
                     $business -> description = $data['description'];
-                    $business -> zoom_link = $data['zoom_link'];
+
+                    if(isset($data['zoom_link'])){
+                        $business -> zoom_link = $data['zoom_link'];
+                    }
 
                     if($request->hasFile('logo')){
                         $fileName = 'logo-'.$business -> id.'.'.$request -> file('logo') -> extension();
@@ -439,10 +440,10 @@ class Admin extends Controller
     public function studentProfile(Request $request,User $user){
         $role = $user -> role;
         
-        if($role -> id === 2){
+        if($role -> id == 2){
             if($request->isMethod('post')){
                 $data = $request->all();
-                $validator = isset($data['email']) && $data['email'] === $user -> email ? Validator::make($data,[
+                $validator = isset($data['email']) && $data['email'] == $user -> email ? Validator::make($data,[
                     'first_name' => ['required','string'],
                     'last_name' => ['required','string'],
                     'institution'=>['required','string'],
@@ -602,8 +603,7 @@ class Admin extends Controller
                 'email' => ['required','string','email','unique:users'],
                 'business'=>['required','string'],
                 'slug'=>['required','string','unique:businesses'],
-                'description'=>['required','string'],
-                'zoom_link'=>['required','string'],
+                'description'=>['required','string']
                 'logo'=>['required','file'],
                 'icon'=>['required','file']
             ]);
@@ -623,7 +623,11 @@ class Admin extends Controller
                 $business -> name = $data['business'];
                 $business -> slug = Str::slug($data['slug'],'-');
                 $business -> description = $data['description'];
-                $business -> zoom_link = $data['zoom_link'];
+                
+                if(isset($data['zoom_link'])){
+                    $business -> zoom_link = $data['zoom_link'];
+                }
+                
                 $business -> save();
 
                 if($request->hasFile('logo')){
@@ -671,7 +675,7 @@ class Admin extends Controller
 
     */
     public function deleteUser(Request $request,User $user){
-        if($user -> role_id === 2 || $user -> role_id === 3){
+        if($user -> role_id == 2 || $user -> role_id == 3){
             $response = $user -> delete() ? ['success'=>true] : ['success'=>false];
 
             return response($response);
@@ -686,7 +690,7 @@ class Admin extends Controller
 
     */
     public function deleteTicket(Request $request,User $user,Ticket $ticket){
-        if($user -> role_id === 2 && $ticket -> user_id === $user -> id){
+        if($user -> role_id == 2 && $ticket -> user_id == $user -> id){
             $response = $ticket -> delete() ? ['success'=>true] : ['success'=>false];
 
             return response($response);

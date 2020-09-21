@@ -42,12 +42,14 @@ class Organization extends Controller
                 'last_name' => ['required','string'],
                 'password' => ['required','string','confirmed'],
                 'business' => ['required','string'],
-                'description' => ['required','string']
+                'description' => ['required','string'],
+                'zoom_link' => ['required','string']
             ]) : Validator::make($data,[
                 'first_name' => ['required','string'],
                 'last_name' => ['required','string'],
                 'business' => ['required','string'],
-                'description' => ['required','string']
+                'description' => ['required','string'],
+                'zoom_link' => ['required','string']
             ]);
 
             if(!$validator -> fails()){
@@ -62,6 +64,7 @@ class Organization extends Controller
 
                 $business -> name = $data['business'];
                 $business -> description = $data['description'];
+                $business -> zoom_link = $data['zoom_link'];
                 $business -> save();
                 
                 $response = ['success'=>true,'redirect'=>route('organization',['success'=>1])];
@@ -210,7 +213,7 @@ class Organization extends Controller
         $business = $user -> business;
         $question = $business -> question;
         
-        if($answer -> question -> business_id === $business -> id){
+        if($answer -> question -> business_id == $business -> id){
             if($request -> isMethod('post')){
                 $data = $request->all();
 
@@ -243,7 +246,7 @@ class Organization extends Controller
         $question = $business -> question;
         $scholarship = Scholarship::find($request->all('scholarship')) -> first();
 
-        if($question -> id === $answer -> question_id && $scholarship -> business_id === $business -> id && !$scholarship -> user_id){
+        if($question -> id == $answer -> question_id && $scholarship -> business_id == $business -> id && !$scholarship -> user_id){
            $scholarship -> user_id = $answer -> user_id;
            $scholarship -> answer_id = $answer -> id;
            $scholarship -> save();

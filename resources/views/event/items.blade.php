@@ -23,7 +23,7 @@
 	    <div class="row">
 	    	<div class="col-12">
 	    		@foreach($items as $key => $item)
-	            <div class="item">
+	            <div class="item" data-status="{{ $item -> status }}">
 	            	<div class="item-preview">
 		            	@if(Storage::disk('public') -> exists($item -> image))
 		            	<div class="item-img">
@@ -31,7 +31,7 @@
 		            	</div>
 		            	@endif
 		            </div>
-		            @if($item -> status === 1)
+		            @if($item -> status == 1)
 	            	<div class="item-tickets">
 		            	<form action="{{ route('items') }}/{{ $item -> id }}" method="POST" onsubmit="return false" novalidate>
 		            		<input name="qty" type="number" min="0" max="100" value="{{ $item -> user_tickets -> count() }}" readonly />

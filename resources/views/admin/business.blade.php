@@ -46,7 +46,7 @@
 				</fieldset>
 				<fieldset>
 					<label>Zoom Link</label>
-					<input name="zoom_link" type="text" value="@if(isset($business -> zoom_link)){{ $business -> zoom_link }}@endif" autocomplete="off" required />
+					<input name="zoom_link" type="text" value="@if(isset($business -> zoom_link)){{ $business -> zoom_link }}@endif" autocomplete="off" />
 				</fieldset>
 				<fieldset>
 					<label>Logo</label>

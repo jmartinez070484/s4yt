@@ -38,7 +38,7 @@
 				</fieldset>
 				<fieldset>
 					<label>Zoom Link</label>
-					<input name="zoom_link" type="text" value="" autocomplete="off" required />
+					<input name="zoom_link" type="text" value="" autocomplete="off" />
 				</fieldset>
 				<fieldset>
 					<label>Logo</label>
