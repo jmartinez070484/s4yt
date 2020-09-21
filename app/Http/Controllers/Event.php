@@ -196,6 +196,7 @@ class Event extends Controller
 
                 $response['success'] = isset($response['error']) ? false : true;
                 $response['change'] = $change;
+                $response['tickets'] = $user -> tickets -> whereNull('item_id') -> count();
             }else{
                 $response['error'] = $validator -> errors() ->first();
             };

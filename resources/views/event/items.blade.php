@@ -14,7 +14,7 @@
 	    	</div>
 	    	<div class="col-lg-6">
 	    		<span>Your Total</span>
-	    		<input name="tickets" type="number" value="{{ $user -> tickets -> count() }}" readonly />
+	    		<input name="tickets" type="number" value="{{ $user -> tickets -> whereNull('item_id') -> count() }}" readonly />
 	    	</div>
 	    	<div class="col-lg-6">
 	    		{{ $items -> links() }}

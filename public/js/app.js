@@ -665,8 +665,14 @@ if(totalItems){
 					        	}catch(e){
 					        		var response = xhttp.response; 
 					       		}
-
+					       		
 					       		if(response.success){
+					       			var totalTickets = document.querySelector('.items .container .row:first-child .col-lg-6:nth-child(2) input');
+
+					       			if(totalTickets){
+					       				totalTickets.value = response.tickets;
+					       			}
+
 					       			form.firstElementChild.setAttribute('value',response.change === 1 ? parseInt(form.firstElementChild.value) + 1 : parseInt(form.firstElementChild.value) - 1);
 					       		}else{
 					       			alert(response.error ? response.error : 'There was an error, please try again or contact us!');
