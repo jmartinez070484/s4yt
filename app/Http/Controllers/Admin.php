@@ -603,7 +603,7 @@ class Admin extends Controller
                 'email' => ['required','string','email','unique:users'],
                 'business'=>['required','string'],
                 'slug'=>['required','string','unique:businesses'],
-                'description'=>['required','string']
+                'description'=>['required','string'],
                 'logo'=>['required','file'],
                 'icon'=>['required','file']
             ]);
