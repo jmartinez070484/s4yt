@@ -33,6 +33,83 @@
 		}
 	}
 
+	&.map-legend {
+		.row {
+			.content {
+				max-width:1200px;
+
+				.modal-content{
+					padding:130px 100px 100px 100px;
+					height:700px;
+					background:url('/assets/bg-modal.png') no-repeat top center/contain;
+					border:none;
+
+					ul {
+						display:inline-block;
+						margin:0 auto;
+						margin-bottom:15px;
+						width:100%;
+						max-width:500px;
+						list-style-type:none;
+
+						li {
+							display:inline-block;
+							position:relative;
+							margin:15px 0 0 0;
+							width:100%;
+							font-family:$Passero;
+							text-align:center;
+
+							&:before {
+								position:absolute;
+								top:-4px;
+								left:-35px;
+								display:block;
+								width:30px;
+								height:30px;
+								background:url('/assets/bg-star.png') no-repeat center center/contain;
+								content:'';
+							}
+
+							p {
+								font-size:18px;
+								line-height:24px;
+								text-align:left;
+							}
+
+							img {
+								display:block;
+								margin:0 auto;
+							}
+						}
+					}
+
+					input {
+						margin:0 auto;
+						margin-bottom:40px;
+						width:100%;
+						max-width:200px;
+						height:40px;
+						font-family:$Passero;
+						font-size:20px;
+						color:$brown;
+						line-height:30px;
+						background:#D2C4AE;
+						border-radius:20px 20px;
+						box-shadow:0px 3.33564px 3.33564px rgba(0, 0, 0, 0.25);
+						cursor:pointer;
+						outline:none;
+						border:none;
+
+						&:last-child {
+							margin-bottom:0;
+						}
+					}
+				}
+			}
+		}
+	}
+
 	&.legend {
 		.row {
 			.content {

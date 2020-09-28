@@ -39,8 +39,22 @@
 </div>
 @endif
 
-@if($business -> schedule)
+@if($business -> youtube)
 <div class="schedule">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="yt-video">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/{{ $business -> youtube }}" frameborder="0" allowfullscreen></iframe>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+@endif
+
+@if($business -> schedule)
+<!--div class="schedule">
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
@@ -54,7 +68,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div-->
 @endif
 
 @endsection

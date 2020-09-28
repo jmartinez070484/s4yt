@@ -611,8 +611,8 @@ header .container .logout a i {
   cursor: pointer;
 }
 
-.form .container .fields form[name=edit-business] fieldset:nth-child(9),
-.form .container .fields form[name=edit-business] fieldset:nth-child(10) {
+.form .container .fields form[name=edit-business] fieldset:nth-child(11),
+.form .container .fields form[name=edit-business] fieldset:nth-child(12) {
   margin: 20px 20px 20px 0;
   width: auto;
   float: left;
@@ -634,8 +634,8 @@ header .container .logout a i {
   display: block;
 }
 
-.form .container .fields form[name=business] fieldset:nth-child(9),
-.form .container .fields form[name=business] fieldset:nth-child(10) {
+.form .container .fields form[name=business] fieldset:nth-child(11),
+.form .container .fields form[name=business] fieldset:nth-child(12) {
   margin: 20px 20px 20px 0;
   width: auto;
   float: left;

@@ -73,3 +73,31 @@
 		}
 	}
 }
+
+.enterprise {
+	.nav {
+		.container {
+			.row {
+				.col-12 {
+					position:relative;
+
+					ul {
+						&:first-child {
+							position:absolute;
+							bottom:-50px;
+							left:0;
+
+							li {
+								padding:5px 20px 5px 20px;
+								font-family:$Passero;
+								color:$brown;
+								border:2px solid rgba(109, 101, 79, 0.4);
+								border-radius:20px 20px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

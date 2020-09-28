@@ -78,6 +78,17 @@ if(businessMap){
 	}
 }
 
+var mapLegend = document.querySelector('.event');
+
+if(mapLegend){
+	var mapLegendCookie = getCookie('mapLegend');
+
+	if(!mapLegendCookie){
+		modal.openModal('map-legend');
+		setCookie('mapLegend',1);
+	}
+}
+
 var question = document.querySelector('.question .container .row .col-12 .answer form');
 
 if(question){

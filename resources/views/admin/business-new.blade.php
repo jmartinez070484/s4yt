@@ -34,11 +34,19 @@
 				</fieldset>
 				<fieldset>
 					<label>Description</label>
-					<textarea name="description" required=""></textarea>
+					<textarea name="description" required></textarea>
+				</fieldset>
+				<fieldset>
+					<label>Short Description</label>
+					<textarea name="short_description" required></textarea>
 				</fieldset>
 				<fieldset>
 					<label>Zoom Link</label>
 					<input name="zoom_link" type="text" value="" autocomplete="off" />
+				</fieldset>
+				<fieldset>
+					<label>YouTube Video</label>
+					<input name="youtube" type="text" value="" autocomplete="off" />
 				</fieldset>
 				<fieldset>
 					<label>Logo</label>

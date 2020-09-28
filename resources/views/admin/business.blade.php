@@ -6,7 +6,7 @@
 	<div class="container">
 		<div class="labels">
 			<h1>Business</h1>
-			<a href="{{ route('admin.business.schedule',$user -> id) }}">Schedule</a>
+			<!--a href="{{ route('admin.business.schedule',$user -> id) }}">Schedule</a-->
 			<a href="{{ route('admin.business.question',$user -> id) }}">Question</a>
 			<a href="{{ route('admin.business.scholarships',$user -> id) }}">Scholarships</a>
 		</div>	
@@ -45,8 +45,16 @@
 					<textarea name="description" required>@if(isset($business -> description)){{ $business -> description }}@endif</textarea>
 				</fieldset>
 				<fieldset>
+					<label>Short Description</label>
+					<textarea name="short_description" required>@if(isset($business -> short_description)){{ $business -> short_description }}@endif</textarea>
+				</fieldset>
+				<fieldset>
 					<label>Zoom Link</label>
 					<input name="zoom_link" type="text" value="@if(isset($business -> zoom_link)){{ $business -> zoom_link }}@endif" autocomplete="off" />
+				</fieldset>
+				<fieldset>
+					<label>YouTube Video</label>
+					<input name="youtube" type="text" value="@if(isset($business -> youtube)){{ $business -> youtube }}@endif" autocomplete="off" />
 				</fieldset>
 				<fieldset>
 					<label>Logo</label>

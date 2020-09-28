@@ -736,6 +736,24 @@ a:hover {
   margin: 0;
 }
 
+.enterprise .nav .container .row .col-12 {
+  position: relative;
+}
+
+.enterprise .nav .container .row .col-12 ul:first-child {
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+}
+
+.enterprise .nav .container .row .col-12 ul:first-child li {
+  padding: 5px 20px 5px 20px;
+  font-family: "Passero One", cursive;
+  color: #51432F;
+  border: 2px solid rgba(109, 101, 79, 0.4);
+  border-radius: 20px 20px;
+}
+
 .content {
   width: 100%;
 }
@@ -768,12 +786,29 @@ a:hover {
   padding: 40px;
 }
 
+.enterprise {
+  overfow: hidden;
+}
+
+.enterprise .nav {
+  margin: 50px 0 0 0;
+}
+
+.enterprise .nav .container .row .col-12 ul li {
+  display: none;
+}
+
+.enterprise .nav .container .row .col-12 ul li:first-child {
+  display: block;
+}
+
 .enterprise .container {
   margin-top: 25px;
   margin-bottom: 25px;
 }
 
 .enterprise .container .row .col-lg-3 {
+  position: relative;
   margin: 25px 0 25px 0;
   text-align: center;
 }
@@ -890,6 +925,55 @@ a:hover {
   bottom: 0;
   width: 100%;
   height: 100%;
+  display: block;
+}
+
+.enterprise .container .row .col-lg-3 .item-details {
+  display: none;
+  position: absolute;
+  left: 80%;
+  top: 0;
+  width: 100%;
+  float: left;
+  border: 1px solid #51432F;
+  background: url("/assets/bg-content.jpg") no-repeat center center/cover;
+  z-index: 1;
+}
+
+.enterprise .container .row .col-lg-3 .item-details .item-details-img {
+  padding: 20px 0 20px 0;
+  width: 40%;
+  float: left;
+}
+
+.enterprise .container .row .col-lg-3 .item-details .item-details-img img {
+  max-width: 95%;
+}
+
+.enterprise .container .row .col-lg-3 .item-details .item-details-content {
+  padding: 20px 0 20px 0;
+  width: 60%;
+  font-family: "Passero One", cursive;
+  color: #51432F;
+  float: right;
+}
+
+.enterprise .container .row .col-lg-3 .item-details .item-details-content strong {
+  display: block;
+  margin: 0 10px 0 10px;
+  font-size: 20px;
+}
+
+.enterprise .container .row .col-lg-3 .item-details .item-details-content p {
+  margin: 15px 10px 0 10px;
+}
+
+.enterprise .container .row .col-lg-3.right-details .item-details {
+  left: inherit;
+  right: 80%;
+}
+
+.enterprise .container .row .col-lg-3:hover .item-details {
   display: block;
 }
 
@@ -1331,6 +1415,79 @@ a:hover {
   content: "\F110";
   -webkit-animation: fa-spin 2s linear infinite;
   animation: fa-spin 2s linear infinite;
+}
+
+.modal.map-legend .row .content {
+  max-width: 1200px;
+}
+
+.modal.map-legend .row .content .modal-content {
+  padding: 130px 100px 100px 100px;
+  height: 700px;
+  background: url("/assets/bg-modal.png") no-repeat top center/contain;
+  border: none;
+}
+
+.modal.map-legend .row .content .modal-content ul {
+  display: inline-block;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  width: 100%;
+  max-width: 500px;
+  list-style-type: none;
+}
+
+.modal.map-legend .row .content .modal-content ul li {
+  display: inline-block;
+  position: relative;
+  margin: 15px 0 0 0;
+  width: 100%;
+  font-family: "Passero One", cursive;
+  text-align: center;
+}
+
+.modal.map-legend .row .content .modal-content ul li:before {
+  position: absolute;
+  top: -4px;
+  left: -35px;
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: url("/assets/bg-star.png") no-repeat center center/contain;
+  content: "";
+}
+
+.modal.map-legend .row .content .modal-content ul li p {
+  font-size: 18px;
+  line-height: 24px;
+  text-align: left;
+}
+
+.modal.map-legend .row .content .modal-content ul li img {
+  display: block;
+  margin: 0 auto;
+}
+
+.modal.map-legend .row .content .modal-content input {
+  margin: 0 auto;
+  margin-bottom: 40px;
+  width: 100%;
+  max-width: 200px;
+  height: 40px;
+  font-family: "Passero One", cursive;
+  font-size: 20px;
+  color: #51432F;
+  line-height: 30px;
+  background: #D2C4AE;
+  border-radius: 20px 20px;
+  box-shadow: 0px 3.33564px 3.33564px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+.modal.map-legend .row .content .modal-content input:last-child {
+  margin-bottom: 0;
 }
 
 .modal.legend .row .content {

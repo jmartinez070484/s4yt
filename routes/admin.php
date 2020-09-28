@@ -36,8 +36,8 @@ Route::get('/business/new','Admin@businessCreate') -> name('admin.business.new')
 Route::post('/business/new','Admin@businessCreate');
 Route::post('/business/{user}','Admin@businessProfile') -> where('user','[0-9]+');
 Route::post('/business/{user}/question','Admin@businessQuestion') -> where('user','[0-9]+');
-Route::post('/business/{user}/schedule/new','Admin@businessScheduleNew') -> where('user','[0-9]+') -> name('admin.business.schedule.new');
-Route::post('/business/{user}/schedule/{schedule}','Admin@businessScheduleItem') -> where('user','[0-9]+') -> where('schedule','[0-9]+');
+//Route::post('/business/{user}/schedule/new','Admin@businessScheduleNew') -> where('user','[0-9]+') -> name('admin.business.schedule.new');
+//Route::post('/business/{user}/schedule/{schedule}','Admin@businessScheduleItem') -> where('user','[0-9]+') -> where('schedule','[0-9]+');
 Route::post('/business/{user}/email','Admin@userEmail');
 
 
