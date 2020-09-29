@@ -175,6 +175,30 @@ a:hover {
 .items .container .row:first-child .col-12:first-child .note p {
   margin: 20px;
   line-height: 18px;
+  text-align: left;
+}
+
+.items .container .row:first-child .col-12:first-child .note p span {
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+  background: url("/assets/item-ticket.png") no-repeat center center/contain;
+}
+
+.items .container .row:first-child .col-12:first-child .note p a:nth-child(1),
+.items .container .row:first-child .col-12:first-child .note p a:nth-child(2) {
+  display: inline-block;
+  margin: 0 4px 0 4px;
+  width: 20px;
+  height: 20px;
+}
+
+.items .container .row:first-child .col-12:first-child .note p a:nth-child(1) {
+  background: url("/assets/icon-facebook.png") no-repeat center center/contain;
+}
+
+.items .container .row:first-child .col-12:first-child .note p a:nth-child(2) {
+  background: url("/assets/icon-instagram.png") no-repeat center center/contain;
 }
 
 .items .container .row:first-child .col-12:first-child .note:after {
@@ -183,7 +207,7 @@ a:hover {
   height: 60px;
   background: url("/assets/item-ticket.png") no-repeat center center;
   background-size: 40% auto;
-  content: "";
+  content: none;
 }
 
 .items .container .row:first-child .col-lg-6:nth-child(2) {
@@ -325,7 +349,7 @@ a:hover {
   height: 100%;
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: 50% auto;
+  background-size: 75% auto;
 }
 
 .items .container .row .col-12 .item .item-preview img {
@@ -335,6 +359,13 @@ a:hover {
 .items .container .row .col-12 .item .item-tickets {
   margin: 10px 0 0 0;
   width: 100%;
+}
+
+.items .container .row .col-12 .item .item-tickets strong {
+  display: block;
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  font-weight: normal;
 }
 
 .items .container .row .col-12 .item .item-tickets form {

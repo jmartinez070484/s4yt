@@ -9,7 +9,9 @@
 	    		<div class="note">
 	            	<i onclick="removeNote(this)"></i>
 	            	<strong>Do you know?</strong>
-	            	<p>You can earn up to 15 extra tix by sharing your experience in social media! Tag us now!</p>
+	            	<p>You can + <span></span> ?</p>
+	            	<p>Just click on our <a href="#"></a> or <a href="#"></a></p>
+	            	<p>And follow us or use one of our filters and tag us!</p>
 	            </div> 
 	    	</div>
 	    	<div class="col-lg-6">
@@ -33,6 +35,7 @@
 		            </div>
 		            @if($item -> status == 1)
 	            	<div class="item-tickets">
+	            		<strong>{{ $item -> name }}</strong>
 		            	<form action="{{ route('items') }}/{{ $item -> id }}" method="POST" onsubmit="return false" novalidate>
 		            		<input name="qty" type="number" min="0" max="100" value="{{ $item -> user_tickets -> count() }}" readonly />
 			            	@csrf
