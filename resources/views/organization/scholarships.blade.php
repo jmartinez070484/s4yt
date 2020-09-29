@@ -23,7 +23,7 @@
 					<li>{{ $scholarship -> id }}</li>
 					<li>{{ $scholarship -> name }}</li>
 					<li>${{ $scholarship -> amount }}</li>
-					<li>@if($user = $scholarship -> user) {{ $user -> first_name }} {{ $user -> last_name }} @if($answer = $scholarship -> answer) | <a href="{{ route('organization.answers.details',['answer'=>$answer -> id]) }}" target="_BLANK" class="link">Answer</a> @endif @else N/A @endif</li>
+					<li>@if($user = $scholarship -> user) Student ID #{{ $user -> id }} @if($answer = $scholarship -> answer) | <a href="{{ route('organization.answers.details',['answer'=>$answer -> id]) }}" target="_BLANK" class="link">Answer</a> @endif @else N/A @endif</li>
 				</ul>
 				@endforeach
 			@else

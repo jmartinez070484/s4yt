@@ -7,7 +7,7 @@
 		<div class="labels">
 			<h1>Answer</h1>
 			<a href="#" onclick="return answerWinner(this)" data-url="{{ route('admin.partials',['element'=>'select-winner']) }}">Select As Winner</a>
-			<p>Submited by: <br /><b>{{ $student -> first_name }} {{ $student -> last_name[0] }}<br />@if($grade = App\UserMeta::where('user_id',$student -> id) -> where('key','grade') -> first()) Grade {{ $grade -> value }} @endif @if($school = App\UserMeta::where('user_id',$student -> id) -> where('key','institution') -> first()) , {{ $school -> value }} @endif</b></p>
+			<p>Submited by: <br /><b>Student ID #{{ $student -> id }}</p>
 		</div>	
 		@if(Request::input('success') == 1 && !$question -> answer_id)
 		<div class="success">
