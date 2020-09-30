@@ -10,6 +10,7 @@ use App\Notifications\ScholarshipWinner;
 use App\Answer;
 use App\Schedule;
 use App\Scholarship;
+use App\Business;
 
 class Organization extends Controller
 {
@@ -295,5 +296,47 @@ class Organization extends Controller
         $scholarships = Scholarship::where('business_id',$business -> id) -> get();
 
         return view('organization.scholarships',compact('scholarships'));
+    }
+
+    /*
+
+        Organization map
+
+    */
+    public function enterprise(Request $request){
+        $user = Auth::user();
+        $organization = $user -> business;
+        $businesses = Business::where('status',1) -> get();
+
+        return view('organization.enterprise',compact('businesses','organization'));
+    }
+
+    /*
+
+        Organization self
+
+    */
+    public function self(Request $request){
+        $user = Auth::user();
+        $business = $user -> business;
+
+        return view('organization.business',compact('business'));
+    }
+
+    /*
+
+        Organizatioin question
+
+    */
+    public function selfQuestion(Request $request){
+        $user = Auth::user();
+        $business = $user -> business;
+        $question = $business -> question;
+
+        if($question){
+            return view('organization.view-question',compact('business','question'));
+        }else{
+            abort(404);
+        }
     }
 }

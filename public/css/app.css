@@ -7,7 +7,10 @@ body.question,
 body.enterprise,
 body.business,
 body.chatroom,
-body.winners {
+body.winners,
+body.organizationenterprise,
+body.organizationself,
+body.organizationselfquestion {
   background: url("/assets/bg-body-map.jpg") no-repeat center center/cover;
 }
 
@@ -697,6 +700,12 @@ a:hover {
   margin: 0;
 }
 
+.organizationenterprise .nav,
+.organizationself .nav,
+.organizationselfquestion .nav {
+  display: none;
+}
+
 .nav {
   margin: 80px 0 20px 0;
   width: 100%;
@@ -817,34 +826,41 @@ a:hover {
   padding: 40px;
 }
 
-.enterprise {
+.enterprise,
+.organizationenterprise {
   overfow: hidden;
 }
 
-.enterprise .nav {
+.enterprise .nav,
+.organizationenterprise .nav {
   margin: 50px 0 0 0;
 }
 
-.enterprise .nav .container .row .col-12 ul li {
+.enterprise .nav .container .row .col-12 ul li,
+.organizationenterprise .nav .container .row .col-12 ul li {
   display: none;
 }
 
-.enterprise .nav .container .row .col-12 ul li:first-child {
+.enterprise .nav .container .row .col-12 ul li:first-child,
+.organizationenterprise .nav .container .row .col-12 ul li:first-child {
   display: block;
 }
 
-.enterprise .container {
+.enterprise .container,
+.organizationenterprise .container {
   margin-top: 25px;
   margin-bottom: 25px;
 }
 
-.enterprise .container .row .col-lg-3 {
+.enterprise .container .row .col-lg-3,
+.organizationenterprise .container .row .col-lg-3 {
   position: relative;
   margin: 25px 0 25px 0;
   text-align: center;
 }
 
-.enterprise .container .row .col-lg-3 .item {
+.enterprise .container .row .col-lg-3 .item,
+.organizationenterprise .container .row .col-lg-3 .item {
   position: relative;
   display: inline-block;
   width: 160px;
@@ -853,7 +869,8 @@ a:hover {
   border: 5px solid transparent;
 }
 
-.enterprise .container .row .col-lg-3 .item:hover:before {
+.enterprise .container .row .col-lg-3 .item:hover:before,
+.organizationenterprise .container .row .col-lg-3 .item:hover:before {
   position: absolute;
   top: -15px;
   left: -40px;
@@ -863,49 +880,62 @@ a:hover {
   content: "";
 }
 
-.enterprise .container .row .col-lg-3 .item[data-flag="2"] {
+.enterprise .container .row .col-lg-3 .item[data-flag="2"],
+.organizationenterprise .container .row .col-lg-3 .item[data-flag="2"] {
   background: url("/assets/bg-island-2.png") no-repeat center center/contain;
 }
 
-.enterprise .container .row .col-lg-3 .item[data-flag="2"] img {
+.enterprise .container .row .col-lg-3 .item[data-flag="2"] img,
+.organizationenterprise .container .row .col-lg-3 .item[data-flag="2"] img {
   top: 28px;
   left: 56%;
 }
 
 .enterprise .container .row .col-lg-3 .item[data-flag="2"] span[data-status="1"],
-.enterprise .container .row .col-lg-3 .item[data-flag="2"] span[data-status="2"] {
+.enterprise .container .row .col-lg-3 .item[data-flag="2"] span[data-status="2"],
+.organizationenterprise .container .row .col-lg-3 .item[data-flag="2"] span[data-status="1"],
+.organizationenterprise .container .row .col-lg-3 .item[data-flag="2"] span[data-status="2"] {
   left: 33%;
 }
 
-.enterprise .container .row .col-lg-3 .item[data-flag="3"] {
+.enterprise .container .row .col-lg-3 .item[data-flag="3"],
+.organizationenterprise .container .row .col-lg-3 .item[data-flag="3"] {
   background: url("/assets/bg-island-3.png") no-repeat center center/contain;
 }
 
-.enterprise .container .row .col-lg-3 .item[data-flag="3"] img {
+.enterprise .container .row .col-lg-3 .item[data-flag="3"] img,
+.organizationenterprise .container .row .col-lg-3 .item[data-flag="3"] img {
   top: 15px;
   left: 45%;
 }
 
 .enterprise .container .row .col-lg-3 .item[data-flag="3"] span[data-status="1"],
-.enterprise .container .row .col-lg-3 .item[data-flag="3"] span[data-status="2"] {
+.enterprise .container .row .col-lg-3 .item[data-flag="3"] span[data-status="2"],
+.organizationenterprise .container .row .col-lg-3 .item[data-flag="3"] span[data-status="1"],
+.organizationenterprise .container .row .col-lg-3 .item[data-flag="3"] span[data-status="2"] {
   left: 20%;
 }
 
-.enterprise .container .row .col-lg-3 .item[data-flag="4"] {
+.enterprise .container .row .col-lg-3 .item[data-flag="4"],
+.organizationenterprise .container .row .col-lg-3 .item[data-flag="4"] {
   background: url("/assets/bg-island-4.png") no-repeat center center/contain;
 }
 
-.enterprise .container .row .col-lg-3 .item[data-flag="4"] img {
+.enterprise .container .row .col-lg-3 .item[data-flag="4"] img,
+.organizationenterprise .container .row .col-lg-3 .item[data-flag="4"] img {
   top: 28px;
   left: 56%;
 }
 
 .enterprise .container .row .col-lg-3 .item[data-flag="4"] span[data-status="1"],
-.enterprise .container .row .col-lg-3 .item[data-flag="4"] span[data-status="2"] {
+.enterprise .container .row .col-lg-3 .item[data-flag="4"] span[data-status="2"],
+.organizationenterprise .container .row .col-lg-3 .item[data-flag="4"] span[data-status="1"],
+.organizationenterprise .container .row .col-lg-3 .item[data-flag="4"] span[data-status="2"] {
   left: 32%;
 }
 
-.enterprise .container .row .col-lg-3 .item img {
+.enterprise .container .row .col-lg-3 .item img,
+.organizationenterprise .container .row .col-lg-3 .item img {
   position: absolute;
   top: 24px;
   left: 53%;
@@ -915,7 +945,10 @@ a:hover {
 
 .enterprise .container .row .col-lg-3 .item span[data-status="0"],
 .enterprise .container .row .col-lg-3 .item span[data-status="1"],
-.enterprise .container .row .col-lg-3 .item span[data-status="2"] {
+.enterprise .container .row .col-lg-3 .item span[data-status="2"],
+.organizationenterprise .container .row .col-lg-3 .item span[data-status="0"],
+.organizationenterprise .container .row .col-lg-3 .item span[data-status="1"],
+.organizationenterprise .container .row .col-lg-3 .item span[data-status="2"] {
   position: absolute;
   display: block;
   top: 65px;
@@ -924,19 +957,23 @@ a:hover {
   height: 40px;
 }
 
-.enterprise .container .row .col-lg-3 .item span[data-status="0"] {
+.enterprise .container .row .col-lg-3 .item span[data-status="0"],
+.organizationenterprise .container .row .col-lg-3 .item span[data-status="0"] {
   background: url("/assets/bg-black-x.png") no-repeat center center/contain;
 }
 
-.enterprise .container .row .col-lg-3 .item span[data-status="1"] {
+.enterprise .container .row .col-lg-3 .item span[data-status="1"],
+.organizationenterprise .container .row .col-lg-3 .item span[data-status="1"] {
   background: url("/assets/bg-yellow-x.png") no-repeat center center/contain;
 }
 
-.enterprise .container .row .col-lg-3 .item span[data-status="2"] {
+.enterprise .container .row .col-lg-3 .item span[data-status="2"],
+.organizationenterprise .container .row .col-lg-3 .item span[data-status="2"] {
   background: url("/assets/bg-green-x.png") no-repeat center center/contain;
 }
 
-.enterprise .container .row .col-lg-3 .item span.total {
+.enterprise .container .row .col-lg-3 .item span.total,
+.organizationenterprise .container .row .col-lg-3 .item span.total {
   position: absolute;
   display: block;
   top: 50px;
@@ -948,7 +985,8 @@ a:hover {
   border: 2px solid #51432F;
 }
 
-.enterprise .container .row .col-lg-3 .item a {
+.enterprise .container .row .col-lg-3 .item a,
+.organizationenterprise .container .row .col-lg-3 .item a {
   position: absolute;
   top: 0;
   left: 0;
@@ -959,7 +997,8 @@ a:hover {
   display: block;
 }
 
-.enterprise .container .row .col-lg-3 .item-details {
+.enterprise .container .row .col-lg-3 .item-details,
+.organizationenterprise .container .row .col-lg-3 .item-details {
   display: none;
   position: absolute;
   left: 80%;
@@ -971,17 +1010,20 @@ a:hover {
   z-index: 1;
 }
 
-.enterprise .container .row .col-lg-3 .item-details .item-details-img {
+.enterprise .container .row .col-lg-3 .item-details .item-details-img,
+.organizationenterprise .container .row .col-lg-3 .item-details .item-details-img {
   padding: 20px 0 20px 0;
   width: 40%;
   float: left;
 }
 
-.enterprise .container .row .col-lg-3 .item-details .item-details-img img {
+.enterprise .container .row .col-lg-3 .item-details .item-details-img img,
+.organizationenterprise .container .row .col-lg-3 .item-details .item-details-img img {
   max-width: 95%;
 }
 
-.enterprise .container .row .col-lg-3 .item-details .item-details-content {
+.enterprise .container .row .col-lg-3 .item-details .item-details-content,
+.organizationenterprise .container .row .col-lg-3 .item-details .item-details-content {
   padding: 20px 0 20px 0;
   width: 60%;
   font-family: "Passero One", cursive;
@@ -989,26 +1031,31 @@ a:hover {
   float: right;
 }
 
-.enterprise .container .row .col-lg-3 .item-details .item-details-content strong {
+.enterprise .container .row .col-lg-3 .item-details .item-details-content strong,
+.organizationenterprise .container .row .col-lg-3 .item-details .item-details-content strong {
   display: block;
   margin: 0 10px 0 10px;
   font-size: 20px;
 }
 
-.enterprise .container .row .col-lg-3 .item-details .item-details-content p {
+.enterprise .container .row .col-lg-3 .item-details .item-details-content p,
+.organizationenterprise .container .row .col-lg-3 .item-details .item-details-content p {
   margin: 15px 10px 0 10px;
 }
 
-.enterprise .container .row .col-lg-3.right-details .item-details {
+.enterprise .container .row .col-lg-3.right-details .item-details,
+.organizationenterprise .container .row .col-lg-3.right-details .item-details {
   left: inherit;
   right: 80%;
 }
 
-.enterprise .container .row .col-lg-3:hover .item-details {
+.enterprise .container .row .col-lg-3:hover .item-details,
+.organizationenterprise .container .row .col-lg-3:hover .item-details {
   display: block;
 }
 
-.enterprise .container .row .col-lg-3 .building-ship {
+.enterprise .container .row .col-lg-3 .building-ship,
+.organizationenterprise .container .row .col-lg-3 .building-ship {
   position: relative;
   display: inline-block;
   width: 160px;
@@ -1016,31 +1063,46 @@ a:hover {
   background: url("/assets/building-u-ship.png") no-repeat center center/contain;
 }
 
-.question .container .row .col-12 .text {
+.organizationenterprise .container .row .col-lg-3 .item:hover:before {
+  content: none;
+}
+
+.organizationenterprise .container .row .col-lg-3 .item.self:hover:before {
+  content: "";
+}
+
+.question .container .row .col-12 .text,
+.organizationselfquestion .container .row .col-12 .text {
   width: 100%;
 }
 
-.question .container .row .col-12 .text p {
+.question .container .row .col-12 .text p,
+.organizationselfquestion .container .row .col-12 .text p {
   font-family: "Passero One", cursive;
   font-size: 24px;
   color: #51432F;
 }
 
-.question .container .row .col-12 .answer {
+.question .container .row .col-12 .answer,
+.organizationselfquestion .container .row .col-12 .answer {
   margin: 0 0 40px 0;
   width: 100%;
 }
 
-.question .container .row .col-12 .answer form {
+.question .container .row .col-12 .answer form,
+.organizationselfquestion .container .row .col-12 .answer form {
   width: 100%;
 }
 
-.question .container .row .col-12 .answer form fieldset {
+.question .container .row .col-12 .answer form fieldset,
+.organizationselfquestion .container .row .col-12 .answer form fieldset {
   margin: 40px 0 0 0;
 }
 
 .question .container .row .col-12 .answer form fieldset button,
-.question .container .row .col-12 .answer form fieldset input[type=button] {
+.question .container .row .col-12 .answer form fieldset input[type=button],
+.organizationselfquestion .container .row .col-12 .answer form fieldset button,
+.organizationselfquestion .container .row .col-12 .answer form fieldset input[type=button] {
   display: inline-block;
   min-width: 150px;
   height: 50px;
@@ -1057,29 +1119,36 @@ a:hover {
 }
 
 .question .container .row .col-12 .answer form fieldset button:hover,
-.question .container .row .col-12 .answer form fieldset input[type=button]:hover {
+.question .container .row .col-12 .answer form fieldset input[type=button]:hover,
+.organizationselfquestion .container .row .col-12 .answer form fieldset button:hover,
+.organizationselfquestion .container .row .col-12 .answer form fieldset input[type=button]:hover {
   color: #FFF;
   background: rgba(0, 198, 255, 0.75);
 }
 
-.question .container .row .col-12 .answer form fieldset button {
+.question .container .row .col-12 .answer form fieldset button,
+.organizationselfquestion .container .row .col-12 .answer form fieldset button {
   padding: 0 20px 0 20px;
 }
 
-.question .container .row .col-12 .answer form fieldset button:disabled {
+.question .container .row .col-12 .answer form fieldset button:disabled,
+.organizationselfquestion .container .row .col-12 .answer form fieldset button:disabled {
   cursor: default;
 }
 
-.question .container .row .col-12 .answer form fieldset input[type=button] {
+.question .container .row .col-12 .answer form fieldset input[type=button],
+.organizationselfquestion .container .row .col-12 .answer form fieldset input[type=button] {
   width: 110px;
   float: left;
 }
 
-.question .container .row .col-12 .answer form fieldset input[type=button][value=Discard] {
+.question .container .row .col-12 .answer form fieldset input[type=button][value=Discard],
+.organizationselfquestion .container .row .col-12 .answer form fieldset input[type=button][value=Discard] {
   margin: 0 0 0 20px;
 }
 
-.question .container .row .col-12 .answer form fieldset textarea {
+.question .container .row .col-12 .answer form fieldset textarea,
+.organizationselfquestion .container .row .col-12 .answer form fieldset textarea {
   padding: 20px;
   width: 100%;
   min-height: 400px;
@@ -1091,36 +1160,43 @@ a:hover {
   border: 2px solid #51432F;
 }
 
-.question .container .row .col-12 .answer form fieldset textarea.invalid {
+.question .container .row .col-12 .answer form fieldset textarea.invalid,
+.organizationselfquestion .container .row .col-12 .answer form fieldset textarea.invalid {
   border: 1px solid #F00;
 }
 
-.question .container .row .col-12 .answer form fieldset:first-child {
+.question .container .row .col-12 .answer form fieldset:first-child,
+.organizationselfquestion .container .row .col-12 .answer form fieldset:first-child {
   margin: 0;
 }
 
-.question .container:nth-child(3) {
+.question .container:nth-child(3),
+.organizationselfquestion .container:nth-child(3) {
   margin-top: 80px;
   max-width: 930px;
 }
 
-.business .content .row .col-12 {
+.business .content .row .col-12,
+.organizationself .content .row .col-12 {
   padding-top: 90px;
   padding-bottom: 25px;
 }
 
-.business .content .row .col-12 .logo {
+.business .content .row .col-12 .logo,
+.organizationself .content .row .col-12 .logo {
   width: 35%;
   text-align: center;
   float: left;
 }
 
-.business .content .row .col-12 .logo img {
+.business .content .row .col-12 .logo img,
+.organizationself .content .row .col-12 .logo img {
   max-width: 80%;
   margin: 0 auto;
 }
 
-.business .content .row .col-12 .text {
+.business .content .row .col-12 .text,
+.organizationself .content .row .col-12 .text {
   padding: 0 40px 0 0;
   width: 62%;
   font-family: "Passero One", cursive;
@@ -1128,27 +1204,32 @@ a:hover {
   float: right;
 }
 
-.business .content .row .col-12 .text h1 {
+.business .content .row .col-12 .text h1,
+.organizationself .content .row .col-12 .text h1 {
   font-size: 45px;
 }
 
-.business .content .row .col-12 .text p {
+.business .content .row .col-12 .text p,
+.organizationself .content .row .col-12 .text p {
   margin: 0 0 20px 0;
   font-size: 18px;
 }
 
-.business .content .row .col-12 .text p:last-child {
+.business .content .row .col-12 .text p:last-child,
+.organizationself .content .row .col-12 .text p:last-child {
   margin: 0;
 }
 
-.business .content .row .col-12 .question-link {
+.business .content .row .col-12 .question-link,
+.organizationself .content .row .col-12 .question-link {
   margin: 60px 0 0 0;
   width: 100%;
   text-align: center;
   float: left;
 }
 
-.business .content .row .col-12 .question-link a {
+.business .content .row .col-12 .question-link a,
+.organizationself .content .row .col-12 .question-link a {
   position: relative;
   font-family: "Passero One", cursive;
   font-size: 28px;
@@ -1156,11 +1237,13 @@ a:hover {
   text-decoration: underline;
 }
 
-.business .content .row .col-12 .question-link a:hover {
+.business .content .row .col-12 .question-link a:hover,
+.organizationself .content .row .col-12 .question-link a:hover {
   color: rgba(0, 198, 255, 0.75);
 }
 
-.business .content .row .col-12 .question-link a:before {
+.business .content .row .col-12 .question-link a:before,
+.organizationself .content .row .col-12 .question-link a:before {
   display: inline-block;
   position: absolute;
   top: -5px;
@@ -1171,16 +1254,19 @@ a:hover {
   content: "";
 }
 
-.business .zoom {
+.business .zoom,
+.organizationself .zoom {
   width: 100%;
   margin: 120px 0 0 0;
 }
 
-.business .zoom .container {
+.business .zoom .container,
+.organizationself .zoom .container {
   max-width: 900px;
 }
 
-.business .zoom .container .row .col-12 a {
+.business .zoom .container .row .col-12 a,
+.organizationself .zoom .container .row .col-12 a {
   display: inline-block;
   padding: 0 20px 0 0;
   font-size: 22px;
@@ -1191,7 +1277,8 @@ a:hover {
   border-radius: 30px 30px;
 }
 
-.business .zoom .container .row .col-12 a:before {
+.business .zoom .container .row .col-12 a:before,
+.organizationself .zoom .container .row .col-12 a:before {
   display: inline-block;
   margin: 0 14px 0 0;
   width: 56px;
@@ -1201,16 +1288,19 @@ a:hover {
   content: "";
 }
 
-.business .schedule {
+.business .schedule,
+.organizationself .schedule {
   width: 100%;
   margin: 120px 0 0 0;
 }
 
-.business .schedule .container {
+.business .schedule .container,
+.organizationself .schedule .container {
   max-width: 900px;
 }
 
-.business .schedule .container .row .col-12 {
+.business .schedule .container .row .col-12,
+.organizationself .schedule .container .row .col-12 {
   position: relative;
   margin-bottom: 75px;
   padding-top: 70px;
@@ -1220,7 +1310,8 @@ a:hover {
   background-size: 100% auto;
 }
 
-.business .schedule .container .row .col-12:before {
+.business .schedule .container .row .col-12:before,
+.organizationself .schedule .container .row .col-12:before {
   position: absolute;
   top: -38px;
   left: 0;
@@ -1232,7 +1323,8 @@ a:hover {
   content: "";
 }
 
-.business .schedule .container .row .col-12 h2 {
+.business .schedule .container .row .col-12 h2,
+.organizationself .schedule .container .row .col-12 h2 {
   margin: 0 0 40px 0;
   font-family: "Passero One", cursive;
   color: #64543C;
@@ -1240,7 +1332,8 @@ a:hover {
   text-decoration: underline;
 }
 
-.business .schedule .container .row .col-12 ul {
+.business .schedule .container .row .col-12 ul,
+.organizationself .schedule .container .row .col-12 ul {
   display: inline-block;
   width: 100%;
   margin: 10px 0 0 0;
@@ -1248,7 +1341,8 @@ a:hover {
   list-style-type: none;
 }
 
-.business .schedule .container .row .col-12 ul li {
+.business .schedule .container .row .col-12 ul li,
+.organizationself .schedule .container .row .col-12 ul li {
   width: 48%;
   font-family: "Passero One", cursive;
   color: #64543C;
@@ -1257,7 +1351,8 @@ a:hover {
   float: left;
 }
 
-.business .schedule .container .row .col-12 ul li:last-child {
+.business .schedule .container .row .col-12 ul li:last-child,
+.organizationself .schedule .container .row .col-12 ul li:last-child {
   text-align: left;
   float: right;
 }

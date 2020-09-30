@@ -45,6 +45,7 @@
 			<li><a href="{{ route('organization.question') }}">Question</a></li>
 			<li><a href="{{ route('organization.answers') }}">Answers</a></li>
 			<li><a href="{{ route('organization.scholarships') }}">Scholarships</a></li>
+			<li><a href="{{ route('organization.enterprise') }}">Map</a></li>
 		</ul>
 	</div>	
 

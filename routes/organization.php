@@ -19,8 +19,10 @@ Route::get('/schedule/{schedule}','Organization@scheduleEdit') -> where('schedul
 Route::get('/question','Organization@question') -> name('organization.question');
 Route::get('/answers','Organization@answers') -> name('organization.answers');
 Route::get('/answers/{answer}','Organization@answersDetails') -> where('answer','[0-9]+') -> name('organization.answers.details');
-
 Route::get('/scholarships','Organization@scholarships') -> name('organization.scholarships');
+Route::get('/map','Organization@enterprise') -> name('organization.enterprise');
+Route::get('/self','Organization@self') -> name('organization.self');
+Route::get('/self/question','Organization@selfQuestion') -> name('organization.self.question');
 
 //post
 Route::post('/','Organization@profile');
