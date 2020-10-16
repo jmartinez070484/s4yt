@@ -522,6 +522,46 @@ if(businessMap){
 	}
 }
 
+var businessPage = document.querySelector('.business');
+
+if(businessPage){
+	var connectLink = businessPage.querySelector('.content .row .col-12 .business-links .connect-link a');
+	
+	if(connectLink){
+		connectLink.addEventListener('click',function(e){
+			e.preventDefault();
+			
+			if(this.className !== 'active'){
+				var formData = new FormData();
+				var xhttp = new XMLHttpRequest();
+
+				formData.append('_token',document.querySelector('meta[name="csrf-token"]').content);
+				
+				xhttp.onreadystatechange = function(){
+					if(xhttp.readyState == 4){
+						if(xhttp.status === 200){
+							try{
+				        		var response = JSON.parse(xhttp.response)
+				        	}catch(e){
+				        		var response = xhttp.response; 
+				       		}
+
+				       		console.log(response);
+						}else{
+							throw 'invalid HTTP request: ' + xhttp.status + ' response';
+						}
+					}
+				};
+									  
+				xhttp.open('POST',document.location.href,true);
+				xhttp.send(formData);
+
+				this.className = 'active';
+			}
+		});
+	}
+}
+
 var mapLegend = document.querySelector('.event');
 
 if(mapLegend){

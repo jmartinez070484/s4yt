@@ -17,11 +17,16 @@
 					<h1>{{ $business -> name }}</h1>
 					<p>{{ $business -> description }}</p>
 				</div>
-				@if($question = $business -> question)
-				<div class="question-link">
-					<a href="{{ route('question',['business'=>$business -> slug]) }}">Explore the question...</a>
+				<div class="business-links">
+					@if($question = $business -> question)
+					<div class="question-link">
+						<a href="{{ route('question',['business'=>$business -> slug]) }}">Explore the question...</a>
+					</div>
+					@endif
+					<div class="connect-link">
+						<a href="#" @if($connect -> id) class="active" @endif>I’d love to connect with you<br />after the event!</a>
+					</div>
 				</div>
-				@endif
 			</div>
 		</div>
 	</div>

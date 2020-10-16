@@ -14,6 +14,7 @@ use App\Item;
 use App\Business;
 use App\Answer;
 use App\Visit;
+use App\Connect;
 
 class Event extends Controller
 {
@@ -64,17 +65,32 @@ class Event extends Controller
     public function business(Request $request,Business $business){
         if($business -> status == 1){
             $userId = Auth::id();
-            $visit = Visit::where('user_id',$business -> id) -> where('user_id',$userId) -> get() -> first();
 
-            if(!$visit){
-                $visit = new Visit();
-                $visit -> user_id = $userId;
-                $visit -> business_id = $business -> id;
+            if($request->isMethod('post')){
+                $connect = Connect::where('business_id',$business -> id) -> where('user_id',$userId) -> first();
+                
+                if(!$connect){
+                    $connect = new Connect();
+                    $connect -> business_id = $business -> id;
+                    $connect -> user_id = $userId;
+                    $connect -> save();
+                }
+
+                return response(['success'=>true,'connect'=>$connect]);
+            }else{
+                $visit = Visit::where('user_id',$business -> id) -> where('user_id',$userId) -> get() -> first();
+                $connect = Connect::where('business_id',$business -> id) -> where('user_id',$userId) -> first();
+
+                if(!$visit){
+                    $visit = new Visit();
+                    $visit -> user_id = $userId;
+                    $visit -> business_id = $business -> id;
+                }
+
+                $visit -> save();
+
+                return view('event.business',compact('business','connect'));
             }
-
-            $visit -> save();
-
-            return view('event.business',compact('business'));
         }else{
             abort(404);
         }

@@ -40,10 +40,8 @@ class Api extends Controller
 	            'first_name' => ['required','string'],
 	            'last_name' => ['required','string'],
 	            'email' => ['required','string','email','unique:users'],
-	            'institution'=>['required','string'],
+	            'contact_email' => ['required','string','email'],
 	            'grade'=>['required','string'],
-	            'dob'=>['required','string'],
-	            'city_state'=>['required','string'],
 	            'phone'=>['required','string'],
 	            'wp_user'=>['required','string'],
 	        ]);
@@ -58,7 +56,7 @@ class Api extends Controller
         		$newUser -> api_token = Str::random(80);	
 	        	$newUser -> save();
 
-	        	$metadata = ['institution','grade','dob','city_state','phone','wp_user'];
+	        	$metadata = ['institution','grade','city_state','instagram','phone','wp_user','contact_email'];
 
 	        	foreach($metadata as $key){
 	        		if(isset($data[$key])){
