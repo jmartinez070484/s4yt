@@ -11,6 +11,7 @@ use App\Answer;
 use App\Schedule;
 use App\Scholarship;
 use App\Business;
+use App\Item;
 
 class Organization extends Controller
 {
@@ -313,6 +314,15 @@ class Organization extends Controller
 
     /*
 
+        Event
+
+    */
+    public function event(Request $request){
+        return view('organization.event');
+    }
+
+    /*
+
         Organization self
 
     */
@@ -321,6 +331,18 @@ class Organization extends Controller
         $business = $user -> business;
 
         return view('organization.business',compact('business'));
+    }
+
+    /*
+
+        Organization items
+
+    */
+    public function items(Request $request){
+        $items = Item::where('status',1) -> paginate(10);
+        $total = $items -> count();
+            
+        return view('organization.items',compact('items','user','total'));
     }
 
     /*

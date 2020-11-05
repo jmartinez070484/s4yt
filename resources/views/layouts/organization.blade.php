@@ -45,7 +45,7 @@
 			<li><a href="{{ route('organization.question') }}">Question</a></li>
 			<li><a href="{{ route('organization.answers') }}">Answers</a></li>
 			<li><a href="{{ route('organization.scholarships') }}">Scholarships</a></li>
-			<li><a href="{{ route('organization.enterprise') }}">Map</a></li>
+			<li><a href="{{ route('organization.event') }}" target="_BLANK">Event</a></li>
 		</ul>
 	</div>	
 

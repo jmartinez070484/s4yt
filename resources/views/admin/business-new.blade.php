@@ -51,12 +51,12 @@
 				<fieldset>
 					<label>Logo</label>
 					<input name="logo" type="file" value="" onchange="filePreview(this)" autocomplete="off" required />
-					<span onclick="this.previousElementSibling.click();"></span>
+					<div class="preview" onclick="this.previousElementSibling.click();"></div>
 				</fieldset>
 				<fieldset>
 					<label>Icon</label>
 					<input name="icon" type="file" value="" onchange="filePreview(this)" autocomplete="off" required />
-					<span onclick="this.previousElementSibling.click();"></span>
+					<div class="preview" onclick="this.previousElementSibling.click();"></div>
 				</fieldset>
 				<fieldset>
 					@csrf

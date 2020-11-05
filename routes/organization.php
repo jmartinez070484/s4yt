@@ -20,9 +20,13 @@ Route::get('/question','Organization@question') -> name('organization.question')
 Route::get('/answers','Organization@answers') -> name('organization.answers');
 Route::get('/answers/{answer}','Organization@answersDetails') -> where('answer','[0-9]+') -> name('organization.answers.details');
 Route::get('/scholarships','Organization@scholarships') -> name('organization.scholarships');
-Route::get('/map','Organization@enterprise') -> name('organization.enterprise');
-Route::get('/self','Organization@self') -> name('organization.self');
-Route::get('/self/question','Organization@selfQuestion') -> name('organization.self.question');
+
+//event
+Route::get('/event','Organization@event') -> name('organization.event');
+Route::get('/event/map','Organization@enterprise') -> name('organization.enterprise');
+Route::get('/event/map/self','Organization@self') -> name('organization.self');
+Route::get('/event/map/self/question','Organization@selfQuestion') -> name('organization.self.question');
+Route::get('/event/items','Organization@items') -> name('organization.items');
 
 //post
 Route::post('/','Organization@profile');
@@ -34,6 +38,5 @@ Route::post('/answers/{answer}/winner','Organization@answersWinner') -> where('a
 
 //delete
 Route::delete('/schedule/{schedule}','Organization@scheduleEdit') -> where('schedule','[0-9]+');
-
 
 ?>

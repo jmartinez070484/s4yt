@@ -15,8 +15,6 @@
 	            </div> 
 	    	</div>
 	    	<div class="col-lg-6">
-	    		<span>Your Total</span>
-	    		<input name="tickets" type="number" value="{{ $user -> tickets -> whereNull('item_id') -> count() }}" readonly />
 	    	</div>
 	    	<div class="col-lg-6">
 	    		{{ $items -> links() }}
@@ -32,21 +30,15 @@
 		            		<img src="{{ Storage::disk('public') -> url($item -> image) }}" alt="{{ $item -> name }}" />
 		            	</div>
 		            	@endif
-		            	@if($item -> tickets -> count() == 0)
+		            	@if($item -> tickets -> count())
 		            	<div class="item-total">
-		            		<span>1</span>
+		            		<span>{{ $item -> tickets -> count() }}</span>
 		            	</div>
 		            	@endif
 		            </div>
 		            @if($item -> status == 1)
 	            	<div class="item-tickets">
 	            		<strong>{{ $item -> name }}</strong>
-		            	<form action="{{ route('items') }}/{{ $item -> id }}" method="POST" onsubmit="return false" novalidate>
-		            		<input name="qty" type="number" min="0" max="100" value="{{ $item -> user_tickets -> count() }}" readonly />
-			            	@csrf
-			            	<i class="fa fa-caret-down"></i>
-			            	<i class="fa fa-caret-up"></i>
-			            </form>
 		            </div>
 		            @endif
 	            </div>  

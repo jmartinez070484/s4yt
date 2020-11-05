@@ -535,7 +535,7 @@ header .container .logout a i {
   float: right;
 }
 
-.form .container .fields form fieldset button {
+.form .container .fields form fieldset:last-child button {
   padding: 10px 40px 10px 40px;
   font-size: 14px;
   font-weight: bold;
@@ -599,10 +599,10 @@ header .container .logout a i {
   border: 1px solid #F00;
 }
 
-.form .container .fields form[name=item] fieldset span,
-.form .container .fields form[name=business] fieldset span,
-.form .container .fields form[name=edit-business] fieldset span,
-.form .container .fields form[name=edit-organization] fieldset span {
+.form .container .fields form[name=item] fieldset div.preview,
+.form .container .fields form[name=business] fieldset div.preview,
+.form .container .fields form[name=edit-business] fieldset div.preview,
+.form .container .fields form[name=edit-organization] fieldset div.preview {
   display: block;
   width: 120px;
   height: 120px;

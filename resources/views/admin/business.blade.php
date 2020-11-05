@@ -59,12 +59,12 @@
 				<fieldset>
 					<label>Logo</label>
 					<input name="logo" type="file" value="" onchange="filePreview(this)" autocomplete="off" />
-					<span @if(isset($business -> logo)) style="background:url('{{ Storage::disk('public') -> url($business -> logo) }}') no-repeat center center/contain #efefef;" @endif onclick="this.previousElementSibling.click();"></span>
+					<div class="preview" @if(isset($business -> logo)) style="background:url('{{ Storage::disk('public') -> url($business -> logo) }}') no-repeat center center/contain #efefef;" @endif onclick="this.previousElementSibling.click();"></div>
 				</fieldset>
 				<fieldset>
 					<label>Icon</label>
 					<input name="icon" type="file" value="" onchange="filePreview(this)" autocomplete="off" />
-					<span @if(isset($business -> icon)) style="background:url('{{ Storage::disk('public') -> url($business -> icon) }}') no-repeat center center/contain #efefef;" @endif onclick="this.previousElementSibling.click();"></span>
+					<div class="preview" @if(isset($business -> icon)) style="background:url('{{ Storage::disk('public') -> url($business -> icon) }}') no-repeat center center/contain #efefef;" @endif onclick="this.previousElementSibling.click();"></div>
 				</fieldset>
 				<fieldset>
 					@csrf

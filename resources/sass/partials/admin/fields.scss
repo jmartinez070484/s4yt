@@ -95,17 +95,19 @@
 						float:right;
 					}
 
-					button {
-						padding:10px 40px 10px 40px;
-						font-size:14px;
-						font-weight:bold;
-						line-height:24px;
-						color:#FFF;
-						background:#1295ff;
-						border-radius:4px 4px;
-						outline:none;
-						border:none;
-						cursor:pointer;
+					&:last-child {
+						button {
+							padding:10px 40px 10px 40px;
+							font-size:14px;
+							font-weight:bold;
+							line-height:24px;
+							color:#FFF;
+							background:#1295ff;
+							border-radius:4px 4px;
+							outline:none;
+							border:none;
+							cursor:pointer;
+						}
 					}
 				}
 
@@ -163,7 +165,7 @@
 							}
 						}
 
-						span {
+						div.preview {
 							display:block;
 							width:120px;
 							height:120px;

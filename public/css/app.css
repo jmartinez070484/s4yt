@@ -10,7 +10,8 @@ body.chatroom,
 body.winners,
 body.organizationenterprise,
 body.organizationself,
-body.organizationselfquestion {
+body.organizationselfquestion,
+body.organizationevent {
   background: url("/assets/bg-body-map.jpg") no-repeat center center/cover;
 }
 
@@ -353,6 +354,18 @@ a:hover {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 75% auto;
+}
+
+.items .container .row .col-12 .item .item-preview .item-total {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 24px;
+  height: 24px;
+  color: #FFF;
+  text-align: center;
+  line-height: 24px;
+  background: rgba(0, 198, 255, 0.75);
 }
 
 .items .container .row .col-12 .item .item-preview img {
@@ -1399,22 +1412,26 @@ a:hover {
   float: right;
 }
 
-.event .event .container .row .col-12 {
+.event .event .container .row .col-12,
+.organizationevent .event .container .row .col-12 {
   margin: 40px 0 0 0;
 }
 
-.event .event .container .row .col-12 .event-title {
+.event .event .container .row .col-12 .event-title,
+.organizationevent .event .container .row .col-12 .event-title {
   width: 100%;
   text-align: center;
 }
 
-.event .event .container .row .col-12 .event-title h1 {
+.event .event .container .row .col-12 .event-title h1,
+.organizationevent .event .container .row .col-12 .event-title h1 {
   font-family: "Passero One", cursive;
   color: #372A15;
   font-size: 50px;
 }
 
-.event .event .container .row .col-12 .event-map {
+.event .event .container .row .col-12 .event-map,
+.organizationevent .event .container .row .col-12 .event-map {
   position: relative;
   display: block;
   width: 100%;
@@ -1423,7 +1440,8 @@ a:hover {
   background-size: 100% auto;
 }
 
-.event .event .container .row .col-12 .event-map a {
+.event .event .container .row .col-12 .event-map a,
+.organizationevent .event .container .row .col-12 .event-map a {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -1431,30 +1449,35 @@ a:hover {
   height: 160px;
 }
 
-.event .event .container .row .col-12 .event-map a.chat {
+.event .event .container .row .col-12 .event-map a.chat,
+.organizationevent .event .container .row .col-12 .event-map a.chat {
   bottom: 200px;
   right: 160px;
   height: 180px;
 }
 
-.event .event .container .row .col-12 .event-map a.businesses {
+.event .event .container .row .col-12 .event-map a.businesses,
+.organizationevent .event .container .row .col-12 .event-map a.businesses {
   bottom: 420px;
   right: 150px;
 }
 
-.event .event .container .row .col-12 .event-map a.raffle {
+.event .event .container .row .col-12 .event-map a.raffle,
+.organizationevent .event .container .row .col-12 .event-map a.raffle {
   bottom: 370px;
   right: 440px;
   height: 190px;
 }
 
-.event .event .container .row .col-12 .event-map a.winners {
+.event .event .container .row .col-12 .event-map a.winners,
+.organizationevent .event .container .row .col-12 .event-map a.winners {
   bottom: 580px;
   right: 190px;
   width: 270px;
 }
 
-.event .event .container .row .col-12 .event-map a:hover {
+.event .event .container .row .col-12 .event-map a:hover,
+.organizationevent .event .container .row .col-12 .event-map a:hover {
   border: 5px solid rgba(0, 198, 255, 0.75);
 }
 

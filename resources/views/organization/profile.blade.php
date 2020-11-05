@@ -54,11 +54,11 @@
 				</fieldset>
 				<fieldset>
 					<label>Logo</label>
-					<span @if($business -> logo) style="background:url('{{ Storage::disk('public') -> url($business -> logo) }}') no-repeat center center/contain #efefef;" @endif></span>
+					<div class="preview" @if($business -> logo) style="background:url('{{ Storage::disk('public') -> url($business -> logo) }}') no-repeat center center/contain #efefef;" @endif></div>
 				</fieldset>
 				<fieldset>
 					<label>Icon</label>
-					<span @if($business -> icon) style="background:url('{{ Storage::disk('public') -> url($business -> icon) }}') no-repeat center center/contain #efefef;" @endif></span>
+					<div class="preview" @if($business -> icon) style="background:url('{{ Storage::disk('public') -> url($business -> icon) }}') no-repeat center center/contain #efefef;" @endif></div>
 				</fieldset>
 				<fieldset>
 					@csrf

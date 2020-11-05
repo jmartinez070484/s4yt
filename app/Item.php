@@ -22,6 +22,15 @@ class Item extends Model
 
     /*
 
+        Get total tickets
+
+    */
+    public function tickets(){
+        return Auth::check() ? $this->hasMany(Ticket::class,'item_id','id')->where('user_id','!=',Auth::id()) : [];
+    }
+
+    /*
+
         Get tickets
 
     */

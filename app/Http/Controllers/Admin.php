@@ -128,6 +128,7 @@ class Admin extends Controller
                     $request -> image -> storeAs('',$item -> image,'public');
                 }
 
+                $item -> description = isset($data['description']) ? $data['description'] : '';
                 $item -> save();
 
                 $response = ['success'=>true,'redirect'=>route('admin.items.details',['item'=>$item -> id,'success'=>1])];
@@ -167,6 +168,7 @@ class Admin extends Controller
                     $filePath = $request -> image -> storeAs('',$fileName,'public');
                 }
 
+                $item -> description = isset($data['description']) ? $data['description'] : '';
                 $item -> save();
 
                 $response['redirect'] = route('admin.items.details',['item'=>$item -> id,'success'=>1]);
