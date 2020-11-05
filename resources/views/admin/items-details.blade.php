@@ -24,7 +24,7 @@
 				</fieldset>
 				<fieldset>
 					<label>Description</label>
-					<textarea id="description" name="description"></textarea>
+					<textarea id="description" name="description">{{ $item -> description }}</textarea>
 				</fieldset>
 				<fieldset>
 					<label>Image</label>
@@ -48,8 +48,8 @@
 		menubar: '',
 		toolbar: 'link paragraph bold header',
 		setup: function (editor) {
-            editor.on('change', function () {
-            	tinymce.get('description').save();
+            editor.on('change',function(e){
+            	editor.save();
             });
         }
     });

@@ -32,7 +32,7 @@
 		            		<img src="{{ Storage::disk('public') -> url($item -> image) }}" alt="{{ $item -> name }}" />
 		            	</div>
 		            	@endif
-		            	@if($item -> tickets -> count() == 0)
+		            	@if($item -> tickets -> count() > 0)
 		            	<div class="item-total">
 		            		<span>1</span>
 		            	</div>
@@ -41,6 +41,7 @@
 		            @if($item -> status == 1)
 	            	<div class="item-tickets">
 	            		<strong>{{ $item -> name }}</strong>
+	            		{!! $item -> description !!}
 		            	<form action="{{ route('items') }}/{{ $item -> id }}" method="POST" onsubmit="return false" novalidate>
 		            		<input name="qty" type="number" min="0" max="100" value="{{ $item -> user_tickets -> count() }}" readonly />
 			            	@csrf

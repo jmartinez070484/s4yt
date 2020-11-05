@@ -41,7 +41,12 @@
     	selector: '#description',
     	plugins: 'link',
 		menubar: '',
-		toolbar: 'link paragraph bold header'
+		toolbar: 'link paragraph bold header',
+		setup: function (editor) {
+            editor.on('change',function(e){
+            	editor.save();
+            });
+        }
     });
 </script>
 
