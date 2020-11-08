@@ -447,18 +447,12 @@ class Admin extends Controller
                 $validator = isset($data['email']) && $data['email'] == $user -> email ? Validator::make($data,[
                     'first_name' => ['required','string'],
                     'last_name' => ['required','string'],
-                    'institution'=>['required','string'],
-                    'grade'=>['required','string'],
-                    'dob'=>['required','string'],
                     'city_state'=>['required','string'],
                     'phone'=>['required','string']
                 ]) : Validator::make($data,[
                     'first_name' => ['required','string'],
                     'last_name' => ['required','string'],
                     'email' => ['required','string','email','unique:users'],
-                    'institution'=>['required','string'],
-                    'grade'=>['required','string'],
-                    'dob'=>['required','string'],
                     'city_state'=>['required','string'],
                     'phone'=>['required','string']
                 ]);
@@ -470,7 +464,7 @@ class Admin extends Controller
                     $user -> email = $data['email'];
                     $user -> save();
 
-                    $metadata = ['institution','grade','dob','city_state','phone'];
+                    $metadata = ['institution','grade','dob','city_state','phone','preferred_email'];
 
                     foreach($metadata as $meta){
                         if(isset($data[$meta])){
@@ -543,9 +537,6 @@ class Admin extends Controller
                 'first_name' => ['required','string'],
                 'last_name' => ['required','string'],
                 'email' => ['required','string','email','unique:users'],
-                'institution'=>['required','string'],
-                'grade'=>['required','string'],
-                'dob'=>['required','string'],
                 'city_state'=>['required','string'],
                 'phone'=>['required','string']
             ]);
@@ -560,7 +551,7 @@ class Admin extends Controller
                 $newUser -> api_token = Str::random(80);    
                 $newUser -> save();
 
-                $metadata = ['institution'=>'Institution','grade'=>'Grade','dob'=>'Date of Birth','city_state'=> 'City/State','phone'=>'Phone Number'];
+                $metadata = ['institution'=>'Institution','grade'=>'Grade','dob'=>'Date of Birth','city_state'=> 'City/State','phone'=>'Phone Number','preferred_email'=>'Preferred Email Address'];
 
                 foreach($metadata as $key => $value){
                     if(isset($data[$key])){

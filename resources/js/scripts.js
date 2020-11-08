@@ -70,6 +70,14 @@ if(searchInput){
 var businessMap = document.querySelector('.enterprise');
 
 if(businessMap){
+	var legendBtn = businessMap.querySelector('.enterprise .nav .container .row .col-12 ul li:first-child');
+
+	if(legendBtn){
+		legendBtn.addEventListener('click',function(){
+			modal.openModal('legend');
+		});
+	}
+
 	var legend = getCookie('businessLegend');
 
 	if(!legend){

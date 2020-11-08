@@ -805,6 +805,12 @@ a:hover {
   color: #51432F;
   border: 2px solid rgba(109, 101, 79, 0.4);
   border-radius: 20px 20px;
+  cursor: pointer;
+}
+
+.enterprise .nav .container .row .col-12 ul:first-child li:hover {
+  color: #FFF;
+  background: rgba(0, 198, 255, 0.75);
 }
 
 .content {

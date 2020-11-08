@@ -24,7 +24,7 @@
 					</div>
 					@endif
 					<div class="connect-link">
-						<a href="#" @if($connect -> id) class="active" @endif>I’d love to connect with you<br />after the event!</a>
+						<a href="#" @if(isset($connect) && $connect -> id) class="active" @endif>I’d love to connect with you<br />after the event!</a>
 					</div>
 				</div>
 			</div>

@@ -9,7 +9,7 @@
 				@endif
 				@if(Route::currentRouteName() === 'enterprise')
 				<ul>
-					<li>Refresher on the X’s</li>
+					<li class="legend">Refresher on the X’s</li>
 				</ul>
 				@endif
 				<ul>

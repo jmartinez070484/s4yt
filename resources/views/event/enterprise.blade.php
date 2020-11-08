@@ -7,7 +7,6 @@
 <div class="container">
 	<div class="row justify-content-center">
 		<div class="col-12">
-
 		</div>
 		@if(count($businesses) > 0 && $count = 1)
 			@foreach($businesses as $business)

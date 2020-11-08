@@ -26,7 +26,7 @@ class InsertYoutubeShortDescriptionBusinessesTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('businesses', function (Blueprint $table) {
             $table->dropColumn('youtube');
             $table->dropColumn('short_description');
         });

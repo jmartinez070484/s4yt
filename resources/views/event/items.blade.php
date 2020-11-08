@@ -10,7 +10,7 @@
 	            	<i onclick="removeNote(this)"></i>
 	            	<strong>Do you know?</strong>
 	            	<p>You can + <span></span> ?</p>
-	            	<p>Just click on our <a href="#"></a> or <a href="#"></a></p>
+	            	<p>Just click on our <a href="https://www.facebook.com/ubuild.u" target="_BLANK"></a> or <a href="https://www.instagram.com/ubuild_u/" target="_BLANK"></a></p>
 	            	<p>And follow us or use one of our filters and tag us!</p>
 	            </div> 
 	    	</div>

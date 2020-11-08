@@ -22,15 +22,19 @@
 					<input name="email" type="email" value="" autocomplete="off" required />
 				</fieldset>
 				<fieldset>
+					<label>Preferred Email Address</label>
+					<input name="preferred_email" type="email" value="" autocomplete="off" required />
+				</fieldset>
+				<fieldset>
 					<b>Details</b>
 				</fieldset>
 				<fieldset>
 					<label>Institution</label>
-					<input name="institution" type="text" value="" autocomplete="off" required />
+					<input name="institution" type="text" value="" autocomplete="off" />
 				</fieldset>
 				<fieldset>
 					<label>Grade</label>
-					<input name="grade" type="text" value="" autocomplete="off" required />
+					<input name="grade" type="text" value="" autocomplete="off" />
 				</fieldset>
 				<fieldset>
 					<label>Phone</label>
@@ -38,7 +42,7 @@
 				</fieldset>
 				<fieldset>
 					<label>DOB</label>
-					<input name="dob" type="date" value="" autocomplete="off" required />
+					<input name="dob" type="date" value="" autocomplete="off" />
 				</fieldset>
 				<fieldset>
 					<label>City/State</label>
