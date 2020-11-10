@@ -129,6 +129,14 @@ if(businessPage){
 var mapLegend = document.querySelector('.event');
 
 if(mapLegend){
+	var mapBtn = mapLegend.querySelector('.event .container .row .col-12 .event-btn a');
+
+	if(mapBtn){
+		mapBtn.addEventListener('click',function(){
+			modal.openModal('map-legend');
+		});
+	}
+
 	var mapLegendCookie = getCookie('mapLegend');
 
 	if(!mapLegendCookie){

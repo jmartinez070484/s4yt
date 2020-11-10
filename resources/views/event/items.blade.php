@@ -13,6 +13,9 @@
 	            	<p>Just click on our <a href="https://www.facebook.com/ubuild.u" target="_BLANK"></a> or <a href="https://www.instagram.com/ubuild_u/" target="_BLANK"></a></p>
 	            	<p>And follow us or use one of our filters and tag us!</p>
 	            </div> 
+	            <div class="btn">
+	            	<a href="{{ route('event') }}">Main Map</a>
+	            </div>
 	    	</div>
 	    	<div class="col-lg-6">
 	    		<span>Your Total</span>

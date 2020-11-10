@@ -9,6 +9,9 @@
 		    	<div class="event-title">
 		    		<h1>$4YT Treasure Map</h1>
 		    	</div>
+		    	<div class="event-btn">
+		    		<a href="#" class="legend">Refresher on the X’s</a>
+		    	</div>
 		    	<div class="event-map">
 		    		<a href="{{ route('items') }}" class="raffle"></a>
 		    		<a href="{{ route('enterprise') }}" class="businesses"></a>
