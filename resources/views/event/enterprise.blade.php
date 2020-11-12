@@ -28,8 +28,8 @@
 			</div>
 			<div class="item-details">
 				<div class="item-details-img">
-					@if(Storage::disk('public') -> exists($business -> icon))
-					<img src="{{ Storage::disk('public') -> url($business -> icon) }}" alt="{{ $business -> name }}" />
+					@if(Storage::disk('public') -> exists($business -> logo))
+					<img src="{{ Storage::disk('public') -> url($business -> logo) }}" alt="{{ $business -> name }}" />
 					@endif
 				</div>
 				<div class="item-details-content">
