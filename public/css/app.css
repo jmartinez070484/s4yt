@@ -214,18 +214,22 @@ a:hover {
   content: none;
 }
 
-.items .container .row:first-child .col-12:first-child .btn {
-  margin: -50px 0 0 0;
+.items .container .row:first-child .col-12:first-child .btns {
+  position: absolute;
+  top: 20px;
+  right: 0;
   float: right;
 }
 
-.items .container .row:first-child .col-12:first-child .btn a {
+.items .container .row:first-child .col-12:first-child .btns ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.items .container .row:first-child .col-12:first-child .btns ul li a {
   display: block;
   min-width: 160px;
   padding: 0 15px 0 15px;
-  height: 42px;
-  font-size: 25px;
-  line-height: 42px;
   font-family: "Passero One", cursive;
   color: #51432F;
   text-align: center;
@@ -234,10 +238,48 @@ a:hover {
   box-shadow: 0px 3.33564px 3.33564px rgba(0, 0, 0, 0.25);
 }
 
-.items .container .row:first-child .col-12:first-child .btn a:hover {
+.items .container .row:first-child .col-12:first-child .btns ul li a:hover {
   color: #FFF;
   text-decoration: none;
   background: rgba(0, 198, 255, 0.75);
+}
+
+.items .container .row:first-child .col-12:first-child .btns ul:first-child {
+  float: left;
+}
+
+.items .container .row:first-child .col-12:first-child .btns ul:first-child li {
+  display: block;
+  margin: 20px 0 0 0;
+}
+
+.items .container .row:first-child .col-12:first-child .btns ul:first-child li a {
+  height: 62px;
+  font-size: 26px;
+  line-height: 62px;
+}
+
+.items .container .row:first-child .col-12:first-child .btns ul:first-child li:first-child {
+  margin: 0;
+}
+
+.items .container .row:first-child .col-12:first-child .btns ul:last-child {
+  float: right;
+}
+
+.items .container .row:first-child .col-12:first-child .btns ul:last-child li {
+  margin: 0 0 0 20px;
+  float: left;
+}
+
+.items .container .row:first-child .col-12:first-child .btns ul:last-child li a {
+  height: 42px;
+  font-size: 25px;
+  line-height: 42px;
+}
+
+.items .container .row:first-child .col-12:first-child .btns ul:last-child li:first-child {
+  margin: 0;
 }
 
 .items .container .row:first-child .col-lg-6:nth-child(2) {

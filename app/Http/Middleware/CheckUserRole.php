@@ -25,9 +25,19 @@ class CheckUserRole
             if($userRole -> slug !== $prefix && $userRole -> id !== 2 || $userRole -> id === 2 && $prefix){
                 $validRoute = false;
             }
-
+            
             if(!$validRoute){
                 return redirect() -> route($userRole -> slug);
+            }else if($userRole -> id == 2 && strtotime('NOW') < env('APP_LAUNCH_DATE')){
+                try{
+                    $validUsers = explode(',',env('APP_USERS'));
+                }catch(Exception $exception){
+                    $validUsers = [];
+                }
+                
+                if(!in_array(Auth::id(),$validUsers)){
+                    return redirect() -> route('oops');
+                }
             }
         }else{
             return redirect() -> route('login');

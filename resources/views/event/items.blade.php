@@ -6,6 +6,13 @@
 	<div class="container">
 	    <div class="row	">
 	    	<div class="col-12">
+	    		<div class="btns">
+	    			<ul>
+						<li><a href="{{ route('event') }}">Main Map</a></li>
+						<li><a href="{{ route('enterprise') }}">Business Map</a></li>
+						<li><a href="{{ route('logout') }}">Exit</a></li>
+					</ul>
+	    		</div>
 	    		<div class="note">
 	            	<i onclick="removeNote(this)"></i>
 	            	<strong>Do you know?</strong>
@@ -13,9 +20,6 @@
 	            	<p>Just click on our <a href="https://www.facebook.com/ubuild.u" target="_BLANK"></a> or <a href="https://www.instagram.com/ubuild_u/" target="_BLANK"></a></p>
 	            	<p>And follow us or use one of our filters and tag us!</p>
 	            </div> 
-	            <div class="btn">
-	            	<a href="{{ route('event') }}">Main Map</a>
-	            </div>
 	    	</div>
 	    	<div class="col-lg-6">
 	    		<span>Your Total</span>
