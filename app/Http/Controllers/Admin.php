@@ -568,7 +568,7 @@ class Admin extends Controller
                 
                 $response['success'] = true;
                 $response['user'] = $newUser;
-                $response['redirect'] = route('admin.students.profile',['user'=>$newUser -> id]);
+                $response['redirect'] = route('admin.students.profile',['user'=>$newUser -> id,'success'=>1]);
             }else{
                 $response['error'] = $validator -> errors() ->first();
             }
