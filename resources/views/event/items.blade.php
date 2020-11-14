@@ -31,34 +31,36 @@
 	    </div>
 	    <div class="row">
 	    	<div class="col-12">
-	    		@foreach($items as $key => $item)
-	            <div class="item" data-status="{{ $item -> status }}">
-	            	<div class="item-preview">
-		            	@if(Storage::disk('public') -> exists($item -> image))
-		            	<div class="item-img">
-		            		<img src="{{ Storage::disk('public') -> url($item -> image) }}" alt="{{ $item -> name }}" />
-		            	</div>
-		            	@endif
-		            	@if($item -> tickets -> count() > 0)
-		            	<div class="item-total">
-		            		<span>1</span>
-		            	</div>
-		            	@endif
-		            </div>
-		            @if($item -> status == 1)
-	            	<div class="item-tickets">
-	            		<strong>{{ $item -> name }}</strong>
-	            		{!! $item -> description !!}
-		            	<form action="{{ route('items') }}/{{ $item -> id }}" method="POST" onsubmit="return false" novalidate>
-		            		<input name="qty" type="number" min="0" max="100" value="{{ $item -> user_tickets -> count() }}" readonly />
-			            	@csrf
-			            	<i class="fa fa-caret-down"></i>
-			            	<i class="fa fa-caret-up"></i>
-			            </form>
-		            </div>
-		            @endif
-	            </div>  
-	            @endforeach     
+	    		<div class="item-list">
+		    		@foreach($items as $key => $item)
+		            <div class="item" data-status="{{ $item -> status }}">
+		            	<div class="item-preview">
+			            	@if(Storage::disk('public') -> exists($item -> image))
+			            	<div class="item-img">
+			            		<img src="{{ Storage::disk('public') -> url($item -> image) }}" alt="{{ $item -> name }}" />
+			            	</div>
+			            	@endif
+			            	@if($item -> tickets -> count() > 0)
+			            	<div class="item-total">
+			            		<span>1</span>
+			            	</div>
+			            	@endif
+			            </div>
+			            @if($item -> status == 1)
+		            	<div class="item-tickets">
+		            		<strong>{{ $item -> name }}</strong>
+		            		{!! $item -> description !!}
+			            	<form action="{{ route('items') }}/{{ $item -> id }}" method="POST" onsubmit="return false" novalidate>
+			            		<input name="qty" type="number" min="0" max="100" value="{{ $item -> user_tickets -> count() }}" readonly />
+				            	@csrf
+				            	<i class="fa fa-caret-down"></i>
+				            	<i class="fa fa-caret-up"></i>
+				            </form>
+			            </div>
+			            @endif
+		            </div>  
+		            @endforeach 
+		        </div>    
 	        </div>
 	    </div>
 	</div>
