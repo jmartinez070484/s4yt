@@ -6,6 +6,13 @@
 	<div class="container">
 	    <div class="row	">
 	    	<div class="col-12">
+	    		<div class="btns">
+	    			<ul>
+						<li><a href="{{ route('organization.event') }}">Main Map</a></li>
+						<li><a href="{{ route('organization.enterprise') }}">Business Map</a></li>
+						<li><a href="{{ route('logout') }}">Exit</a></li>
+					</ul>
+	    		</div>
 	    		<div class="note">
 	            	<i onclick="removeNote(this)"></i>
 	            	<strong>Do you know?</strong>

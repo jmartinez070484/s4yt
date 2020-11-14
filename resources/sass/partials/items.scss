@@ -264,106 +264,110 @@
 				}
 			}
 			.col-12 {
-				.item {
-					display:block;
-					margin:20px 2.5% 20px 0;
-					text-align:center;
-					width:18%;
-					float:left;
+				.item-list {
+					width:100%;
+					display: -webkit-box;
+				    display: -ms-flexbox;
+				    display: flex;
+				    -ms-flex-wrap: wrap;
+				    flex-wrap: wrap;
 
-					&:nth-child(5n + 5) {
+					.item {
+						-webkit-box-flex: 0;
+					    -ms-flex: 0 0 20%;
+					    flex: 0 0 20%;
 						margin:20px 0 20px 0;
-						float:right;
-					}
-
-					.item-preview {
-						position:relative;
-						padding:100% 0 0 0;
-						width:100%;
-						background:url('/assets/bg-item.png') no-repeat center center/contain;
-
-						.item-img {
-							position:absolute;
-							top:0;
-							left:0;
-							right:0;
-							bottom:0;
-							width:100%;
-							height:100%;
-							background-position:center center;
-							background-repeat:no-repeat;
-							background-size:75% auto;
-						}
-
-						.item-total {
-							position:absolute;
-							bottom:20px;
-							right:20px;
-							width:24px;
-							height:24px;
-							color:#FFF;
-							text-align:center;
-							line-height:24px;
-							background:rgba(0, 198, 255, 0.75);
-						}
-
-						img {
-							display:none;
-						}
-					}
-
-					.item-tickets {
-						margin:10px 0 0 0;
-						width:100%;
-
-						strong {
-							display:block;
-							margin:0 0 10px 0;
-							font-size:18px;
-							font-weight:normal;
-						}
-
-						form {
+						text-align:center;
+						
+						.item-preview {
 							position:relative;
+							padding:100% 0 0 0;
 							width:100%;
-							text-align:center;
+							background:url('/assets/bg-item.png') no-repeat center center/contain;
 
-							i {
+							.item-img {
 								position:absolute;
-								font-size:32px;
-								cursor:pointer;
-
-								&.fa-caret-down {
-									left:22%;
-									bottom:0;
-								}
-								&.fa-caret-up {
-									right:22%;
-									top:0;
-								}
+								top:0;
+								left:0;
+								right:0;
+								bottom:0;
+								width:100%;
+								height:100%;
+								background-position:center center;
+								background-repeat:no-repeat;
+								background-size:75% auto;
 							}
-							
-							input {
-								margin:0 auto;
-								padding:0 10px 0 10px;
-								max-width:60px;
+
+							.item-total {
+								position:absolute;
+								bottom:20px;
+								right:20px;
+								width:24px;
+								height:24px;
+								color:#FFF;
 								text-align:center;
-								outline:none;
-								cursor:auto;
-								-moz-appearance:textfield;
+								line-height:24px;
+								background:rgba(0, 198, 255, 0.75);
+							}
 
-								&[value="0"] ~ i.fa-caret-down {
-									display:none;
-								}
+							img {
+								display:none;
+							}
+						}
 
-								&::-webkit-outer-spin-button {
-									-webkit-appearance:none;
-								  	margin:0;
+						.item-tickets {
+							margin:10px 0 0 0;
+							width:100%;
+
+							strong {
+								display:block;
+								margin:0 0 10px 0;
+								font-size:18px;
+								font-weight:normal;
+							}
+
+							form {
+								position:relative;
+								width:100%;
+								text-align:center;
+
+								i {
+									position:absolute;
+									font-size:32px;
+									cursor:pointer;
+
+									&.fa-caret-down {
+										left:22%;
+										bottom:0;
+									}
+									&.fa-caret-up {
+										right:22%;
+										top:0;
+									}
 								}
 								
-								&::-webkit-inner-spin-button {
-								  	-webkit-appearance:none;
-								  	margin:0;
+								input {
+									margin:0 auto;
+									padding:0 10px 0 10px;
+									max-width:60px;
+									text-align:center;
+									outline:none;
+									cursor:auto;
+									-moz-appearance:textfield;
+
+									&[value="0"] ~ i.fa-caret-down {
+										display:none;
+									}
+
+									&::-webkit-outer-spin-button {
+										-webkit-appearance:none;
+									  	margin:0;
+									}
+									
+									&::-webkit-inner-spin-button {
+									  	-webkit-appearance:none;
+									  	margin:0;
+									}
 								}
 							}
 						}

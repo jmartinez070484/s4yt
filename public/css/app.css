@@ -391,27 +391,26 @@ a:hover {
   display: none;
 }
 
-.items .container .row .col-12 .item {
-  display: block;
-  margin: 20px 2.5% 20px 0;
-  text-align: center;
-  width: 18%;
-  float: left;
+.items .container .row .col-12 .item-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.items .container .row .col-12 .item:nth-child(5n+5) {
+.items .container .row .col-12 .item-list .item {
+  flex: 0 0 20%;
   margin: 20px 0 20px 0;
-  float: right;
+  text-align: center;
 }
 
-.items .container .row .col-12 .item .item-preview {
+.items .container .row .col-12 .item-list .item .item-preview {
   position: relative;
   padding: 100% 0 0 0;
   width: 100%;
   background: url("/assets/bg-item.png") no-repeat center center/contain;
 }
 
-.items .container .row .col-12 .item .item-preview .item-img {
+.items .container .row .col-12 .item-list .item .item-preview .item-img {
   position: absolute;
   top: 0;
   left: 0;
@@ -424,7 +423,7 @@ a:hover {
   background-size: 75% auto;
 }
 
-.items .container .row .col-12 .item .item-preview .item-total {
+.items .container .row .col-12 .item-list .item .item-preview .item-total {
   position: absolute;
   bottom: 20px;
   right: 20px;
@@ -436,45 +435,45 @@ a:hover {
   background: rgba(0, 198, 255, 0.75);
 }
 
-.items .container .row .col-12 .item .item-preview img {
+.items .container .row .col-12 .item-list .item .item-preview img {
   display: none;
 }
 
-.items .container .row .col-12 .item .item-tickets {
+.items .container .row .col-12 .item-list .item .item-tickets {
   margin: 10px 0 0 0;
   width: 100%;
 }
 
-.items .container .row .col-12 .item .item-tickets strong {
+.items .container .row .col-12 .item-list .item .item-tickets strong {
   display: block;
   margin: 0 0 10px 0;
   font-size: 18px;
   font-weight: normal;
 }
 
-.items .container .row .col-12 .item .item-tickets form {
+.items .container .row .col-12 .item-list .item .item-tickets form {
   position: relative;
   width: 100%;
   text-align: center;
 }
 
-.items .container .row .col-12 .item .item-tickets form i {
+.items .container .row .col-12 .item-list .item .item-tickets form i {
   position: absolute;
   font-size: 32px;
   cursor: pointer;
 }
 
-.items .container .row .col-12 .item .item-tickets form i.fa-caret-down {
+.items .container .row .col-12 .item-list .item .item-tickets form i.fa-caret-down {
   left: 22%;
   bottom: 0;
 }
 
-.items .container .row .col-12 .item .item-tickets form i.fa-caret-up {
+.items .container .row .col-12 .item-list .item .item-tickets form i.fa-caret-up {
   right: 22%;
   top: 0;
 }
 
-.items .container .row .col-12 .item .item-tickets form input {
+.items .container .row .col-12 .item-list .item .item-tickets form input {
   margin: 0 auto;
   padding: 0 10px 0 10px;
   max-width: 60px;
@@ -484,16 +483,16 @@ a:hover {
   -moz-appearance: textfield;
 }
 
-.items .container .row .col-12 .item .item-tickets form input[value="0"] ~ i.fa-caret-down {
+.items .container .row .col-12 .item-list .item .item-tickets form input[value="0"] ~ i.fa-caret-down {
   display: none;
 }
 
-.items .container .row .col-12 .item .item-tickets form input::-webkit-outer-spin-button {
+.items .container .row .col-12 .item-list .item .item-tickets form input::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-.items .container .row .col-12 .item .item-tickets form input::-webkit-inner-spin-button {
+.items .container .row .col-12 .item-list .item .item-tickets form input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
@@ -781,12 +780,6 @@ a:hover {
   margin: 0;
 }
 
-.organizationenterprise .nav,
-.organizationself .nav,
-.organizationselfquestion .nav {
-  display: none;
-}
-
 .nav {
   margin: 80px 0 20px 0;
   width: 100%;
@@ -857,17 +850,20 @@ a:hover {
   margin: 0;
 }
 
-.enterprise .nav .container .row .col-12 {
+.enterprise .nav .container .row .col-12,
+.organizationenterprise .nav .container .row .col-12 {
   position: relative;
 }
 
-.enterprise .nav .container .row .col-12 ul:first-child {
+.enterprise .nav .container .row .col-12 ul:first-child,
+.organizationenterprise .nav .container .row .col-12 ul:first-child {
   position: absolute;
   bottom: -50px;
   left: 0;
 }
 
-.enterprise .nav .container .row .col-12 ul:first-child li {
+.enterprise .nav .container .row .col-12 ul:first-child li,
+.organizationenterprise .nav .container .row .col-12 ul:first-child li {
   padding: 5px 20px 5px 20px;
   font-family: "Passero One", cursive;
   color: #51432F;
@@ -876,7 +872,8 @@ a:hover {
   cursor: pointer;
 }
 
-.enterprise .nav .container .row .col-12 ul:first-child li:hover {
+.enterprise .nav .container .row .col-12 ul:first-child li:hover,
+.organizationenterprise .nav .container .row .col-12 ul:first-child li:hover {
   color: #FFF;
   background: rgba(0, 198, 255, 0.75);
 }

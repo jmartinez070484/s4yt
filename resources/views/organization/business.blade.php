@@ -2,7 +2,19 @@
 
 @section('content')
 
-@include('partials.nav')
+<div class="nav">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<ul>
+					<li><a href="{{ route('organization.event') }}">Main Map</a></li>
+					<li><a href="{{ route('organization.enterprise') }}">Business Map</a></li>
+					<li><a href="{{ route('logout') }}">Exit</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
 
 <div class="content">
 	<div class="container">
