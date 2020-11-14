@@ -29,27 +29,29 @@
 	    </div>
 	    <div class="row">
 	    	<div class="col-12">
-	    		@foreach($items as $key => $item)
-	            <div class="item" data-status="{{ $item -> status }}">
-	            	<div class="item-preview">
-		            	@if(Storage::disk('public') -> exists($item -> image))
-		            	<div class="item-img">
-		            		<img src="{{ Storage::disk('public') -> url($item -> image) }}" alt="{{ $item -> name }}" />
-		            	</div>
-		            	@endif
-		            	@if($item -> tickets -> count())
-		            	<div class="item-total">
-		            		<span>{{ $item -> tickets -> count() }}</span>
-		            	</div>
-		            	@endif
-		            </div>
-		            @if($item -> status == 1)
-	            	<div class="item-tickets">
-	            		<strong>{{ $item -> name }}</strong>
-		            </div>
-		            @endif
-	            </div>  
-	            @endforeach     
+	    		<div class="item-list">
+		    		@foreach($items as $key => $item)
+		            <div class="item" data-status="{{ $item -> status }}">
+		            	<div class="item-preview">
+			            	@if(Storage::disk('public') -> exists($item -> image))
+			            	<div class="item-img">
+			            		<img src="{{ Storage::disk('public') -> url($item -> image) }}" alt="{{ $item -> name }}" />
+			            	</div>
+			            	@endif
+			            	@if($item -> tickets -> count())
+			            	<div class="item-total">
+			            		<span>{{ $item -> tickets -> count() }}</span>
+			            	</div>
+			            	@endif
+			            </div>
+			            @if($item -> status == 1)
+		            	<div class="item-tickets">
+		            		<strong>{{ $item -> name }}</strong>
+			            </div>
+			            @endif
+		            </div>  
+		            @endforeach
+		        </div>     
 	        </div>
 	    </div>
 	</div>
