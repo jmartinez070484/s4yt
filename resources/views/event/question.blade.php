@@ -32,7 +32,7 @@
 					@endif
 					</fieldset>
 					<fieldset>
-						<textarea name="answer" @if($answer && $answer -> status !== 1) readonly @endif required>{{ $answer ? $answer -> text : '' }}</textarea>
+						<textarea name="answer" @if($answer && $answer -> status == 2) readonly @endif required>{{ $answer ? $answer -> text : '' }}</textarea>
 					</fieldset>
 				</form>
 			</div>
