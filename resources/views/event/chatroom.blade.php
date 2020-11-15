@@ -14,7 +14,7 @@
 	    		<h1>Student Chat Room</h1>
 	    	</div>
 	    	<div class="chat-app">
-	    		<script type="text/javascript">function add_chatinline(){var hccid=51983991;var nt=document.createElement("script");nt.async=true;nt.src="https://mylivechat.com/chatinline.aspx?hccid="+hccid;var ct=document.getElementsByTagName("script")[0];ct.parentNode.insertBefore(nt,ct);} add_chatinline(); </script>
+	    		<script id="cid0020000266436280425" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 757px;height: 447px;">{"handle":"s4yt","arch":"js","styles":{"a":"0084EF","b":100,"c":"FFFFFF","d":"FFFFFF","k":"0084EF","l":"0084EF","m":"0084EF","n":"FFFFFF","p":"10","q":"0084EF","r":100,"fwtickm":1}}</script>
 	    	</div>
 	    </div>
     </div>
