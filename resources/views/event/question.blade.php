@@ -22,7 +22,7 @@
 			<div class="answer">
 				<form action="{{ route('question',['business'=>$business -> slug]) }}" method="POST" autocomplete="off" novalidate>
 					<fieldset>
-					@if(!$answer || $answer -> status === 1)
+					@if(!$answer || $answer -> status == 1)
 						<input type="button" value="Save" />
 						<input type="button" value="Discard" />
 						<button>Submit</button>
