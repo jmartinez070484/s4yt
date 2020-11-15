@@ -53,7 +53,7 @@
 					<input name="zoom_link" type="text" value="@if(isset($business -> zoom_link)){{ $business -> zoom_link }}@endif" autocomplete="off" />
 				</fieldset>
 				<fieldset>
-					<label>YouTube Video</label>
+					<label>YouTube Video <small>(If more than one video separate with a comma)</small></label>
 					<input name="youtube" type="text" value="@if(isset($business -> youtube)){{ $business -> youtube }}@endif" autocomplete="off" />
 				</fieldset>
 				<fieldset>
