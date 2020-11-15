@@ -46,7 +46,6 @@
 
 @if($business -> youtube)
 	@if($videos = explode(',',$business -> youtube))
-
 <div class="schedule">
 	<div class="container">
 		<div class="row">

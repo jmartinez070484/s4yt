@@ -57,17 +57,21 @@
 @endif
 
 @if($business -> youtube)
+	@if($videos = explode(',',$business -> youtube))
 <div class="schedule">
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
+				@foreach($videos as $video)
 				<div class="yt-video">
-					<iframe width="560" height="315" src="https://www.youtube.com/embed/{{ $business -> youtube }}" frameborder="0" allowfullscreen></iframe>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/{{ $video }}" frameborder="0" allowfullscreen></iframe>
 				</div>
+				@endforeach
 			</div>
 		</div>
 	</div>
 </div>
+	@endif
 @endif
 
 @if($business -> schedule)
