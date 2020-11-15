@@ -14,7 +14,6 @@
 					</ul>
 	    		</div>
 	    		<div class="note">
-	            	<i onclick="removeNote(this)"></i>
 	            	<strong>Do you know?</strong>
 	            	<p>You can + <span></span> ?</p>
 	            	<p>Just click on our <a href="https://www.facebook.com/ubuild.u" target="_BLANK"></a> or <a href="https://www.instagram.com/ubuild_u/" target="_BLANK"></a></p>

@@ -260,13 +260,13 @@ if(totalItems){
 		var totalItemTickets = itemTickets.length;
 		
 		if(totalItemTickets){
-			if(!getCookie('itemNote')){
+			/*if(!getCookie('itemNote')){
 				var note = document.querySelector('.items .container .row .col-12 .note');
 
 				if(note){
 					note.style.display = 'block';
 				}
-			}
+			}*/
 
 			for(var y=0;y<totalItemTickets;y++){
 				itemTickets[y].updateQty = function(_change){

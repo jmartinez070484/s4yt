@@ -151,7 +151,7 @@ a:hover {
 }
 
 .items .container .row:first-child .col-12:first-child .note {
-  display: none;
+  display: block;
   position: absolute;
   bottom: 10px;
   left: -15px;
