@@ -103,42 +103,46 @@ class Event extends Controller
     */
     public function question(Request $request,Business $business){
         $question = $business -> question;
+        $canEdit = strtotime('NOW') > env('APP_LAUNCH_DATE') ? false : true;
 
         if($question){
             $answer = $question -> user_answer;
 
             if($request->isMethod('post')){
-                $postData = $request -> all();
                 $response = ['success'=>false];
 
-                //validate 
-                $validator = Validator::make($postData,[
-                    'answer' => ['required','string'],
-                ]);
+                if($canEdit){
+                    $postData = $request -> all();
 
-                if(!$validator -> fails()){
-                    if(!$answer){
-                        $answer = new Answer();
-                        $answer -> question_id = $question -> id;
-                        $answer -> user_id = Auth::id();
-                    }
+                    //validate 
+                    $validator = Validator::make($postData,[
+                        'answer' => ['required','string'],
+                    ]);
 
-                    if($answer -> status !== 2){
-                        $answer -> text = $postData['answer'];
-
-                        if(isset($postData['status']) && $postData['status'] == 2){
-                            $answer -> status = 2;
+                    if(!$validator -> fails()){
+                        if(!$answer){
+                            $answer = new Answer();
+                            $answer -> question_id = $question -> id;
+                            $answer -> user_id = Auth::id();
                         }
 
-                        $answer -> save();
+                        if($answer -> status !== 2){
+                            $answer -> text = $postData['answer'];
 
-                        $response['success'] = true;
+                            if(isset($postData['status']) && $postData['status'] == 2){
+                                $answer -> status = 2;
+                            }
+
+                            $answer -> save();
+
+                            $response['success'] = true;
+                        }else{
+                            $response['error'] = 'Answer has been submitted and closed!';
+                        }
                     }else{
-                        $response['error'] = 'Answer has been submitted and closed!';
-                    }
-                }else{
-                    $response['error'] = $validator -> errors() ->first();
-                };
+                        $response['error'] = $validator -> errors() ->first();
+                    };
+                }
 
                 return response($response);
             }else if($request->isMethod('delete')){
@@ -150,7 +154,8 @@ class Event extends Controller
 
                 return response($response);
             }else{
-                return view('event.question',compact('business','question','answer'));
+
+                return view('event.question',compact('business','question','answer','canEdit'));
             }
         }else{
             abort(404);

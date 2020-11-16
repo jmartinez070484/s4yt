@@ -22,17 +22,19 @@
 			<div class="answer">
 				<form action="{{ route('question',['business'=>$business -> slug]) }}" method="POST" autocomplete="off" novalidate>
 					<fieldset>
-					@if(!$answer || $answer -> status == 1)
-						<input type="button" value="Save" />
-						<input type="button" value="Discard" />
-						<button>Submit</button>
-						@csrf
-					@else
-						<button disabled>Answer has been Submitted</button>
+					@if($canEdit)
+						@if(!$answer || $answer -> status == 1)
+							<input type="button" value="Save" />
+							<input type="button" value="Discard" />
+							<button>Submit</button>
+							@csrf
+						@else
+							<button disabled>Answer has been Submitted</button>
+						@endif
 					@endif
 					</fieldset>
 					<fieldset>
-						<textarea name="answer" @if($answer && $answer -> status == 2) readonly @endif required>{{ $answer ? $answer -> text : '' }}</textarea>
+						<textarea name="answer" @if($answer && $answer -> status == 2 && $canEdit) readonly @endif required>{{ $answer ? $answer -> text : '' }}</textarea>
 					</fieldset>
 				</form>
 			</div>
