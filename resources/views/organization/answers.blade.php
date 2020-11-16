@@ -33,7 +33,7 @@
 			@if(count($answers) > 0)
 				@foreach($answers as $answer)	
 				<ul>
-					<li>{{ $answer -> user -> first_name }} {{ $answer -> user -> last_name }}</li>
+					<li>{{ $answer -> user -> id }}</li>
 					<li>{{ Carbon::parse($answer -> created_at) -> format('m/d/y - g:ia') }}</li>
 					<li data-score="{{ $answer -> score }}"></li>
 					<li><a href="{{ route('organization.answers.details',$answer -> id) }}"><i class="fas fa-binoculars"></i></a></li>

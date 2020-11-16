@@ -176,6 +176,10 @@ class Event extends Controller
     public function items(Request $request,Item $item){
         $user = Auth::user();
 
+        if(strtotime('NOW') > env('APP_LAUNCH_DATE')){
+            return redirect() -> route('items.winners');
+        }
+
         if($request->isMethod('post')){
             $postData = $request -> all();
             $response = ['success'=>false];
