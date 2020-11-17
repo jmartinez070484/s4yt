@@ -14,6 +14,7 @@ use App\Ticket;
 use App\Question;
 use App\Answer;
 use App\Business;
+use App\Connect;
 
 class User extends Authenticatable
 {
@@ -55,6 +56,15 @@ class User extends Authenticatable
         'created' => UserCreated::class,
         'deleting' => UserDeleted::class
     ];
+
+    /*
+
+        Get connect
+
+    */
+    public function connect(){
+        return $this->hasMany(Connect::class,'user_id','id');
+    }
 
     /*
 

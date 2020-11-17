@@ -62,6 +62,7 @@ class Admin extends Controller
         $response = ['success'=>true,'user'=>$user];
 
         if($user -> role_id == 2){
+            //$user -> notify(new StudentRegistrationEmail());
             $user -> notify(new StudentRegistrationEmail());
         }else if($user -> role_id == 3){
             $user -> notify(new BusinessRegistrationEmail());
