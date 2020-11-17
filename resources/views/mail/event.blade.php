@@ -41,7 +41,7 @@
 			<span style="font-family:'Open Sans',Arial;font-style:normal;font-size:14px;line-height:19px;color:#000;"><span style="font-weight:bold;">Companies that you connected to:</span>
 		@foreach($connects as $connect)
 			@if($business = App\Business::find($connect -> business_id))
-			<br /><span style="display:block;width:100%;">{{ $business -> name }}</span>
+			<br /><span style="display:block;width:100%;">{{ $business -> name }} @if($user = $business -> user) <a href="mailto:{{ $user -> email }}">{{ $user -> email }}</a> @endif</span>
 			@endif
 		@endforeach
 		</span>
