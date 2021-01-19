@@ -11,8 +11,10 @@
 |
 */
 
+Route::get('/','Controller@index') -> name('event');
+
 //get
-Route::get('/login','Controller@auth') -> name('login');
+/*Route::get('/login','Controller@auth') -> name('login');
 Route::get('/forgot-password','Controller@auth') -> name('password.forgot');
 Route::get('/reset-password','Controller@reset') -> name('password.reset');
 Route::get('/logout','Controller@logout') -> name('logout');
@@ -43,4 +45,4 @@ Route::post('/enterprise/{business}/question','Event@question');
 Route::post('/elements/','Event@elements') -> name('elements');
 
 //event delete routes
-Route::delete('/enterprise/{business}/question','Event@question');
+Route::delete('/enterprise/{business}/question','Event@question');*/

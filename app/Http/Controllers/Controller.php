@@ -21,6 +21,17 @@ class Controller extends BaseController
 
     /*
 
+        Index
+
+    */
+    public function index(Request $request){
+        $element = 'index';
+
+        return view('auth',compact('element'));
+    }
+
+    /*
+
 		Login
 
     */
